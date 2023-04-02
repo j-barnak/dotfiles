@@ -1,3 +1,4 @@
+require("plugins.comment")
 require("plugins.harpoon")
 require("plugins.lsp")
 require("plugins.packer")
