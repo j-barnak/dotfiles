@@ -6,6 +6,15 @@ return require('packer').startup(function(use)
     use 'navarasu/onedark.nvim'
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('ThePrimeagen/harpoon')
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end
+    }
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use('jesseduffield/lazygit')
