@@ -1,6 +1,6 @@
 # dotfiles
 
-## nvim
+## Neovim
 
 The `nvim/` directory belongs under `~/.config/`
 
