@@ -2,7 +2,12 @@
 
 ## Neovim
 
-The `nvim/` directory belongs under `~/.config/`
+Run the following to install the Neovim configurations in
+the correct place:
+
+```
+cp -r `dotfiles/neovim/nvim` ~
+```
 
 Dependencies:
 * [Lua](https://www.lua.org/download.html)
