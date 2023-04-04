@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
         }
     }
     use('mbbill/undotree')
-    use('tpope/vim-fugitive')
+    use('tamago324/nlsp-settings.nvim')
     use {
         'numToStr/Comment.nvim',
         config = function()
