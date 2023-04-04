@@ -3,7 +3,11 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use('folke/neoconf.nvim')
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = { {'nvim-lua/plenary.nvim'} } }
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        requires = {
+            {'nvim-lua/plenary.nvim'}
+        }
+    }
     use 'navarasu/onedark.nvim'
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('ThePrimeagen/harpoon')
@@ -13,7 +17,12 @@ return require('packer').startup(function(use)
             'nvim-tree/nvim-web-devicons', -- optional
         }
     }
-    use('mbbill/undotree')
+    use { 'debugloop/telescope-undo.nvim',
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "debugloop/telescope-undo.nvim",
+        }
+    }
     use('tpope/vim-fugitive')
     use {
         'numToStr/Comment.nvim',
