@@ -14,7 +14,6 @@ alias j="z"
      mkdir "$1" && cd "$1"
  }
 
-# Fixes sound error
 alias sound="sudo ~/.scripts/sound.sh"
 alias s="sudo ~/.scripts/sound.sh"
 
