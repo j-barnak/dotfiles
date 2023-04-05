@@ -16,8 +16,10 @@ return require('packer').startup(function(use)
             {'nvim-lua/plenary.nvim'}
         }
     }
+    use 'sainnhe/sonokai'
     use 'navarasu/onedark.nvim'
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use { "catppuccin/nvim", as = "catppuccin" }
     use('ThePrimeagen/harpoon')
     use {
         'nvim-tree/nvim-tree.lua',
