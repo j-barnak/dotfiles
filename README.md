@@ -2,11 +2,9 @@
 
 ## Neovim
 
-Run the following to install the Neovim configurations in
-the correct place:
-
+Run the following
 ```
-cp -r `dotfiles/neovim/nvim` ~
+cp -r `dotfiles/neovim/nvim` $HOME 
 ```
 
 Dependencies:
@@ -23,3 +21,16 @@ Inside `nvim/lua/plugins/packer.lua`, run the following
 :PackerInstall
 :PackerCompile
 ```
+
+## Bash
+
+Run the following
+```
+cp -r `dotfiles/bash/* $HOME 
+sudo apt install -y bash-completion fzf cmake build-essential \
+                    ripgrep
+```
+
+Dependencies:
+* [Zoxide](https://github.com/ajeetdsouza/zoxide)
+
