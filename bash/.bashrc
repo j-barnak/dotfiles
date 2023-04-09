@@ -2,12 +2,16 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+alias cutter="/usr/local/bin/Cutter-v2.2.0-Linux-x86_64.AppImage"
+alias p="zathura"
+
 # For Zoxide -- a better "cd"
 # Use "z" to jump to directories
 # https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init bash)"
 # j is now for oxide as well
 alias j="z"
+alias ,="z"
 
 # Change and Make Directory Function
  function mc () {

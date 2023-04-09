@@ -1,6 +1,12 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use({
+        "L3MON4D3/LuaSnip",
+        run = "make install_jsregexp"
+    })
+    use('saadparwaiz1/cmp_luasnip')
+    use 'opdavies/toggle-checkbox.nvim'
     use 'wbthomason/packer.nvim'
     use {
       "folke/trouble.nvim",

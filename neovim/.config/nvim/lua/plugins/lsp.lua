@@ -6,6 +6,7 @@ cmp.setup({
   sources = {
     {name = 'nvim_lsp'},
     {name = 'buffer'},
+    {name = 'luasnip'},
   },
   mapping = {
     ['<Tab>'] = cmp.mapping.select_next_item(select_opts),
