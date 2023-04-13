@@ -2,32 +2,31 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Aliases
+alias todo="dooit"
 alias cutter="/usr/local/bin/Cutter-v2.2.0-Linux-x86_64.AppImage"
 alias p="zathura"
+alias sound="sudo ~/.scripts/sound.sh"
+alias xc="xclip -selection clipboard"
+alias vim="nvim"
+alias vi="nvim"
+alias s="sioyek"
 
 # For Zoxide -- a better "cd"
 # Use "z" to jump to directories
 # https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init bash)"
-# j is now for oxide as well
-alias j="z"
-alias ,="z"
 
 # Change and Make Directory Function
  function mc () {
      mkdir "$1" && cd "$1"
  }
 
-alias sound="sudo ~/.scripts/sound.sh"
-alias s="sudo ~/.scripts/sound.sh"
 
 # Copy to clipboard
 # You could pipe like so `cat file.txt | xc`
-alias xc="xclip -selection clipboard"
 
 # Neovim Aliases
-alias vim="nvim"
-alias vi="nvim"
 
 # If not running interactively, don't do anything
 case $- in
