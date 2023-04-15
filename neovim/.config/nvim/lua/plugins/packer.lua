@@ -1,6 +1,10 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+    }
     use({
         "L3MON4D3/LuaSnip",
         run = "make install_jsregexp"
@@ -9,22 +13,22 @@ return require('packer').startup(function(use)
     use 'opdavies/toggle-checkbox.nvim'
     use 'wbthomason/packer.nvim'
     use {
-      "folke/trouble.nvim",
-      requires = "nvim-tree/nvim-web-devicons",
-      config = function()
-        require("trouble").setup {}
-      end
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {}
+        end
     }
     use('mbbill/undotree')
     use('folke/neoconf.nvim')
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = {
-            {'nvim-lua/plenary.nvim'}
+            { 'nvim-lua/plenary.nvim' }
         }
     }
     use 'sainnhe/sonokai'
     use 'navarasu/onedark.nvim'
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use { "catppuccin/nvim", as = "catppuccin" }
     use('ThePrimeagen/harpoon')
     use {
@@ -47,31 +51,31 @@ return require('packer').startup(function(use)
         end
     }
     use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
     }
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
-            'williamboman/mason.nvim',
-            run = function()
-                pcall(vim.cmd, 'MasonUpdate')
-            end,
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {
+                                       -- Optional
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
             },
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },   -- Required
+            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+            { 'L3MON4D3/LuaSnip' },   -- Required
         }
     }
     use {
         'stevearc/aerial.nvim',
-        config = function() require('aerial').setup() end
     }
 end)
