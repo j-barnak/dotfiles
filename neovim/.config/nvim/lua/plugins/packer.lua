@@ -2,6 +2,12 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use {
+        "smjonas/inc-rename.nvim",
+        config = function()
+            require("inc_rename").setup()
+        end,
+    }
+    use {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
     }
