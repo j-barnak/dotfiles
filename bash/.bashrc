@@ -3,6 +3,7 @@
 # for examples
 
 # Aliases
+alias gg="cgdb"
 alias todo="dooit"
 alias cutter="/usr/local/bin/Cutter-v2.2.0-Linux-x86_64.AppImage"
 alias p="zathura"
