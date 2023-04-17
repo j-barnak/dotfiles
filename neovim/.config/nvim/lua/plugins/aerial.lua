@@ -8,5 +8,5 @@ require('aerial').setup({
     close_on_select = true,
 })
 
-vim.keymap.set('n', '<leader>d', '<cmd>AerialToggle<CR>')
-vim.keymap.set('n', '<leader>a', '<cmd>Telescope aerial<CR>')
+vim.keymap.set('n', '<leader>dd', '<cmd>AerialToggle<CR>')
+vim.keymap.set('n', '<leader>da', '<cmd>Telescope aerial<CR>')

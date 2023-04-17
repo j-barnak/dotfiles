@@ -1,8 +1,8 @@
--- Colorschme: Sonokai
--- https://github.com/sainnhe/sonokai
-vim.g.sonokai_style = 'andromeda'
-vim.g.sonokai_better_performance = 1
-vim.cmd('colorscheme sonokai')
+-- -- Colorschme: Sonokai
+-- -- https://github.com/sainnhe/sonokai
+-- vim.g.sonokai_style = 'andromeda'
+-- vim.g.sonokai_better_performance = 1
+-- vim.cmd('colorscheme sonokai')
 
 
 -- -- Colorschme: Catppuccin
@@ -12,9 +12,9 @@ vim.cmd('colorscheme sonokai')
 -- })
 -- vim.cmd.colorscheme "catppuccin-macchiato"
 
--- -- Colorschme: One Dark
--- -- https://github.com/joshdick/onedark.vim
--- require('onedark').setup {
---     style = 'cool'
--- }
--- require('onedark').load()
+-- Colorschme: One Dark
+-- https://github.com/joshdick/onedark.vim
+require('onedark').setup {
+    style = 'dark'
+}
+require('onedark').load()
