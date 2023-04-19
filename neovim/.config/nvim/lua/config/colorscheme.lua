@@ -8,7 +8,8 @@
 -- Colorschme: Catppuccin
 -- https://github.com/catppuccin/nvim
 require("catppuccin").setup({
-    flavour = "frappe"
+    flavour = "frappe",
+    no_italic = true
 })
 vim.cmd.colorscheme "catppuccin-frappe"
 
