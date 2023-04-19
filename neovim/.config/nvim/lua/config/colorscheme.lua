@@ -5,16 +5,16 @@
 -- vim.cmd('colorscheme sonokai')
 
 
--- -- Colorschme: Catppuccin
--- -- https://github.com/catppuccin/nvim
--- require("catppuccin").setup({
---     flavour = "macchiato"
--- })
--- vim.cmd.colorscheme "catppuccin-macchiato"
+-- Colorschme: Catppuccin
+-- https://github.com/catppuccin/nvim
+require("catppuccin").setup({
+    flavour = "frappe"
+})
+vim.cmd.colorscheme "catppuccin-frappe"
 
--- Colorschme: One Dark
--- https://github.com/joshdick/onedark.vim
-require('onedark').setup {
-    style = 'dark'
-}
-require('onedark').load()
+-- -- Colorschme: One Dark
+-- -- https://github.com/joshdick/onedark.vim
+-- require('onedark').setup {
+--     style = 'dark'
+-- }
+-- require('onedark').load()

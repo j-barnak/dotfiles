@@ -24,3 +24,4 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes:1"
 vim.opt.cursorline = true
+vim.opt.exrc = true
