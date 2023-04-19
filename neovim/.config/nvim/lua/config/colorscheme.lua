@@ -1,5 +1,5 @@
 require('onedark').setup {
-    style = 'warmer',
+    style = 'dark',
     termcolors = true,
     code_style = {
         comments = 'none',
