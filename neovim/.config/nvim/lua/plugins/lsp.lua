@@ -2,11 +2,6 @@ local lsp = require('lsp-zero').preset({})
 local cmp = require('cmp')
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 
-
-
--- Setting up custom clangd server
-lsp.skip_server_setup({'clangd'})
-
 require('lspconfig').clangd.setup({
     cmd = {
         "clangd",
@@ -44,6 +39,10 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+    lsp.buffer_autoformat()
 end)
+
+
 
 lsp.setup()
