@@ -17,7 +17,10 @@ plugins=(
     git 
     zsh-syntax-highlighting
     autojump
+    tmux
 )
+
+ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
