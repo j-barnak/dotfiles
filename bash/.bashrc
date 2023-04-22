@@ -14,11 +14,6 @@ alias vim="nvim"
 alias vi="nvim"
 alias s="sioyek"
 
-# For Zoxide -- a better "cd"
-# Use "z" to jump to directories
-# https://github.com/ajeetdsouza/zoxide
-eval "$(zoxide init bash)"
-
 # Change and Make Directory Function
  function mc () {
      mkdir "$1" && cd "$1"
@@ -152,7 +147,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.cargo/env"
 source ~/gitstatus/gitstatus.prompt.sh
-
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
