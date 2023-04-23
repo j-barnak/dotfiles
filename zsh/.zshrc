@@ -27,7 +27,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias ..="cd .."
-alias gg="cgdb"
 alias todo="dooit"
 alias cutter="/usr/local/bin/Cutter-v2.2.0-Linux-x86_64.AppImage"
 alias p="zathura"
@@ -37,6 +36,11 @@ alias vim="nvim"
 alias vi="nvim"
 alias s="sioyek"
 
+# If you leave vim in normal mode, then the cursor will remain a beam
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
