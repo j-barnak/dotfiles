@@ -22,7 +22,7 @@ Inside `nvim/lua/plugins/packer.lua`, run the following
 :PackerCompile
 ```
 
-## Bash
+## Zsh
 
 Run the following
 ```
@@ -30,7 +30,3 @@ cp -r `dotfiles/bash/* $HOME
 sudo apt install -y bash-completion fzf cmake build-essential \
                     ripgrep
 ```
-
-Dependencies:
-* [Zoxide](https://github.com/ajeetdsouza/zoxide)
-

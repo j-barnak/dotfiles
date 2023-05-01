@@ -34,7 +34,7 @@ alias sound="sudo ~/.scripts/sound.sh"
 alias xc="xclip -selection clipboard"
 alias vim="nvim"
 alias vi="nvim"
-alias s="sioyek"
+alias sio="sioyek"
 
 # If you leave vim in normal mode, then the cursor will remain a beam
 _fix_cursor() {
@@ -46,3 +46,4 @@ unsetopt beep
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fpath+=${ZDOTDIR:-~}/.zsh_functions
