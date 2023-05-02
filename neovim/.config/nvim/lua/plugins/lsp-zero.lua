@@ -29,7 +29,7 @@ return {
                 mapping = {
                     ['<Tab>'] = cmp.mapping.select_next_item(select_opts),
                     ['<S-Tab>'] = cmp.mapping.select_prev_item(select_opts),
-                    ['<Enter>'] = cmp.mapping.confirm({
+                    ['<cr>'] = cmp.mapping.confirm({
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = true,
                     }),
@@ -38,6 +38,14 @@ return {
         end
     },
 
+    -- Auto pair plugin
+    {
+        "echasnovski/mini.pairs",
+        event = "VeryLazy",
+        config = function(_, opts)
+            require("mini.pairs").setup(opts)
+        end,
+    },
     -- LSP
     {
         'neovim/nvim-lspconfig',

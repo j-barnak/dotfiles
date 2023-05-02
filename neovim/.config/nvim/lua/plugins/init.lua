@@ -1,5 +1,4 @@
 return {
-    { 'echasnovski/mini.pairs', version = '*' },
     {
         'kylechui/nvim-surround',
         version = '*',
