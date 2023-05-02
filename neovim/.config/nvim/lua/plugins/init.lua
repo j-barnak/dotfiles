@@ -1,4 +1,5 @@
 return {
+    { 'echasnovski/mini.pairs', version = '*' },
     {
         'kylechui/nvim-surround',
         version = '*',
@@ -14,14 +15,5 @@ return {
         dependencies = 'nvim-tree/nvim-web-devicons',
     },
     { 'mbbill/undotree' },
-    { 'folke/neoconf.nvim' },
-    {
-        'nvim-telescope/telescope.nvim',
-        version = '0.1.1',
-        dependencies = {
-            { 'nvim-lua/plenary.nvim' }
-        }
-    },
     { 'tpope/vim-fugitive' },
-    { 'windwp/nvim-autopairs' },
 }

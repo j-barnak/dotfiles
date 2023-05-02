@@ -6,11 +6,19 @@ return {
         style = 'dark',
         termcolors = true,
         code_style = {
-            comments = 'none',
-            keywords = 'none',
-            functions = 'none',
-            strings = 'none',
-            variables = 'none'
+            types = "NONE",
+            methods = "NONE",
+            numbers = "NONE",
+            constants = "NONE",
+            operators = "NONE",
+            parameters = "NONE",
+            conditionals = "NONE",
+            virtual_text = "NONE",
+            comments = 'NONE',
+            keywords = 'NONE',
+            functions = 'NONE',
+            strings = 'NONE',
+            variables = 'NONE'
         },
     },
     config = function()
