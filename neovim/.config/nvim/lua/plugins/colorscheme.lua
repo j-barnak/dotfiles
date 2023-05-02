@@ -1,28 +1,12 @@
 return {
-    "navarasu/onedark.nvim",
+    "sainnhe/sonokai",
     lazy = false,
     priority = 1000,
-    opts = {
-        style = 'dark',
-        termcolors = true,
-        code_style = {
-            types = "NONE",
-            methods = "NONE",
-            numbers = "NONE",
-            constants = "NONE",
-            operators = "NONE",
-            parameters = "NONE",
-            conditionals = "NONE",
-            virtual_text = "NONE",
-            comments = 'NONE',
-            keywords = 'NONE',
-            functions = 'NONE',
-            strings = 'NONE',
-            variables = 'NONE'
-        },
-    },
     config = function()
-        -- load the colorscheme here
-        require('onedark').load()
+        vim.g.sonokai_disable_italic_comment = 1
+        vim.g.sonokai_lightline_disable_bold = 1
+        vim.g.sonokai_better_performance = 1
+
+        vim.cmd.colorscheme('sonokai')
     end,
 }
