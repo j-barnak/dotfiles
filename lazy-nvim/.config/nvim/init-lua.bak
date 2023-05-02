@@ -1,0 +1,106 @@
+-- Boostrapped lazy.nvim
+-- https://github.com/folke/lazy.nvim#-installation
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable', -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Need to prepend leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+
+-- setup --> init
+-- requires --> dependencies
+-- as --> name
+-- opt --> lazy
+-- run --> build
+-- lock --> pin
+-- disable=true --> enabled = false
+-- version='*' --> version='*'
+-- after [i] not needed for most -cases.  dependencies otherwise.
+-- wants [i] not needed for most -cases.  dependencies otherwise.
+-- config don't support string type,  fun(LazyPlugin) instead.
+-- module is auto-loaded. No need to specify
+-- keys spec is different
+
+require('lazy').setup({
+    {
+        'kylechui/nvim-surround',
+        version = '*',
+    },
+    { 'smjonas/inc-rename.nvim' },
+    {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+    },
+    {
+        'L3MON4D3/LuaSnip',
+        build = 'make install_jsregexp'
+    },
+    { 'saadparwaiz1/cmp_luasnip' },
+    {
+        'folke/trouble.nvim',
+        dependencies = 'nvim-tree/nvim-web-devicons',
+    },
+    { 'mbbill/undotree' },
+    { 'folke/neoconf.nvim' },
+    {
+        'nvim-telescope/telescope.nvim',
+        version = '0.1.1',
+        dependencies = {
+            { 'nvim-lua/plenary.nvim' }
+        }
+    },
+    { 'navarasu/onedark.nvim' },
+    { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } },
+    { 'ThePrimeagen/harpoon' },
+    {
+        'nvim-tree/nvim-tree.lua',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        }
+    },
+    {
+        'debugloop/telescope-undo.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'debugloop/telescope-undo.nvim',
+        }
+    },
+    { 'tpope/vim-fugitive' },
+    {
+        'numToStr/Comment.nvim',
+    },
+
+    -- New Snippet
+
+    { 'windwp/nvim-autopairs', },
+    { 'stevearc/aerial.nvim' },
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        dependencies = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' }, -- Required
+            {
+                'williamboman/mason.nvim',
+                build = function()
+                    pcall(vim.cmd, 'MasonUpdate')
+                end,
+            },
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+            { 'hrsh7th/nvim-cmp' },                  -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+            { 'L3MON4D3/LuaSnip' },                  -- Required
+        }
+    }
+})
