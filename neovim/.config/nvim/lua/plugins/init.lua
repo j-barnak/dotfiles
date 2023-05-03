@@ -1,4 +1,5 @@
 return {
+    { "lukas-reineke/indent-blankline.nvim" },
     { 'smjonas/inc-rename.nvim' },
     {
         'L3MON4D3/LuaSnip',
