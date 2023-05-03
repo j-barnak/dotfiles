@@ -11,7 +11,7 @@ return {
         },
         {
             'F',
-            '<cmd>HopChar1AC<cr>',
+            '<cmd>HopChar1BC<cr>',
             desc = 'Hop backwards'
         },
     }
