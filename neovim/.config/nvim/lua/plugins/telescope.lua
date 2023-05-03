@@ -7,7 +7,8 @@ return {
             build = 'make',
         },
         'debugloop/telescope-undo.nvim',
-        'stevearc/aerial.nvim'
+        'stevearc/aerial.nvim',
+        'ahmedkhalf/project.nvim',
     },
     keys = {
         {
