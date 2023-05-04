@@ -27,7 +27,7 @@ return {
       desc = "Find recent files",
     },
     {
-      "<leader>fp",
+      "<leader>fd",
       "<cmd>Telescope git_files<cr>",
       desc = "Find project files",
     },
