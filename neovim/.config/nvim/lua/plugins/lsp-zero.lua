@@ -3,6 +3,8 @@ return {
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
+    -- FIXME: I added a change here
+    event = { "BufReadPre", "BufNewFile" },
     lazy = true,
     config = function()
       -- This is where you modify the settings for lsp-zero
@@ -38,21 +40,7 @@ return {
       })
     end,
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "mason.nvim" },
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
-        sources = {
-          nls.builtins.code_actions.xo,
-          nls.builtins.formatting.stylua,
-        },
-      }
-    end,
-  },
+
   -- LSP
   {
     "neovim/nvim-lspconfig",

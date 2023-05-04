@@ -18,10 +18,6 @@ return {
     build = "make install_jsregexp",
   },
   { "saadparwaiz1/cmp_luasnip" },
-  {
-    "folke/trouble.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-  },
   { "tpope/vim-fugitive" },
   {
     "tpope/vim-repeat",
