@@ -6,6 +6,6 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    { "<leader>l", "<cmd>AerialToggle<cr>", desc = "List symbols" },
+    { "<leader>dd", "<cmd>AerialToggle<cr>", desc = "List symbols" },
   },
 }
