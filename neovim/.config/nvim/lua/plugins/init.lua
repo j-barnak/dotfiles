@@ -1,20 +1,27 @@
 return {
-    {
-        'L3MON4D3/LuaSnip',
-        build = 'make install_jsregexp'
+  {
+    "nvim-pack/nvim-spectre",
+    -- stylua: ignore
+    keys = {
+      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
     },
-    { 'saadparwaiz1/cmp_luasnip' },
-    {
-        'folke/trouble.nvim',
-        dependencies = 'nvim-tree/nvim-web-devicons',
-    },
-    { 'tpope/vim-fugitive' },
-    {
-        'tpope/vim-repeat',
-        event = "VeryLazy"
-    },
-    {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        lazy = true
-    }
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    build = "make install_jsregexp",
+  },
+  { "saadparwaiz1/cmp_luasnip" },
+  {
+    "folke/trouble.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
+  },
+  { "tpope/vim-fugitive" },
+  {
+    "tpope/vim-repeat",
+    event = "VeryLazy",
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+  },
 }
