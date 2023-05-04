@@ -1,5 +1,4 @@
 return {
-    { 'smjonas/inc-rename.nvim' },
     {
         'L3MON4D3/LuaSnip',
         build = 'make install_jsregexp'
@@ -10,4 +9,12 @@ return {
         dependencies = 'nvim-tree/nvim-web-devicons',
     },
     { 'tpope/vim-fugitive' },
+    {
+        'tpope/vim-repeat',
+        event = "VeryLazy"
+    },
+    {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        lazy = true
+    }
 }
