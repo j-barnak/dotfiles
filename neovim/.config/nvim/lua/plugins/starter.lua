@@ -2,7 +2,7 @@ return {
   "echasnovski/mini.starter",
   version = false,
   opts = {
-    evaluate_single = true,
+    evaluate_single = false,
     header = table.concat({
       "██████╗  █████╗ ██████╗ ███╗   ██╗ █████╗ ██╗  ██╗",
       "██╔══██╗██╔══██╗██╔══██╗████╗  ██║██╔══██╗██║ ██╔╝",
