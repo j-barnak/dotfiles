@@ -19,7 +19,10 @@ return {
       { name = "View recent files",    action = "Telescope oldfiles",   section = "Actions" },
       { name = "Planets!",             action = "Telescope planets",    section = "Actions" },
     },
-
+    -- TODO: Make it so that it is centered
+    -- content_hooks = {
+    --   require("mini.starter").gen_hook.aligning("center", "center"),
+    -- },
   },
   config = function(_, opts)
     require("mini.starter").setup(opts)
