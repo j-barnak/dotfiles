@@ -42,33 +42,9 @@ return {
       desc = "Undo",
     },
   },
-  -- TODO: Make it so that enter changes the buffer instead of copying
-  --       the contents to a register
-  opts = {
-    extensions = {
-      undo = {
-        mappings = {
-          i = {
-            ["<S-cr>"] = function() require("telescope-undo.actions").yank_additions() end,
-            ["<d-cr>"] = function() require("telescope-undo.actions").yank_deletions() end,
-            ["<cr>"] = function() require("telescope-undo.actions").restore() end,
-          },
-        },
-      },
-    }
-  },
-  -- Edit: 5
-  -- FIXME: This is a hacky way to do it and actually dosn't work
-  config = function(_, opts)
-    require("telescope").setup(opts)
+  config = function()
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("undo")
     require("telescope").load_extension("aerial")
   end,
-  -- config = function()
-  --   -- Load the extensions
-  --   require("telescope").load_extension("fzf")
-  --   require("telescope").load_extension("undo")
-  --   require("telescope").load_extension("aerial")
-  -- end,
 }
