@@ -17,15 +17,14 @@ plugins=(
     git 
     zsh-syntax-highlighting
     autojump
-    # tmux
 )
 
-# ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Aliases
+alias rez="wezterm cli rename-workspace"
 alias ..="cd .."
 alias todo="dooit"
 alias cutter="/usr/local/bin/Cutter-v2.2.0-Linux-x86_64.AppImage"

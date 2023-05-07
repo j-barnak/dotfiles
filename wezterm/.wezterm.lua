@@ -1,6 +1,10 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
+wezterm.on('update-right-status', function(window, pane)
+  window:set_right_status(window:active_workspace())
+end)
+
 local config = {}
 
 if wezterm.config_builder then
@@ -21,48 +25,28 @@ config.window_padding = {
   bottom = '0cell',
 }
 
-wezterm.on('update-right-status', function(window, pane)
-  window:set_right_status(window:active_workspace())
-end)
-
 config.keys = {
   -- Switch to the default workspace
   {
-    key = 'y',
-    mods = 'CTRL|SHIFT',
+    key = ' ',
+    mods = 'CTRL',
     action = act.SwitchToWorkspace {
       name = 'default',
     },
   },
-  -- Switch to a monitoring workspace, which will have `top` launched into it
-  {
-    key = 'u',
-    mods = 'CTRL|SHIFT',
-    action = act.SwitchToWorkspace {
-      name = 'monitoring',
-      spawn = {
-        args = { 'top' },
-      },
-    },
-  },
   -- Create a new workspace with a random name and switch to it
-  { key = 'i', mods = 'CTRL|SHIFT', action = act.SwitchToWorkspace },
+  { key = 'n', mods = 'CTRL|SHIFT', action = act.SwitchToWorkspace },
   -- Show the launcher in fuzzy selection mode and have it list all workspaces
   -- and allow activating one.
   {
-    key = '9',
-    mods = 'ALT',
+    key = 'f',
+    mods = 'CTRL',
     action = act.ShowLauncherArgs {
       flags = 'FUZZY|WORKSPACES',
     },
   },
-  {
-    key = '9',
-    mods = 'ALT',
-    action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },
-  },
-  { key = 'n', mods = 'CTRL',       action = act.SwitchWorkspaceRelative(1) },
-  { key = 'p', mods = 'CTRL',       action = act.SwitchWorkspaceRelative(-1) },
+  { key = 'j', mods = 'CTRL',       action = act.SwitchWorkspaceRelative(1) },
+  { key = 'k', mods = 'CTRL',       action = act.SwitchWorkspaceRelative(-1) },
 
 }
 
