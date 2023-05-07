@@ -2,7 +2,7 @@ return {
   "echasnovski/mini.starter",
   version = false,
   opts = {
-    evaluate_single = false,
+    evaluate_single = true,
     header = table.concat({
       "██████╗  █████╗ ██████╗ ███╗   ██╗ █████╗ ██╗  ██╗",
       "██╔══██╗██╔══██╗██╔══██╗████╗  ██║██╔══██╗██║ ██╔╝",
@@ -13,16 +13,15 @@ return {
     }, "\n"),
     footer = os.date(),
     items = {
-      { name = "Open Projects",        action = "Telescope projects",   section = "Actions" },
+      { name = "Open projects",        action = "Telescope projects",   section = "Actions" },
       { name = "Search project files", action = "Telescope git_files",  section = "Actions" },
       { name = "Find files",           action = "Telescope find_files", section = "Actions" },
-      { name = "View recent files",    action = "Telescope oldfiles",   section = "Actions" },
+      { name = "Grep text",            action = "Telescope live_grep",  section = "Actions" },
+      { name = "Recent files",         action = "Telescope oldfiles",   section = "Actions" },
+      { name = "New file",             action = "ene | startinsert",    section = "Actions" },
       { name = "Planets!",             action = "Telescope planets",    section = "Actions" },
+      { name = "Quit",                 action = "qa",                   section = "Actions" },
     },
-    -- TODO: Make it so that it is centered
-    -- content_hooks = {
-    --   require("mini.starter").gen_hook.aligning("center", "center"),
-    -- },
   },
   config = function(_, opts)
     require("mini.starter").setup(opts)
