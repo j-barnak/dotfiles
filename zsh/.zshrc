@@ -33,7 +33,7 @@ alias sound="sudo ~/.scripts/sound.sh"
 alias xc="xclip -selection clipboard"
 alias vim="nvim"
 alias vi="nvim"
-alias sio="sioyek"
+alias sio="sioyek --new-window"
 
 # If you leave vim in normal mode, then the cursor will remain a beam
 _fix_cursor() {

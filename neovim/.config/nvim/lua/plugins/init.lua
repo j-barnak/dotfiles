@@ -3,13 +3,6 @@ return {
     "folke/neodev.nvim",
   },
   {
-    "nvim-pack/nvim-spectre",
-    -- stylua: ignore
-    keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-    },
-  },
-  {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
   },

@@ -50,4 +50,6 @@ config.keys = {
 
 }
 
+config.enable_kitty_keyboard = true
+
 return config
