@@ -6,7 +6,6 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
     },
-    "debugloop/telescope-undo.nvim",
     "stevearc/aerial.nvim",
     "ahmedkhalf/project.nvim",
   },
@@ -36,15 +35,9 @@ return {
       "<cmd>Telescope aerial<cr>",
       desc = "Find symbols",
     },
-    {
-      "<leader>u",
-      "<cmd>Telescope undo<cr>",
-      desc = "Undo",
-    },
   },
   config = function()
     require("telescope").load_extension("fzf")
-    require("telescope").load_extension("undo")
     require("telescope").load_extension("aerial")
   end,
 }
