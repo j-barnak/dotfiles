@@ -8,6 +8,7 @@ return {
     },
     "stevearc/aerial.nvim",
     "ahmedkhalf/project.nvim",
+    "debugloop/telescope-undo.nvim",
   },
   keys = {
     {
@@ -38,12 +39,18 @@ return {
     {
       "<leader>fp",
       "<cmd>Telescope projects<cr>",
-      desc = "Find symbols",
+      desc = "Find projects",
+    {
+      "<leader>fu",
+      "<cmd>Telescope undo<cr>",
+      desc = "View undos",
+    },
     },
   },
   config = function()
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
     require('telescope').load_extension('projects')
+    require("telescope").load_extension("undo")
   end,
 }
