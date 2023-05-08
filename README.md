@@ -10,6 +10,11 @@ Dependencies:
     * Make sure to install the debian package (i.e., `wezterm*.deb`)
     * Use the newest version as some options will break
 
+Run the following:
+
+```
+sudo apt install -y build-essential ripgrep fd-find zsh
+```
 ## Neovim
 
 Run the following
