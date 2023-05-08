@@ -1,5 +1,9 @@
 return {
   {
+    "felipec/vim-sanegx",
+    event = "BufRead",
+  },
+  {
     "folke/neodev.nvim",
   },
   {
