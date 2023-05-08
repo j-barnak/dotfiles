@@ -86,23 +86,6 @@ return {
             })
 
             lsp.setup()
-
-            -- Added registered events @ begin
-
-            lsp.preset('recommended')
-            local cmp = require('cmp')
-
-            vim.g.testing_cmp_event = 'NOP'
-
-            cmp.event:on('confirm_done', function(evt)
-                if evt.entry then
-                    vim.g.testing_cmp_event = 'IT WORKS'
-                else
-                    vim.g.testing_cmp_event = 'Yes. Everything is good'
-                end
-            end)
         end,
-
-        -- @ end
     },
 }
