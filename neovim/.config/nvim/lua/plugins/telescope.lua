@@ -47,6 +47,19 @@ return {
       desc = "View undos",
     },
   },
+  -- opts = {
+  --   extensions = {
+  --     undo = {
+  --       mappings = {
+  --         i = {
+  --           ["<S-cr>"] = require("telescope-undo.actions").yank_additions,
+  --           ["<C-cr>"] = require("telescope-undo.actions").yank_deletions,
+  --           ["<cr>"] = require("telescope-undo.actions").restore,
+  --         },
+  --       }
+  --     }
+  --   }
+  -- },
   config = function()
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
