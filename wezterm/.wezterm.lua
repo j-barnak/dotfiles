@@ -35,7 +35,7 @@ config.keys = {
     },
   },
   -- Create a new workspace with a random name and switch to it
-  { key = 'n', mods = 'CTRL|SHIFT', action = act.SwitchToWorkspace },
+  { key = 'n', mods = 'CTRL', action = act.SwitchToWorkspace },
   -- Show the launcher in fuzzy selection mode and have it list all workspaces
   -- and allow activating one.
   {
@@ -45,8 +45,8 @@ config.keys = {
       flags = 'FUZZY|WORKSPACES',
     },
   },
-  { key = 'j', mods = 'CTRL',       action = act.SwitchWorkspaceRelative(1) },
-  { key = 'k', mods = 'CTRL',       action = act.SwitchWorkspaceRelative(-1) },
+  { key = 'j', mods = 'CTRL', action = act.SwitchWorkspaceRelative(1) },
+  { key = 'k', mods = 'CTRL', action = act.SwitchWorkspaceRelative(-1) },
 
 }
 
