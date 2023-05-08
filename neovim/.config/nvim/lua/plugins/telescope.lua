@@ -40,11 +40,11 @@ return {
       "<leader>fp",
       "<cmd>Telescope projects<cr>",
       desc = "Find projects",
-    {
-      "<leader>fu",
-      "<cmd>Telescope undo<cr>",
-      desc = "View undos",
-    },
+      {
+        "<leader>fu",
+        "<cmd>Telescope undo<cr>",
+        desc = "View undos",
+      },
     },
   },
   config = function()
