@@ -35,6 +35,11 @@ return {
       "<cmd>Telescope aerial<cr>",
       desc = "Find symbols",
     },
+    {
+      "<leader>fp",
+      "<cmd>Telescope aerial<cr>",
+      desc = "Find symbols",
+    },
   },
   config = function()
     require("telescope").load_extension("fzf")

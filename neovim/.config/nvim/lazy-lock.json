@@ -11,6 +11,8 @@
   "mini.ai": { "branch": "main", "commit": "aea7f12818a621f1d6f742a50b33e65e0bb82a2e" },
   "mini.pairs": { "branch": "main", "commit": "963b800d0524eadd297199207011b98684205ada" },
   "neodev.nvim": { "branch": "main", "commit": "6498a07601702349c31909005bb333003e4687d4" },
+  "noice.nvim": { "branch": "main", "commit": "13c3b39e43fbd0f50dac608fdbda230dec69f1d1" },
+  "nui.nvim": { "branch": "main", "commit": "698e75814cd7c56b0dd8af4936bcef2d13807f3c" },
   "nvim-cmp": { "branch": "main", "commit": "1cad30fcffa282c0a9199c524c821eadc24bf939" },
   "nvim-lspconfig": { "branch": "master", "commit": "5ba7ab746d814413c84ed98c0214c71cd28f130a" },
   "nvim-tree.lua": { "branch": "master", "commit": "270c95556cad96d18ca547d86ae65927334b108b" },
