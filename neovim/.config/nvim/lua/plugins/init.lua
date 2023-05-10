@@ -14,7 +14,6 @@ return {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
   },
-  { "tpope/vim-fugitive" },
   {
     "tpope/vim-repeat",
     event = "VeryLazy",
