@@ -1,8 +1,7 @@
 return {
-  "phaazon/hop.nvim",
+  "j-barnak/hop.nvim",
   lazy = false,
   opts = {},
-  branch = "v2",
   keys = {
     {
       "f",
