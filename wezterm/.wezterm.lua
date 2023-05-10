@@ -29,25 +29,36 @@ config.keys = {
   -- Switch to the default workspace
   {
     key = ' ',
-    mods = 'CTRL',
+    mods = 'SHIFT|CTRL',
     action = act.SwitchToWorkspace {
       name = 'default',
     },
   },
   -- Create a new workspace with a random name and switch to it
-  { key = 'n', mods = 'CTRL', action = act.SwitchToWorkspace },
+  {
+    key = 'n',
+    mods = 'SHIFT|CTRL',
+    action = act.SwitchToWorkspace
+  },
   -- Show the launcher in fuzzy selection mode and have it list all workspaces
   -- and allow activating one.
   {
     key = 'f',
-    mods = 'CTRL',
+    mods = 'SHIFT|CTRL',
     action = act.ShowLauncherArgs {
       flags = 'FUZZY|WORKSPACES',
     },
   },
-  { key = 'j', mods = 'CTRL', action = act.SwitchWorkspaceRelative(1) },
-  { key = 'k', mods = 'CTRL', action = act.SwitchWorkspaceRelative(-1) },
-
+  {
+    key = 'j',
+    mods = 'SHIFT|CTRL',
+    action = act.SwitchWorkspaceRelative(1)
+  },
+  {
+    key = 'k',
+    mods = 'SHIFT|CTRL',
+    action = act.SwitchWorkspaceRelative(-1)
+  },
 }
 
 config.enable_kitty_keyboard = false
