@@ -1,5 +1,9 @@
 return {
   {
+    "chrisgrieser/nvim-various-textobjs",
+    lazy = false
+  },
+  {
     "felipec/vim-sanegx",
     event = "BufRead",
   },
