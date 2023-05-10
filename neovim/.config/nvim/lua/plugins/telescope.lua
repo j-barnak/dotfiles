@@ -48,6 +48,21 @@ return {
     },
   },
   config = function()
+    local opts = {
+      extensions = {
+        undo = {
+          mappings = {
+            i = {
+              ["<s-cr>"] = require("telescope-undo.actions").yank_additions,
+              ["<c-cr>"] = require("telescope-undo.actions").yank_deletions,
+              ["<cr>"] = require("telescope-undo.actions").restore
+            },
+          },
+        },
+      },
+    }
+
+    require("telescope").setup(opts)
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
     require('telescope').load_extension('projects')
