@@ -1,6 +1,10 @@
 return {
   "stevearc/aerial.nvim",
-  opts = {},
+  opts = {
+    layout = {
+      min_width = 25,
+    },
+  },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
