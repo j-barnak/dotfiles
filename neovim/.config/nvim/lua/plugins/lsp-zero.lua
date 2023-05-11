@@ -54,6 +54,8 @@ return {
         end,
       },
     },
+    --  TODO: When lsp.format_on_save becomes non-experimental, change lsp-format to lsp.format_on_save
+    --        https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#format_on_saveopts
     config = function()
       local lsp = require("lsp-zero")
       local auto_format = function(_client) require("lsp-format").on_attach(_client) end
