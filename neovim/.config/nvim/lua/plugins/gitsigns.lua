@@ -21,9 +21,10 @@ return {
       end
 
       -- stylua: ignore start
-      map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
-      map("n", "<leader>gd", gs.diffthis, "Diff This")
-      map("n", "<leader>gD",
+      map("n", "<leader>hb", function() gs.blame_line({ full = true }) end, "Blame Line")
+      map("n", "<leader>hd", gs.diffthis, "Diff This")
+      --  FIXME: Awful hack on how to exit windows
+      map("n", "<leader>hD",
         function()
           require('nvim-window').pick()
           vim.cmd(':q')
