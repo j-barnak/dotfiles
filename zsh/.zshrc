@@ -10,6 +10,10 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+# Default editor to use for apps
+export EDITOR="nvim"
+export VISUAL="nvim"
+export GIT_EDITOR="nvim"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
