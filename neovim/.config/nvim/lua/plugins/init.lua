@@ -6,6 +6,7 @@ return {
   },
   {
     "akinsho/git-conflict.nvim",
+    opts = {},
     event = "VeryLazy"
   },
   {
