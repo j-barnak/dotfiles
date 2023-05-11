@@ -44,6 +44,7 @@ return {
     cmd = "LspInfo",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+      { "lukas-reineke/lsp-format.nvim" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason-lspconfig.nvim" },
       {
@@ -55,11 +56,15 @@ return {
     },
     config = function()
       local lsp = require("lsp-zero")
+      local auto_format = function(_client) require("lsp-format").on_attach(_client) end
 
       -- stylua: ignore start
       lsp.on_attach(function(client, bufnr)
         lsp.default_keymaps({ buffer = bufnr })
         local opts = { buffer = bufnr, remap = false }
+        --
+        auto_format(client)
+        --
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
         vim.keymap.set('n', 'gt', function() vim.lsp.buf.type_definition() end, opts)
@@ -72,7 +77,6 @@ return {
         vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-        lsp.buffer_autoformat()
       end)
 
       -- Configure Language Servers Here
