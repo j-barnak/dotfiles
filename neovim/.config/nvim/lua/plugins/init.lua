@@ -1,7 +1,12 @@
 return {
   {
-    "chrisgrieser/nvim-various-textobjs",
-    lazy = false
+    'stevearc/dressing.nvim',
+    lazy = false,
+    opts = {},
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    event = "VeryLazy"
   },
   {
     "felipec/vim-sanegx",
