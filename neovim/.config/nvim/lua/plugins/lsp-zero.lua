@@ -62,9 +62,8 @@ return {
       lsp.on_attach(function(client, bufnr)
         lsp.default_keymaps({ buffer = bufnr })
         local opts = { buffer = bufnr, remap = false }
-        --
+        local additional_opts = { buffer = bufnr, remap = false, silent = true }
         auto_format(client)
-        --
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
         vim.keymap.set('n', 'gt', function() vim.lsp.buf.type_definition() end, opts)
@@ -74,8 +73,7 @@ return {
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>rr", function() require('telescope.builtin').lsp_references() end,
-          { noremap = true, silent = true })
+        vim.keymap.set("n", "<leader>rr", function() require('telescope.builtin').lsp_references() end, additional_opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
       end)
