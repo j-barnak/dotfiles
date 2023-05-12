@@ -64,7 +64,7 @@ return {
       }
 
       require("trouble").setup(trouble_opts)
-      vim.keymap.set("n", "<leader>bb", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>b", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 
       local lsp = require("lsp-zero")
 
