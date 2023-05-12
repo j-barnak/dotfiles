@@ -1,63 +1,72 @@
 return {
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v2.x",
-    lazy = false,
-    config = function()
-      -- This is where you modify the settings for lsp-zero
-      -- Note: autocompletion settings will not take effect
+	{
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v2.x",
+		lazy = false,
+		config = function()
+			-- This is where you modify the settings for lsp-zero
+			-- Note: autocompletion settings will not take effect
 
-      require("lsp-zero.settings").preset({})
-    end,
-  },
+			require("lsp-zero.settings").preset({})
+		end,
+	},
 
-  -- Autocompletion
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      { "L3MON4D3/LuaSnip" },
-    },
-    config = function()
-      require("lsp-zero.cmp").extend()
+	-- Autocompletion
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			{ "L3MON4D3/LuaSnip" },
+		},
+		config = function()
+			require("lsp-zero.cmp").extend()
 
-      local cmp = require("cmp")
+			local cmp = require("cmp")
 
-      cmp.setup({
-        mapping = {
-          ["<Tab>"] = cmp.mapping.select_next_item(select_opts),
-          ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
-          ["<cr>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-          }),
-        },
-      })
-    end,
-  },
+			cmp.setup({
+				mapping = {
+					["<Tab>"] = cmp.mapping.select_next_item(elect_opts),
+					["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
+					["<cr>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+						select = false,
+					}),
+				},
+			})
+		end,
+	},
 
-  -- LSP
-  {
-    "neovim/nvim-lspconfig",
-    cmd = "LspInfo",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      { "jose-elias-alvarez/null-ls.nvim" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "williamboman/mason-lspconfig.nvim" },
-      {
-        "williamboman/mason.nvim",
-        build = function()
-          pcall(vim.cmd, "MasonUpdate")
-        end,
-      },
-    },
-    --  TODO: When lsp.format_on_save becomes non-experimental, change lsp-format to lsp.format_on_save
-    --        https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#format_on_saveopts
+	-- LSP + Trouble
+	{
+		"neovim/nvim-lspconfig",
+		cmd = "LspInfo",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{ "jose-elias-alvarez/null-ls.nvim" },
+			{ "folke/trouble.nvim" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "williamboman/mason-lspconfig.nvim" },
+			{
+				"williamboman/mason.nvim",
+				build = function()
+					pcall(vim.cmd, "MasonUpdate")
+				end,
+			},
+		},
 
-    --  TODO: To get the formatter to properly work, I believe I need null-ls or lsp-formatter
-    config = function()
-      local lsp = require("lsp-zero")
+		config = function()
+			-- Trouble diagnostics keymap
+			local trouble_opts = {
+				action_keys = {
+					jump = {},
+					jump_close = { "<cr>", "o" },
+				},
+			}
+
+			require("trouble").setup(trouble_opts)
+			vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
+
+			local lsp = require("lsp-zero")
 
       -- stylua: ignore start
       lsp.on_attach(function(client, bufnr)
@@ -147,6 +156,6 @@ return {
           end
         end,
       })
-    end,
-  },
+		end,
+	},
 }
