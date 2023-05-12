@@ -27,6 +27,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Aliases
+alias lg="lazygit"
 alias rez="wezterm cli rename-workspace"
 alias ..="cd .."
 alias todo="dooit"

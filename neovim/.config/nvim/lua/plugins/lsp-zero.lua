@@ -1,72 +1,72 @@
 return {
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
-		lazy = false,
-		config = function()
-			-- This is where you modify the settings for lsp-zero
-			-- Note: autocompletion settings will not take effect
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
+    lazy = false,
+    config = function()
+      -- This is where you modify the settings for lsp-zero
+      -- Note: autocompletion settings will not take effect
 
-			require("lsp-zero.settings").preset({})
-		end,
-	},
+      require("lsp-zero.settings").preset({})
+    end,
+  },
 
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
-		},
-		config = function()
-			require("lsp-zero.cmp").extend()
+  -- Autocompletion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      { "L3MON4D3/LuaSnip" },
+    },
+    config = function()
+      require("lsp-zero.cmp").extend()
 
-			local cmp = require("cmp")
+      local cmp = require("cmp")
 
-			cmp.setup({
-				mapping = {
-					["<Tab>"] = cmp.mapping.select_next_item(elect_opts),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
-					["<cr>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = false,
-					}),
-				},
-			})
-		end,
-	},
+      cmp.setup({
+        mapping = {
+          ["<Tab>"] = cmp.mapping.select_next_item(elect_opts),
+          ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
+          ["<cr>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false,
+          }),
+        },
+      })
+    end,
+  },
 
-	-- LSP + Trouble
-	{
-		"neovim/nvim-lspconfig",
-		cmd = "LspInfo",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			{ "jose-elias-alvarez/null-ls.nvim" },
-			{ "folke/trouble.nvim" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "williamboman/mason-lspconfig.nvim" },
-			{
-				"williamboman/mason.nvim",
-				build = function()
-					pcall(vim.cmd, "MasonUpdate")
-				end,
-			},
-		},
+  -- LSP + Trouble
+  {
+    "neovim/nvim-lspconfig",
+    cmd = "LspInfo",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      { "jose-elias-alvarez/null-ls.nvim" },
+      { "folke/trouble.nvim" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "williamboman/mason-lspconfig.nvim" },
+      {
+        "williamboman/mason.nvim",
+        build = function()
+          pcall(vim.cmd, "MasonUpdate")
+        end,
+      },
+    },
 
-		config = function()
-			-- Trouble diagnostics keymap
-			local trouble_opts = {
-				action_keys = {
-					jump = {},
-					jump_close = { "<cr>"},
-				},
-			}
+    config = function()
+      -- Trouble diagnostics keymap
+      local trouble_opts = {
+        action_keys = {
+          jump = {},
+          jump_close = { "<cr>" },
+        },
+      }
 
-			require("trouble").setup(trouble_opts)
-			vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
+      require("trouble").setup(trouble_opts)
+      vim.keymap.set("n", "<leader>bb", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 
-			local lsp = require("lsp-zero")
+      local lsp = require("lsp-zero")
 
       -- stylua: ignore start
       lsp.on_attach(function(client, bufnr)
@@ -156,6 +156,6 @@ return {
           end
         end,
       })
-		end,
-	},
+    end,
+  },
 }

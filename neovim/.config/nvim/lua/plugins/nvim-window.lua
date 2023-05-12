@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     chars = {
-      'h'
+      "h",
     },
-  }
+  },
 }

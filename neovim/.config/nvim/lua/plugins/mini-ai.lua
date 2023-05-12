@@ -1,21 +1,21 @@
 return {
-  'echasnovski/mini.ai',
+  "echasnovski/mini.ai",
   keys = {
-    { 'a', mode = { 'x', 'o' } },
-    { 'i', mode = { 'x', 'o' } },
+    { "a", mode = { "x", "o" } },
+    { "i", mode = { "x", "o" } },
   },
-  event = 'VeryLazy',
+  event = "VeryLazy",
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    "nvim-treesitter/nvim-treesitter-textobjects",
   },
   opts = {
     -- defines iB/aB as a textobject
     -- Will selesct evrything within the buffer
     custom_textobjects = {
       B = function(ai_type)
-        local n_lines = vim.fn.line('$')
+        local n_lines = vim.fn.line("$")
         local start_line, end_line = 1, n_lines
-        if ai_type == 'i' then
+        if ai_type == "i" then
           -- Skip first and last blank lines fori` textobject
           local first_nonblank, last_nonblank = vim.fn.nextnonblank(1), vim.fn.prevnonblank(n_lines)
           start_line = first_nonblank == 0 and 1 or first_nonblank
@@ -28,6 +28,6 @@ return {
     },
   },
   config = function(_, opts)
-    require('mini.ai').setup(opts)
-  end
+    require("mini.ai").setup(opts)
+  end,
 }

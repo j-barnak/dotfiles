@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   config = function()
     require("substitute").setup()
-    local sub = require('substitute.exchange')
+    local sub = require("substitute.exchange")
     vim.keymap.set("x", "X", sub.visual, { noremap = true })
-  end
+  end,
 }

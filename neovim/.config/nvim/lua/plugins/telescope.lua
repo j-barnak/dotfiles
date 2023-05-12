@@ -48,7 +48,6 @@ return {
     },
   },
   config = function()
-
     local opts = {
       extensions = {
         undo = {

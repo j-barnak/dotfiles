@@ -1,13 +1,13 @@
 return {
   {
-    'stevearc/dressing.nvim',
+    "stevearc/dressing.nvim",
     lazy = false,
     opts = {},
   },
   {
     "akinsho/git-conflict.nvim",
     opts = {},
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "felipec/vim-sanegx",
