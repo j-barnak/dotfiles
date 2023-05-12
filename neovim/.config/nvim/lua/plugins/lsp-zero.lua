@@ -1,63 +1,63 @@
 return {
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
-		lazy = false,
-		config = function()
-			-- This is where you modify the settings for lsp-zero
-			-- Note: autocompletion settings will not take effect
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
+    lazy = false,
+    config = function()
+      -- This is where you modify the settings for lsp-zero
+      -- Note: autocompletion settings will not take effect
 
-			require("lsp-zero.settings").preset({})
-		end,
-	},
+      require("lsp-zero.settings").preset({})
+    end,
+  },
 
-	-- Autocompletion
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			{ "L3MON4D3/LuaSnip" },
-		},
-		config = function()
-			require("lsp-zero.cmp").extend()
+  -- Autocompletion
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      { "L3MON4D3/LuaSnip" },
+    },
+    config = function()
+      require("lsp-zero.cmp").extend()
 
-			local cmp = require("cmp")
+      local cmp = require("cmp")
 
-			cmp.setup({
-				mapping = {
-					["<Tab>"] = cmp.mapping.select_next_item(select_opts),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
-					["<cr>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = false,
-					}),
-				},
-			})
-		end,
-	},
+      cmp.setup({
+        mapping = {
+          ["<Tab>"] = cmp.mapping.select_next_item(select_opts),
+          ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
+          ["<cr>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false,
+          }),
+        },
+      })
+    end,
+  },
 
-	-- LSP
-	{
-		"neovim/nvim-lspconfig",
-		cmd = "LspInfo",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			{ "jose-elias-alvarez/null-ls.nvim" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "williamboman/mason-lspconfig.nvim" },
-			{
-				"williamboman/mason.nvim",
-				build = function()
-					pcall(vim.cmd, "MasonUpdate")
-				end,
-			},
-		},
-		--  TODO: When lsp.format_on_save becomes non-experimental, change lsp-format to lsp.format_on_save
-		--        https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#format_on_saveopts
+  -- LSP
+  {
+    "neovim/nvim-lspconfig",
+    cmd = "LspInfo",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      { "jose-elias-alvarez/null-ls.nvim" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "williamboman/mason-lspconfig.nvim" },
+      {
+        "williamboman/mason.nvim",
+        build = function()
+          pcall(vim.cmd, "MasonUpdate")
+        end,
+      },
+    },
+    --  TODO: When lsp.format_on_save becomes non-experimental, change lsp-format to lsp.format_on_save
+    --        https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#format_on_saveopts
 
-		--  TODO: To get the formatter to properly work, I believe I need null-ls or lsp-formatter
-		config = function()
-			local lsp = require("lsp-zero")
+    --  TODO: To get the formatter to properly work, I believe I need null-ls or lsp-formatter
+    config = function()
+      local lsp = require("lsp-zero")
 
       -- stylua: ignore start
       lsp.on_attach(function(client, bufnr)
@@ -89,28 +89,64 @@ return {
         }
       })
 
-      lsp.format_on_save({
-          format_opts = {
-          async = true,
-          timeout_ms = 10000,
-        },
-        servers = {
-          ['null-ls'] = { 'javascript', 'typescript', 'lua' },
-        }
-      })
-
       lsp.setup()
 
       -- null-ls config
-      local null_ls = require('null-ls')
+      local async_formatting = function(bufnr)
+        bufnr = bufnr or vim.api.nvim_get_current_buf()
+
+        vim.lsp.buf_request(
+          bufnr,
+          "textDocument/formatting",
+          vim.lsp.util.make_formatting_params({}),
+          function(err, res, ctx)
+            if err then
+              local err_msg = type(err) == "string" and err or err.message
+              -- you can modify the log message / level (or ignore it completely)
+              vim.notify("formatting: " .. err_msg, vim.log.levels.WARN)
+              return
+            end
+
+            -- don't apply results if buffer is unloaded or has been modified
+            if not vim.api.nvim_buf_is_loaded(bufnr) or vim.api.nvim_buf_get_option(bufnr, "modified") then
+              return
+            end
+
+            if res then
+              local client = vim.lsp.get_client_by_id(ctx.client_id)
+              vim.lsp.util.apply_text_edits(res, bufnr, client and client.offset_encoding or "utf-16")
+              vim.api.nvim_buf_call(bufnr, function()
+                vim.cmd("silent noautocmd update")
+              end)
+            end
+          end
+        )
+      end
+
+      local null_ls = require("null-ls")
+
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
       null_ls.setup({
         sources = {
           -- Add null-ls sources here
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.stylua,
-        }
+        },
+        debug = false,
+        on_attach = function(client, bufnr)
+          if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePost", {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                async_formatting(bufnr)
+              end,
+            })
+          end
+        end,
       })
-		end,
-	},
+    end,
+  },
 }
