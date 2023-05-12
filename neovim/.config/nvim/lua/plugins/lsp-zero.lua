@@ -29,7 +29,7 @@ return {
 					["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
 					["<cr>"] = cmp.mapping.confirm({
 						behavior = cmp.ConfirmBehavior.Replace,
-						select = true,
+						select = false,
 					}),
 				},
 			})
