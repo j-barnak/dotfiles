@@ -104,11 +104,11 @@ return {
       lsp.setup()
 
       -- null-ls config
-          local null_ls = require('null-ls')
+      local null_ls = require('null-ls')
 
       null_ls.setup({
         sources = {
-          -- replace these with the tools you have installed
+          -- Add null-ls sources here
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.stylua,
         }
