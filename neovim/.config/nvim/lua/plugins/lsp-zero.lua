@@ -59,7 +59,7 @@ return {
 			local trouble_opts = {
 				action_keys = {
 					jump = {},
-					jump_close = { "<cr>", "o" },
+					jump_close = { "<cr>"},
 				},
 			}
 
