@@ -89,6 +89,9 @@ return {
         }
       })
 
+      -- FIXME: There's errors with `format_on_save`
+      --        Currently being fixed by maintainer
+      --        This branch is for testing changes
       lsp.format_on_save({
           format_opts = {
           async = true,
