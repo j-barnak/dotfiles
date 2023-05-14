@@ -49,6 +49,7 @@ return {
           pcall(vim.cmd, "MasonUpdate")
         end,
       },
+      { "jay-babu/mason-null-ls.nvim" },
     },
 
     config = function()
@@ -129,6 +130,14 @@ return {
 
       local null_ls = require('null-ls')
 
+      require("mason-null-ls").setup({
+        automatic_setup = true,
+        ensure_installed = {
+        -- Opt to list sources here, when available in mason.
+      },
+        automatic_installation = false,
+        handlers = {},
+      })
 
       null_ls.setup({
         sources = {
