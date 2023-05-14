@@ -22,7 +22,7 @@ return {
 
       cmp.setup({
         mapping = {
-          ["<Tab>"] = cmp.mapping.select_next_item(elect_opts),
+          ["<Tab>"] = cmp.mapping.select_next_item(select_opts),
           ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
           ["<cr>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
@@ -64,16 +64,14 @@ return {
       require("trouble").setup(trouble_opts)
       vim.keymap.set("n", "<leader>b", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 
-      -- Null-ls
       local lsp_formatting = function(bufnr)
         vim.lsp.buf.format({
           filter = function(client)
-            -- I added this part
             local filetype = vim.api.nvim_buf_get_option(0, "filetype")
             if filetype == "cpp" or filetype == "c" then
               return client.name == "clangd"
             end
-            -- End of cusom part
+
             return client.name == "null-ls"
           end,
           bufnr = bufnr,
@@ -86,7 +84,6 @@ return {
 
       -- stylua: ignore start
       lsp.on_attach(function(client, bufnr)
-        -- Null-ls stuff
         if client.supports_method('textDocument/formatting') then
           vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
           vim.api.nvim_create_autocmd('BufWritePre', {
@@ -133,7 +130,6 @@ return {
       require('mason-null-ls').setup({
         automatic_setup = true,
         ensure_installed = {
-        -- Opt to list sources here, when available in mason.
       },
         automatic_installation = false,
         handlers = {},
@@ -141,7 +137,6 @@ return {
 
       null_ls.setup({
         sources = {
-          -- Add null-ls sources here
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.stylua,
         },
