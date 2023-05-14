@@ -130,7 +130,7 @@ return {
 
       local null_ls = require('null-ls')
 
-      require("mason-null-ls").setup({
+      require('mason-null-ls').setup({
         automatic_setup = true,
         ensure_installed = {
         -- Opt to list sources here, when available in mason.
