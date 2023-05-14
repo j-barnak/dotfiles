@@ -24,8 +24,4 @@ return {
     "tpope/vim-repeat",
     event = "VeryLazy",
   },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    lazy = true,
-  },
 }

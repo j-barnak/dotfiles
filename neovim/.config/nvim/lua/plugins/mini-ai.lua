@@ -7,6 +7,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "JoosepAlviste/nvim-ts-context-commentstring",
   },
   opts = {
     -- defines iB/aB as a textobject
