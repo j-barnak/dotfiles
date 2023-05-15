@@ -49,7 +49,6 @@ return {
           pcall(vim.cmd, "MasonUpdate")
         end,
       },
-      { "jay-babu/mason-null-ls.nvim" },
     },
 
     config = function()
@@ -64,37 +63,10 @@ return {
       require("trouble").setup(trouble_opts)
       vim.keymap.set("n", "<leader>b", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 
-      local lsp_formatting = function(bufnr)
-        vim.lsp.buf.format({
-          filter = function(client)
-            local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-            if filetype == "cpp" or filetype == "c" then
-              return client.name == "clangd"
-            end
-
-            return client.name == "null-ls"
-          end,
-          bufnr = bufnr,
-        })
-
-        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-      end
-
       local lsp = require("lsp-zero")
 
       -- stylua: ignore start
       lsp.on_attach(function(client, bufnr)
-        if client.supports_method('textDocument/formatting') then
-          vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-                lsp_formatting(bufnr)
-            end,
-          })
-        end
-        -- End null-ls stuff
         lsp.default_keymaps({ buffer = bufnr })
         local opts = { buffer = bufnr, remap = false }
         local additional_opts = { buffer = bufnr, remap = false, silent = true }
@@ -125,15 +97,18 @@ return {
 
       lsp.setup()
 
-      local null_ls = require('null-ls')
-
-      require('mason-null-ls').setup({
-        automatic_setup = true,
-        ensure_installed = {
-      },
-        automatic_installation = false,
-        handlers = {},
+      lsp.format_on_save({
+        format_opts = {
+          async = true,
+          timeout_ms = 10000,
+        },
+        servers = {
+          ['null-ls'] = {'lua', 'javascript', 'typescript'},
+          ['clangd']  = {'cpp', 'c'}
+        }
       })
+
+      local null_ls = require('null-ls')
 
       null_ls.setup({
         sources = {
