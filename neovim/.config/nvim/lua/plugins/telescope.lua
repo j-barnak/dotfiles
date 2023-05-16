@@ -9,6 +9,8 @@ return {
     "stevearc/aerial.nvim",
     "ahmedkhalf/project.nvim",
     "debugloop/telescope-undo.nvim",
+    "MattesGroeger/vim-bookmarks",
+    "tom-anders/telescope-vim-bookmarks.nvim",
   },
   keys = {
     {
@@ -46,6 +48,16 @@ return {
       "<cmd>Telescope undo<cr>",
       desc = "View undos",
     },
+    {
+      "<leader>d",
+      "<cmd>BookmarkClearAll<cr>",
+      desc = "Remove all bookmarks",
+    },
+    {
+      "<leader>;",
+      "<cmd>Telescope vim_bookmarks<cr>",
+      desc = "View bookmarks"
+    }
   },
   config = function()
     local opts = {
@@ -67,5 +79,6 @@ return {
     require("telescope").load_extension("aerial")
     require("telescope").load_extension("projects")
     require("telescope").load_extension("undo")
+    require("telescope").load_extension("vim_bookmarks")
   end,
 }

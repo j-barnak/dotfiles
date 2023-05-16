@@ -91,7 +91,6 @@ return {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>rr", function() require("telescope.builtin").lsp_references() end, additional_opts)
-        vim.keymap.set("n", "<leader>;", function() require("telescope.builtin").marks() end, opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
       end)
