@@ -22,17 +22,17 @@ return {
               ["ab"] = "@block.outer",
             },
             selection_modes = {
-              ['@parameter.outer'] = 'v', -- charwise
-              ['@function.outer'] = 'V',  -- linewise
-              ['@class.outer'] = '<c-v>', -- blockwise
+              ["@parameter.outer"] = "v", -- charwise
+              ["@function.outer"] = "V", -- linewise
+              ["@class.outer"] = "<c-v>", -- blockwise
             },
             include_surrounding_whitespace = true,
           },
         },
       },
       config = function(_, opts)
-        require 'nvim-treesitter.configs'.setup(opts)
-      end
+        require("nvim-treesitter.configs").setup(opts)
+      end,
     },
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
@@ -40,6 +40,7 @@ return {
     -- defines iB/aB as a textobject
     -- Will selesct evrything within the buffer
     custom_textobjects = {
+      f = false,
       B = function(ai_type)
         local n_lines = vim.fn.line("$")
         local start_line, end_line = 1, n_lines
