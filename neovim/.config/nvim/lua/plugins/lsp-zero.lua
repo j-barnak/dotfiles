@@ -103,8 +103,9 @@ return {
           timeout_ms = 10000,
         },
         servers = {
-          ['null-ls'] = {'lua', 'javascript', 'typescript'},
-          ['clangd']  = {'cpp', 'c'}
+          ['null-ls'] = { 'lua', 'javascript', 'typescript' },
+          ['clangd']  = { 'cpp', 'c' },
+          ['lua_ls']  = { 'lua' }
         }
       })
 
@@ -113,7 +114,6 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.formatting.prettierd,
-          null_ls.builtins.formatting.stylua,
         },
       })
     end,
