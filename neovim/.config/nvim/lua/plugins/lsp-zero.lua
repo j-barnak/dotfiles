@@ -14,6 +14,11 @@ return {
     event = "InsertEnter",
     dependencies = {
       { "L3MON4D3/LuaSnip" },
+      {
+        "stevearc/dressing.nvim",
+        lazy = false,
+        opts = {},
+      },
     },
     config = function()
       require("lsp-zero.cmp").extend()
@@ -48,6 +53,12 @@ return {
         build = function()
           pcall(vim.cmd, "MasonUpdate")
         end,
+      },
+      { "jay-babu/mason-null-ls.nvim" },
+      {
+        "stevearc/dressing.nvim",
+        lazy = false,
+        opts = {},
       },
     },
 
@@ -116,6 +127,12 @@ return {
           null_ls.builtins.formatting.prettierd,
           null_ls.builtins.formatting.stylua,
         },
+      })
+
+      -- Mason Null-ls
+      require("mason-null-ls").setup({
+        ensure_installed = nil,
+        automatic_installation = true,
       })
     end,
   },

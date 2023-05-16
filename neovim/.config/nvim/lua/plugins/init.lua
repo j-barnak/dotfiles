@@ -1,10 +1,5 @@
 return {
   {
-    "stevearc/dressing.nvim",
-    lazy = false,
-    opts = {},
-  },
-  {
     "akinsho/git-conflict.nvim",
     opts = {},
     event = "VeryLazy",
