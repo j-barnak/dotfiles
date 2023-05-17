@@ -36,7 +36,7 @@ alias p="zathura"
 alias sound="sudo ~/.scripts/sound.sh"
 alias xc="xclip -selection clipboard"
 alias vim="nvim"
-alias vi="nvim"
+alias vi="/usr/bin/vim"
 alias sio="sioyek --new-window"
 
 # If you leave vim in normal mode, then the cursor will remain a beam
