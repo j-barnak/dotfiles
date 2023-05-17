@@ -1,5 +1,9 @@
 return {
   {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
+  },
+  {
     "akinsho/git-conflict.nvim",
     opts = {},
     event = "VeryLazy",

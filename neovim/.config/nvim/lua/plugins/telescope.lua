@@ -11,6 +11,16 @@ return {
     "debugloop/telescope-undo.nvim",
     "MattesGroeger/vim-bookmarks",
     "tom-anders/telescope-vim-bookmarks.nvim",
+    {
+      "ecthelionvi/NeoComposer.nvim",
+      dependencies = { "kkharji/sqlite.lua" },
+      opts = {
+        keymaps = {
+          cycle_next = "<c-j>",
+          cycle_prev = "<c-k>",
+        },
+      },
+    },
   },
   keys = {
     {
@@ -49,15 +59,25 @@ return {
       desc = "View undos",
     },
     {
-      "<leader>d",
+      "<leader>dd",
       "<cmd>BookmarkClearAll<cr>",
       desc = "Remove all bookmarks",
     },
     {
       "<leader>;",
       "<cmd>Telescope vim_bookmarks<cr>",
-      desc = "View bookmarks"
-    }
+      desc = "View bookmarks",
+    },
+    {
+      "<leader>q",
+      "<cmd>Telescope macros<cr>",
+      desc = "View Macros",
+    },
+    {
+      "<leader>db",
+      "<cmd>ClearNeoComposer<cr>",
+      desc = "Remove all bookmarks",
+    },
   },
   config = function()
     local opts = {
@@ -80,5 +100,6 @@ return {
     require("telescope").load_extension("projects")
     require("telescope").load_extension("undo")
     require("telescope").load_extension("vim_bookmarks")
+    require("telescope").load_extension("macros")
   end,
 }
