@@ -1,3 +1,6 @@
+-- TODO: lets
+
+-- NOTE:
 return {
   "folke/todo-comments.nvim",
   dependencies = {
@@ -15,7 +18,12 @@ return {
         alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
       },
       TODO = { color = "#C678DD" },
+      HACK = { icon = " ", color = "warning" },
+      WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+      PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
     },
+    merge_keywords = false,
   },
   keys = {
     { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Todo" },
