@@ -71,7 +71,6 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "branch" },
         lualine_c = {
-          { require("NeoComposer.ui").status_recording },
           {
             "diagnostics",
             symbols = {
