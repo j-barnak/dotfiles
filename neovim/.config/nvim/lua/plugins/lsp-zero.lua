@@ -56,9 +56,15 @@ return {
       },
       { "jay-babu/mason-null-ls.nvim" },
       {
-        "stevearc/dressing.nvim",
-        lazy = false,
-        opts = {},
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        keys = {
+          { "<leader>nv", "<cmd>Navbuddy<cr>", desc = "Navigation Buddy" },
+        },
+        opts = { lsp = { auto_attach = true } },
       },
     },
 
