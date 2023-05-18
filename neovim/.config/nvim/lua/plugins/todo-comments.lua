@@ -1,6 +1,4 @@
--- TODO: lets
-
--- NOTE:
+-- FIXME: Getting rid of a keyword breaks telecsope extension
 return {
   "folke/todo-comments.nvim",
   dependencies = {
@@ -17,13 +15,8 @@ return {
         color = "#56B6C2",
         alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
       },
-      TODO = { color = "#C678DD" },
-      HACK = { icon = " ", color = "warning" },
-      WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-      PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-      TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
     },
-    merge_keywords = false,
+    merge_keywords = true,
   },
   keys = {
     { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Todo" },

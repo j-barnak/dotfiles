@@ -181,6 +181,8 @@ return {
       local keymap = vim.keymap.set
       keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
       keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+      keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+      keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
       vim.wo.winbar = require("lspsaga.symbolwinbar"):get_winbar()
     end,
   },
