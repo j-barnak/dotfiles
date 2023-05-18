@@ -180,6 +180,7 @@ return {
       require("lspsaga").setup(opts)
       local keymap = vim.keymap.set
       keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+      keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
     end,
   },
 }

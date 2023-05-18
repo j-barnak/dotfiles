@@ -11,16 +11,6 @@ return {
     "debugloop/telescope-undo.nvim",
     "MattesGroeger/vim-bookmarks",
     "tom-anders/telescope-vim-bookmarks.nvim",
-    {
-      "ecthelionvi/NeoComposer.nvim",
-      dependencies = { "kkharji/sqlite.lua" },
-      opts = {
-        keymaps = {
-          cycle_next = "<c-j>",
-          cycle_prev = "<c-k>",
-        },
-      },
-    },
   },
   keys = {
     {
@@ -100,6 +90,5 @@ return {
     require("telescope").load_extension("projects")
     require("telescope").load_extension("undo")
     require("telescope").load_extension("vim_bookmarks")
-    require("telescope").load_extension("macros")
   end,
 }
