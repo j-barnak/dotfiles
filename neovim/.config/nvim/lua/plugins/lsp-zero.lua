@@ -87,9 +87,9 @@ return {
         lsp.default_keymaps({ buffer = bufnr })
         local opts = { buffer = bufnr, remap = false }
         local additional_opts = { buffer = bufnr, remap = false, silent = true }
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-        vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts)
+        -- vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        -- vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+        -- vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
         vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -141,6 +141,45 @@ return {
         ensure_installed = nil,
         automatic_installation = true,
       })
+    end,
+  },
+  -- LSP Saga
+  {
+    "glepnir/lspsaga.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+    event = "LspAttach",
+    config = function()
+      local opts = {
+        finder = {
+          keys = {
+            expand_or_jump = "<cr>",
+          },
+        },
+        beacon = {
+          enable = false,
+          frequency = 7,
+        },
+        ui = {
+          -- This option only works in Neovim 0.9
+          title = true,
+          -- Border type can be single, double, rounded, solid, shadow.
+          border = "single",
+          winblend = 0,
+          expand = "",
+          collapse = "",
+          code_action = "",
+          incoming = " ",
+          outgoing = " ",
+          hover = "",
+          kind = {},
+        },
+      }
+      require("lspsaga").setup(opts)
+      local keymap = vim.keymap.set
+      keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
     end,
   },
 }
