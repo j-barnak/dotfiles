@@ -17,6 +17,11 @@ config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 -- config.font = wezterm.font("Berkeley Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
 config.font = wezterm.font("FiraCode Nerd Font Mono", {weight="Regular", stretch="Normal", style="Normal"})
 
+config.colors = {
+  cursor_bg = "white",
+  cursor_fg = "black",
+}
+
 config.color_scheme = 'Monokai Pro (Gogh)'
 
 config.window_padding = {
