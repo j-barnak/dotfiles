@@ -144,46 +144,44 @@ return {
     end,
   },
   -- LSP Saga
-  -- {
-  --   "glepnir/lspsaga.nvim",
-  --   dependencies = {
-  --     { "nvim-tree/nvim-web-devicons" },
-  --     { "nvim-treesitter/nvim-treesitter" },
-  --   },
-  --   event = "LspAttach",
-  --   config = function()
-  --     local opts = {
-  --       finder = {
-  --         keys = {
-  --           expand_or_jump = "<cr>",
-  --         },
-  --       },
-  --       beacon = {
-  --         enable = false,
-  --         frequency = 7,
-  --       },
-  --       ui = {
-  --         -- This option only works in Neovim 0.9
-  --         title = true,
-  --         -- Border type can be single, double, rounded, solid, shadow.
-  --         border = "single",
-  --         winblend = 0,
-  --         expand = "",
-  --         collapse = "",
-  --         code_action = "",
-  --         incoming = " ",
-  --         outgoing = " ",
-  --         hover = "",
-  --         kind = {},
-  --       },
-  --     }
-  --     require("lspsaga").setup(opts)
-  --     local keymap = vim.keymap.set
-  --     keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
-  --     keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
-  --     keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
-  --     keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
-  --     vim.wo.winbar = require("lspsaga.symbolwinbar"):get_winbar()
-  --   end,
-  -- },
+  {
+    "glepnir/lspsaga.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+    event = "LspAttach",
+    config = function()
+      local opts = {
+        finder = {
+          keys = {
+            expand_or_jump = "<cr>",
+          },
+        },
+        beacon = {
+          enable = false,
+          frequency = 7,
+        },
+        ui = {
+          -- This option only works in Neovim 0.9
+          title = true,
+          -- Border type can be single, double, rounded, solid, shadow.
+          border = "single",
+          winblend = 0,
+          expand = "",
+          collapse = "",
+          code_action = "",
+          incoming = " ",
+          outgoing = " ",
+          hover = "",
+          kind = {},
+        },
+      }
+      require("lspsaga").setup(opts)
+      local keymap = vim.keymap.set
+      keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
+      keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+      keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
+    end,
+  },
 }
