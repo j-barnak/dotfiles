@@ -11,6 +11,11 @@ return {
     "debugloop/telescope-undo.nvim",
     "MattesGroeger/vim-bookmarks",
     "tom-anders/telescope-vim-bookmarks.nvim",
+    {
+      "ecthelionvi/NeoComposer.nvim",
+      dependencies = { "kkharji/sqlite.lua" },
+      opts = {},
+    },
   },
   keys = {
     {
