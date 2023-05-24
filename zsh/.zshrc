@@ -8,13 +8,15 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# For NNN
-export NNN_FCOLORS="d1b2e0"
+# NNN Config
+export NNN_FCOLORS="2136"
 export NNN_FIFO=/tmp/nnn.fifo
-export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'
+export NNN_PLUG='t:preview-tui;v:_viu $nnn'
+export NNN_USE_EDITOR=1
+export NNN_OPENER=nuke
 
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+ 
 # Default editor to use for apps
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -32,6 +34,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Aliases
+alias nnn="nnn -e -P t"
 alias lg="lazygit"
 alias rez="wezterm cli rename-workspace"
 alias ..="cd .."
