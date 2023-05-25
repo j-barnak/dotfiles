@@ -10,13 +10,10 @@ return {
   config = true,
   opts = {
     signs = false,
-    keywords = {
-      FIX = {
-        color = "#56B6C2",
-        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-      },
+    highlight = {
+      keyword = "",
+      after = "",
     },
-    merge_keywords = true,
   },
   keys = {
     { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Todo" },
