@@ -14,11 +14,6 @@ return {
     event = "InsertEnter",
     dependencies = {
       { "L3MON4D3/LuaSnip" },
-      {
-        "stevearc/dressing.nvim",
-        lazy = false,
-        opts = {},
-      },
     },
     config = function()
       require("lsp-zero.cmp").extend()
