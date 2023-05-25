@@ -33,6 +33,18 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # Aliases
 alias nnn="nnn -e -P t"
 alias lg="lazygit"
