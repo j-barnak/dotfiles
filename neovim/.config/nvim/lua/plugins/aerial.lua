@@ -9,8 +9,4 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
   },
-  config = function ()
-    vim.cmd('nmap <silent> <leader>ds <cmd>call aerial#fzf()<cr>')
-    
-  end
 }
