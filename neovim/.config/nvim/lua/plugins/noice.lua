@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "stevearc/dressing.nvim",
   },
   opts = {
     popupmenu = {
