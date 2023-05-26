@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.indentscope",
-  event = "VeryLazy",
+  lazy = false,
   version = false,
   config = function()
     local indent_opts = {
