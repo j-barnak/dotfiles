@@ -11,11 +11,6 @@ return {
     "debugloop/telescope-undo.nvim",
     "MattesGroeger/vim-bookmarks",
     "tom-anders/telescope-vim-bookmarks.nvim",
-    {
-      "ecthelionvi/NeoComposer.nvim",
-      dependencies = { "kkharji/sqlite.lua" },
-      opts = {},
-    },
   },
   keys = {
     {
@@ -62,16 +57,6 @@ return {
       "<leader>;",
       "<cmd>Telescope vim_bookmarks<cr>",
       desc = "View bookmarks",
-    },
-    {
-      "<leader>q",
-      "<cmd>Telescope macros<cr>",
-      desc = "View Macros",
-    },
-    {
-      "<leader>db",
-      "<cmd>ClearNeoComposer<cr>",
-      desc = "Remove all bookmarks",
     },
   },
   config = function()

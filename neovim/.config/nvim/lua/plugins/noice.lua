@@ -6,6 +6,10 @@ return {
   },
   opts = {
     popupmenu = { enabled = false },
+    notify = {
+      enabled = true,
+      view = "mini",
+    },
     lsp = {
       signature = {
         auto_open = {
@@ -13,7 +17,7 @@ return {
         },
       },
       documentation = { enabled = false },
-      message = { enabled = false },
+      -- message = { enabled = false },
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
         ["vim.lsp.util.stylize_markdown"] = true,
