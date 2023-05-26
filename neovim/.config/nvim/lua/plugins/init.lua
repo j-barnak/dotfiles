@@ -1,8 +1,8 @@
 return {
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = false,
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   lazy = false,
+  -- },
   {
     "tpope/vim-fugitive",
     event = "VeryLazy",
