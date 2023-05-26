@@ -5,6 +5,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   opts = {
+    messages = {
+      view = "mini",
+      view_error = "mini",
+      view_warn = "mini",
+    },
     popupmenu = { enabled = false },
     notify = {
       enabled = true,
@@ -17,7 +22,9 @@ return {
         },
       },
       documentation = { enabled = false },
-      -- message = { enabled = false },
+      message = {
+        view = "mini",
+      },
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
         ["vim.lsp.util.stylize_markdown"] = true,
