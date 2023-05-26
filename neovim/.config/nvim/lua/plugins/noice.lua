@@ -6,7 +6,7 @@ return {
   },
   opts = {
     popupmenu = {
-      enabled = false,
+      enabled = true,
     },
     notify = {
       enabled = true,
