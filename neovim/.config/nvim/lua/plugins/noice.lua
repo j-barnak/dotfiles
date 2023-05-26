@@ -5,25 +5,25 @@ return {
     "MunifTanjim/nui.nvim",
   },
   opts = {
-    popupmenu = {
-      enabled = true,
-    },
-    notify = {
-      enabled = true,
-    },
+    popupmenu = { enabled = false },
     lsp = {
-      hover = {
-        enabled = false,
-      },
       signature = {
-        enabled = false,
+        auto_open = {
+          trigger = false,
+        },
       },
-      message = {
-        enabled = false,
+      documentation = { enabled = false },
+      message = { enabled = false },
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
       },
-      documentation = {
-        enabled = false,
-      },
+    },
+    presets = {
+      bottom_search = true,
+      long_message_to_split = true,
+      lsp_doc_border = true,
     },
   },
 }
