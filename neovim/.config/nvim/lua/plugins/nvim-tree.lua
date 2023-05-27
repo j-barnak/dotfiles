@@ -24,7 +24,7 @@ return {
       end,
     })
 
-    vim.api.nvim_set_keymap("n", "<leader>pv", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
+    vim.api.nvim_set_keymap("n", "<leader>fe", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
 
     require("nvim-tree").setup({ actions = { open_file = { quit_on_open = true } } })
   end,

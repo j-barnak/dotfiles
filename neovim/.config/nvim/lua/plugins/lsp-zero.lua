@@ -1,3 +1,5 @@
+-- TODO: Add <leader>cd to view errors/warnings on the line
+--       Potentially use the line plugin to fix it
 return {
   {
     "VonHeikemen/lsp-zero.nvim",
