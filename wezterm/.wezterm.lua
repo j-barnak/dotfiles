@@ -14,9 +14,10 @@ end
 config.hide_tab_bar_if_only_one_tab = true
 
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
--- config.font = wezterm.font("Berkeley Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
--- config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = "Regular", stretch = "Normal", style = "Normal" })
-config.font = wezterm.font("JetBrains Mono")
+wezterm.font_with_fallback({
+	"JetBrains Mono",
+	{ family = "Microsoft YaHei", scale = 1.5 },
+})
 
 config.colors = {
 	cursor_bg = "white",
@@ -86,6 +87,6 @@ config.keys = {
 	},
 }
 
-config.enable_kitty_keyboard = true
+config.enable_kitty_keyboard = false
 
 return config

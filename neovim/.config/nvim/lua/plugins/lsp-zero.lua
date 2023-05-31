@@ -13,25 +13,37 @@ return {
   -- Autocompletion
   {
     "hrsh7th/nvim-cmp",
+    version = false,
     event = "InsertEnter",
     dependencies = {
-      { "L3MON4D3/LuaSnip" },
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
     },
-    config = function()
-      require("lsp-zero.cmp").extend()
-
+    opts = function()
       local cmp = require("cmp")
-
-      cmp.setup({
-        mapping = {
-          ["<Tab>"] = cmp.mapping.select_next_item(select_opts),
-          ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts),
-          ["<cr>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-          }),
+      return {
+        completion = {
+          completeopt = "menu,menuone,noinsert",
         },
-      })
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<CR>'] = cmp.mapping.confirm({ select = true })
+        }),
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "path" },
+        }),
+      }
     end,
   },
 
