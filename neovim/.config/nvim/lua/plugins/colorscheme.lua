@@ -14,8 +14,25 @@ return {
       tag_attribute = { italic = false }, -- attribute of tag in reactjs
     },
     filter = "machine",
+    override = function(c)
+      return {
+        Normal = { bg = "#2C2E34" },
+        SignColumn = { bg = "#2C2E34" },
+        CursorColumn = { bg = "#2C2E34" },
+        ColorColumn = { bg = "#2C2E34" },
+        LineNr = {
+          bg = "#2C2E34",
+          fg = c.editorLineNumber.foreground,
+        },
+        CursorLineNr = {
+          bg = "#2C2E34",
+          fg = c.editorLineNumber.activeForeground,
+          bold = true,
+        },
+      }
+    end,
   },
-  -- TODO: Fix 
+  -- TODO: Fix
   config = function(_, opts)
     require("monokai-pro").setup(opts)
     vim.cmd([[colorscheme monokai-pro]])
