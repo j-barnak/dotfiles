@@ -8,5 +8,6 @@ return {
     vim.g.sonokai_better_performance = 1
     vim.cmd.colorscheme("sonokai")
     vim.cmd("highlight! link Todo Comment") -- Must be after colorscheme
+    vim.cmd([[hi NvimTreeWinSeparator guifg=#2c2e34 guibg=NONE]])
   end,
 }
