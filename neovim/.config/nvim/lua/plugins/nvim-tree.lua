@@ -27,6 +27,5 @@ return {
     vim.api.nvim_set_keymap("n", "<leader>fe", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
 
     require("nvim-tree").setup({ actions = { open_file = { quit_on_open = true } } })
-    vim.cmd("autocmd FileType NvimTree setlocal winhighlight=Normal:NvimTreeBg")
   end,
 }
