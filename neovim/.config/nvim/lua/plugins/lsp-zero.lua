@@ -16,6 +16,7 @@ return {
     version = false,
     event = "InsertEnter",
     dependencies = {
+      "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -33,9 +34,9 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
-          ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior}),
-          ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior}),
-          ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false })
+          ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior }),
+          ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior }),
+          ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
@@ -44,6 +45,27 @@ return {
           { name = "path" },
         }),
       }
+    end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+
+      local ls = require("luasnip")
+      local s = ls.snippet
+      local t = ls.text_node
+      local i = ls.insert_node
+
+      -- C++ Snippts
+      ls.add_snippets("cpp", {
+        s("class", {
+          t({ "class " }),
+          i(1),
+          t({ "", "{" }),
+          i(2),
+          t({ "", "};" }),
+        }),
+      }, {
+        key = "cpp",
+      })
     end,
   },
 
