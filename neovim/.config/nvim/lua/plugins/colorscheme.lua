@@ -25,7 +25,7 @@ return {
           fg = c.editorLineNumber.foreground,
         },
         CursorLineNr = {
-          bg = "#2C2E34",
+          bg = "#333846",
           fg = c.editorLineNumber.activeForeground,
           bold = true,
         },
