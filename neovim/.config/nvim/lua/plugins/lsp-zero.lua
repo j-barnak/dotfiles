@@ -25,7 +25,7 @@ return {
       local cmp = require("cmp")
       return {
         completion = {
-          completeopt = "menu,menuone,noinsert",
+          completeopt = "noselect",
         },
         snippet = {
           expand = function(args)
@@ -35,7 +35,7 @@ return {
         mapping = cmp.mapping.preset.insert({
           ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<CR>'] = cmp.mapping.confirm({ select = true })
+          ['<CR>'] = cmp.mapping.confirm({ select = false })
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
