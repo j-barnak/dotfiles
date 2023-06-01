@@ -59,6 +59,14 @@ return {
         s("class", {
           t({ "class " }),
           i(1),
+          t({ "", "{", "" }),
+          i(2),
+          t({ "" }),
+          t({ "", "};" }),
+        }),
+        s("struct", {
+          t({ "struct " }),
+          i(1),
           t({ "", "{" }),
           i(2),
           t({ "", "};" }),
@@ -67,6 +75,8 @@ return {
         key = "cpp",
       })
     end,
+
+    vim.api.nvim_set_keymap("i", "<S-CR>", "<cmd>lua require'luasnip'.jump(1)<CR>", { noremap = true, silent = true }),
   },
 
   -- LSP + Trouble
