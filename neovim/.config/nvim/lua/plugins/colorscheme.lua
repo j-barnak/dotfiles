@@ -1,24 +1,13 @@
 return {
-  "loctvl842/monokai-pro.nvim",
+  "sainnhe/sonokai",
   lazy = false,
   priority = 1000,
-  opts = {
-    styles = {
-      comment = { italic = true },
-      keyword = { italic = false },
-      type = { italic = false },
-      storageclass = { italic = false },
-      structure = { italic = false },
-      parameter = { italic = false },
-      annotation = { italic = false },
-      tag_attribute = { italic = false },
-    },
-    filter = "machine",
-  },
-  config = function(_, opts)
-    require("monokai-pro").setup(opts)
-    vim.cmd([[colorscheme monokai-pro]])
-    vim.cmd("highlight! link Todo Comment")
-    vim.cmd([[hi NvimTreeWinSeparator guifg=#273136 guibg=NONE]])
+  config = function()
+    vim.g.sonokai_disable_italic_comment = 0
+    vim.g.sonokai_lightline_disable_bold = 1
+    vim.g.sonokai_better_performance = 1
+    vim.cmd.colorscheme("sonokai")
+    vim.cmd("highlight! link Todo Comment") -- Must be after colorscheme
+    vim.cmd([[hi NvimTreeWinSeparator guifg=#2c2e34 guibg=NONE]])
   end,
 }
