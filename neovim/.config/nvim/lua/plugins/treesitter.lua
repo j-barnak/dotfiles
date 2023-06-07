@@ -26,7 +26,7 @@ return {
       -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
       auto_install = true,
       highlight = {
-        enable = false,
+        enable = true,
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
