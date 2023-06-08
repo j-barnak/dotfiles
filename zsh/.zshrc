@@ -74,6 +74,7 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 # Created by `pipx` on 2023-05-04 16:28:03
 export PATH="$PATH:/home/jared/.local/bin"
 export PATH="$PATH:/home/jared/Installs/sml/bin"
+export PATH="$PATH:/home/jared/Installs/tigervnc-1.13.0.x86_64/usr/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
