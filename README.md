@@ -13,33 +13,17 @@ Dependencies:
 Run the following:
 
 ```
-sudo apt install -y build-essential ripgrep fd-find zsh
+sudo apt install -y build-essential nnn ripgrep fd-find zsh &&
+echo "-# NNN Config
+export NNN_FCOLORS="2136"
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_PLUG='t:preview-tui;v:_viu $nnn'
+export NNN_USE_EDITOR=1" >> ~/.zshrc
 ```
 ## Neovim
 
 Run the following
 
 ```
-cp -r `dotfiles/neovim/nvim` $HOME 
-```
-
-
-
----
-## Zsh
-
-Run the following:
-
-```
-cp -r `dotfiles/zsh/* $HOME 
-sudo apt install -y cmake build-essential ripgrep
-```
-
----
-## Wezterm
-
-Run the following:
-
-```
-cp -r `dotfiles/wezterm/* $HOME 
+stow --target=/home/jared/ neovim
 ```
