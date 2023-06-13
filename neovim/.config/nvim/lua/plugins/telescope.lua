@@ -7,8 +7,6 @@ return {
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
     "stevearc/aerial.nvim",
-    "ahmedkhalf/project.nvim",
-    "debugloop/telescope-undo.nvim",
     "MattesGroeger/vim-bookmarks",
     "tom-anders/telescope-vim-bookmarks.nvim",
   },
@@ -39,16 +37,6 @@ return {
       desc = "Find symbols",
     },
     {
-      "<leader>fp",
-      "<cmd>Telescope projects<cr>",
-      desc = "Find projects",
-    },
-    {
-      "<leader>fu",
-      "<cmd>Telescope undo<cr>",
-      desc = "View undos",
-    },
-    {
       "<leader>dd",
       "<cmd>BookmarkClearAll<cr>",
       desc = "Remove all bookmarks",
@@ -59,26 +47,11 @@ return {
       desc = "View bookmarks",
     },
   },
+  opts = {},
   config = function()
-    local opts = {
-      extensions = {
-        undo = {
-          mappings = {
-            i = {
-              ["<s-cr>"] = require("telescope-undo.actions").yank_additions,
-              ["<c-cr>"] = require("telescope-undo.actions").yank_deletions,
-              ["<cr>"] = require("telescope-undo.actions").restore,
-            },
-          },
-        },
-      },
-    }
-
-    require("telescope").setup(opts)
+    -- require("telescope").setup(opts)
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
-    require("telescope").load_extension("projects")
-    require("telescope").load_extension("undo")
     require("telescope").load_extension("vim_bookmarks")
   end,
 }

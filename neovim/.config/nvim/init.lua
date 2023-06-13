@@ -1,3 +1,7 @@
+-- TODO: replace hop.nvim with jump2d
+--       replace vim illuminate with mini cursor word
+--       replace vim.api.nvim_set_keymap with nvim.keymap.set
+
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

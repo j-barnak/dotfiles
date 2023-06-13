@@ -4,11 +4,6 @@ return {
     event = "VeryLazy",
   },
   {
-    "akinsho/git-conflict.nvim",
-    opts = {},
-    event = "VeryLazy",
-  },
-  {
     "felipec/vim-sanegx",
     event = "BufRead",
   },

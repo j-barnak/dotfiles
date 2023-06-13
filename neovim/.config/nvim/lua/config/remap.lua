@@ -8,5 +8,7 @@ vim.keymap.set("n", "<CR>", "<CR><Cmd>cclose<CR>", { buffer = false, noremap = f
 vim.keymap.set("n", "<cr>", "ciw")
 vim.keymap.set("i", "<C-BS>", "<Esc>cvb", {})
 vim.keymap.set("n", "H", "^", {})
+vim.keymap.set("v", "H", "^", {})
 vim.keymap.set("n", "L", "$", {})
+vim.keymap.set("v", "L", "$", {})
 vim.keymap.set("n", "U", "<C-r>")
