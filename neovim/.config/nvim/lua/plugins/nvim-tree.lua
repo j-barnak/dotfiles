@@ -5,7 +5,14 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  config = function()
+  keys = {
+    { "<leader>fe", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree", { silent = true, noremap = true } },
+  },
+
+  opts = {
+    actions = { open_file = { quit_on_open = true } },
+  },
+  config = function(_, opts)
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
@@ -24,8 +31,6 @@ return {
       end,
     })
 
-    vim.api.nvim_set_keymap("n", "<leader>fe", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
-
-    require("nvim-tree").setup({ actions = { open_file = { quit_on_open = true } } })
+    require("nvim-tree").setup(opts)
   end,
 }
