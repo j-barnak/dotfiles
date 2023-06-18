@@ -77,7 +77,7 @@ return {
       })
     end,
 
-    vim.keymap.set("i", "<S-CR>", "<cmd>lua require'luasnip'.jump(1)<CR>", { noremap = true, silent = true })
+    vim.keymap.set("i", "<S-CR>", "<cmd>lua require'luasnip'.jump(1)<CR>", { noremap = true, silent = true }),
   },
 
   -- LSP + Trouble
