@@ -1,6 +1,9 @@
 -- TODO: replace hop.nvim with jump2d
 --       replace vim illuminate with mini cursor word
 --       replace vim.api.nvim_set_keymap with nvim.keymap.set
+--       Add <leader>cd to view errors/warnings on the line
+--       Potentially use the line plugin to fix it
+--       Add back Telescope Lua
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
