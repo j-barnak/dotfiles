@@ -5,6 +5,7 @@ return {
   keys = {
     {
       "f",
+      mode = { "n", "x", "o" },
       "<cmd>HopChar1AC<cr>",
       desc = "Hop forward",
     },
