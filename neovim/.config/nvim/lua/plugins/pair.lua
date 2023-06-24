@@ -12,7 +12,7 @@ return {
 
     local autopairs = require("nvim-autopairs")
     local cond = require("nvim-autopairs.conds")
-    local Rule = require('nvim-autopairs.rule')
+    local Rule = require("nvim-autopairs.rule")
     autopairs.add_rules({
       Rule("<", ">"):with_pair(cond.before_regex("%a+")):with_move(),
     })
