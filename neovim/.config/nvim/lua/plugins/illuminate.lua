@@ -2,7 +2,7 @@ return {
   "RRethy/vim-illuminate",
   event = { "BufReadPost", "BufNewFile" },
   opts = {
-    delay = 150,
+    delay = 0,
     filetypes_denylist = {
       'dirvish',
       'fugitive',
