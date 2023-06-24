@@ -1,6 +1,6 @@
 return {
   "j-barnak/hop.nvim",
-  lazy = false,
+  event = "VeryLazy",
   opts = {},
   keys = {
     {
