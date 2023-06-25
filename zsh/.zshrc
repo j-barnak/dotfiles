@@ -82,8 +82,8 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Plugins
-source /home/jared/Installs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/jared/Installs/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /home/jared/Installs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /home/jared/Installs/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Fancy Ctrl-z
 # https://github.com/mdumitru/fancy-ctrl-z

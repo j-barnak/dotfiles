@@ -13,7 +13,9 @@ Dependencies:
 Run the following:
 
 ```
-sudo apt install -y build-essential ripgrep fd-find zsh 
+sudo apt install -y build-essential ripgrep curl \
+                    fd-find zsh zsh-autosuggestions \
+                    zsh-syntax-highlighting
 ```
 
 ## Installation
