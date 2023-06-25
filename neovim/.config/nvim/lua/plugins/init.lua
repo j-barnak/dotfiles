@@ -1,6 +1,7 @@
 return {
   {
-    "tpope/vim-eunuch"
+    "tpope/vim-eunuch",
+    event = "VeryLazy",
   },
   {
     "tpope/vim-fugitive",
@@ -8,7 +9,7 @@ return {
   },
   {
     "felipec/vim-sanegx",
-    event = "BufRead",
+    event = "VeryLazy",
   },
   {
     "folke/neodev.nvim",
