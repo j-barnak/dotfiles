@@ -68,10 +68,12 @@ alias wl='wl-copy'
 alias vim='nvim'
 
 # Tab Selection Menu with Colors
+# Case-Insensitive Autocomplete
 autoload -Uz compinit
 compinit
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # End of lines added by compinstall
 source ~/powerlevel10k/powerlevel10k.zsh-theme
