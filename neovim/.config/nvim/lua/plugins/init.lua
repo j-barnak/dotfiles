@@ -1,5 +1,8 @@
 return {
   {
+    "tpope/vim-eunuch"
+  },
+  {
     "tpope/vim-fugitive",
     event = "VeryLazy",
   },

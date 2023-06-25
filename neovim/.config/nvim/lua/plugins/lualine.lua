@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
+  lazy = false,
+  priority = 900,
   opts = function()
     local icons = {
       diagnostics = {
@@ -128,7 +129,7 @@ return {
           end,
         },
       },
-      extensions = { "neo-tree", "lazy" },
+      -- extensions = { "neo-tree", "lazy" },
     }
   end,
 }

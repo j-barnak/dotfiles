@@ -11,10 +11,7 @@ return {
       view_warn = "mini",
     },
     popupmenu = { enabled = false },
-    notify = {
-      enabled = true,
-      view = "mini",
-    },
+    notify = { enabled = false },
     lsp = {
       signature = {
         auto_open = {
