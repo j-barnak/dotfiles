@@ -15,7 +15,7 @@ Run the following:
 ```
 sudo apt install -y build-essential ripgrep curl \
                     fd-find zsh zsh-autosuggestions \
-                    zsh-syntax-highlighting
+                    zsh-syntax-highlighting stow
 ```
 
 ## Installation
