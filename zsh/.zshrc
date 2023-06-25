@@ -1,3 +1,15 @@
+# Necessary Installations:
+# * nvim
+# * fzf
+# * ripgrep
+# * p10k
+# * exa
+# * nvm
+# * zsh-syntax-highlighting.zsh
+# * zsh-autosuggestions.zsh
+# * autojump
+# * wl-clipboard
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,14 +18,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export LANG=en_US.UTF-8
+export MANPAGER="/usr/local/bin/nvim -c 'Man!' -o -"
 export EDITOR='nvim'
 export DIFFPROG='nvim -d'
 export FZF_DEFAULT_COMMAND='rg --no-messages --files --no-ignore --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS="--no-separator --layout=reverse --inline-info"
 
 HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"       # The path to the history file.
-HISTSIZE=1000000000              # The maximum number of events to save in the internal history.
-SAVEHIST=1000000000              # The maximum number of events to save in the history file.
+HISTSIZE=1000000000                             # The maximum number of events to save in the internal history.
+SAVEHIST=1000000000                             # The maximum number of events to save in the history file.
 
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
@@ -42,6 +55,7 @@ zstyle :compinstall filename '/home/jared/.zshrc'
 # Key Bindings
 bindkey "^h" backward-word
 bindkey "^l" forward-word
+bindkey "^j" kill-word
 
 autoload -U select-word-style
 select-word-style bash
@@ -51,6 +65,7 @@ export WORDCHARS='.-'
 alias ls="ls --color=auto"
 alias ll='exa --long --all --group-directories-first --git'
 alias wl='wl-copy'
+alias vim='nvim'
 
 # Tab Selection Menu with Colors
 autoload -Uz compinit
@@ -82,4 +97,13 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+# Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Autojump
+[[ -s /home/jared/.autojump/etc/profile.d/autojump.sh ]] && source /home/jared/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

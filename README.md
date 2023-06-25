@@ -13,17 +13,14 @@ Dependencies:
 Run the following:
 
 ```
-sudo apt install -y build-essential nnn ripgrep fd-find zsh &&
-echo "-# NNN Config
-export NNN_FCOLORS="2136"
-export NNN_FIFO=/tmp/nnn.fifo
-export NNN_PLUG='t:preview-tui;v:_viu $nnn'
-export NNN_USE_EDITOR=1" >> ~/.zshrc
+sudo apt install -y build-essential ripgrep fd-find zsh 
 ```
-## Neovim
+
+## Installation
 
 Run the following
 
 ```
 stow --target=/home/jared/ neovim
+stow --target=/home/jared/ zsh
 ```
