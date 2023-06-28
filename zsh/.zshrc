@@ -66,12 +66,13 @@ alias ls="ls --color=auto"
 alias ll='exa --long --all --group-directories-first --git'
 alias wl='wl-copy'
 alias vim='nvim'
+alias ..='cd ..'
 
 # Tab Selection Menu with Colors
 # Case-Insensitive Autocomplete
 autoload -Uz compinit
 compinit
-eval "$(dircolors)"
+# eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
@@ -82,8 +83,8 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Plugins
-# source /home/jared/Installs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /home/jared/Installs/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/jared/Installs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/jared/Installs/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Fancy Ctrl-z
 # https://github.com/mdumitru/fancy-ctrl-z
@@ -109,3 +110,6 @@ autoload -U compinit && compinit -u
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
