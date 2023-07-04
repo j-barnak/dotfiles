@@ -153,6 +153,7 @@ return {
           "clangd",
           "--background-index",
           "--clang-tidy",
+          "----header-insertion=never"
         },
       })
 

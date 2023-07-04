@@ -9,6 +9,7 @@
 # * zsh-autosuggestions.zsh
 # * autojump
 # * wl-clipboard
+# * sioyek
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -62,17 +63,17 @@ select-word-style bash
 export WORDCHARS='.-'
 
 # Aliases
-alias ls="ls --color=auto"
+alias ls="exa"
 alias ll='exa --long --all --group-directories-first --git'
 alias wl='wl-copy'
 alias vim='nvim'
+alias sio="sioyek"
 alias ..='cd ..'
 
 # Tab Selection Menu with Colors
 # Case-Insensitive Autocomplete
 autoload -Uz compinit
 compinit
-# eval "$(dircolors)"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 

@@ -1,6 +1,10 @@
 return {
   "echasnovski/mini.files",
   opts = {
+    mappings = {
+    close       = '<cr>',
+  },
+
     windows = {
       preview = true,
     },
