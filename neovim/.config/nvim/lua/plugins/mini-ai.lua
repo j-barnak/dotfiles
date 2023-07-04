@@ -31,11 +31,11 @@ return {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
   opts = {
-    -- defines iB/aB as a textobject
+    -- defines iA/aA as a textobject
     -- Will selesct evrything within the buffer
     custom_textobjects = {
       f = false,
-      B = function(ai_type)
+      A = function(ai_type)
         local n_lines = vim.fn.line("$")
         local start_line, end_line = 1, n_lines
         if ai_type == "i" then
