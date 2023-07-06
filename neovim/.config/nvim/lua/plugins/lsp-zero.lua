@@ -129,6 +129,14 @@ return {
         lsp.default_keymaps({ buffer = bufnr })
         local opts = { buffer = bufnr, remap = false }
         local additional_opts = { buffer = bufnr, remap = false, silent = true }
+      --  TODO: Properly implement with vim.keymap.set
+      --        Make sure keys are consistent
+      --        e.g., make Telescope definition : <leader>fD
+      --        e.g., make Telescope references : <leader>fR
+      --        
+      -- { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition", has = "definition" },
+      -- { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+        vim.keymap.set("<leader>cd", function () vim.diagnostic.open_float() end, opts )
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
         vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts)
@@ -154,7 +162,7 @@ return {
           "--background-index",
           "--clang-tidy",
           "--header-insertion=never",
-          "--query-driver=/usr/bin/g++-13"
+          "--query-driver=/usr/bin/g++-13",
         },
       })
 
