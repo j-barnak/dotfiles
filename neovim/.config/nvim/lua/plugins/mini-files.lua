@@ -2,8 +2,9 @@ return {
   "echasnovski/mini.files",
   opts = {
     mappings = {
-    close       = '<cr>',
-  },
+      -- close = "<cr>",
+      go_in_plus = "<cr>",
+    },
 
     windows = {
       preview = true,
@@ -34,8 +35,12 @@ return {
     require("mini.files").setup(opts)
 
     local show_dotfiles = true
-    local filter_show = function(fs_entry) return true end
-    local filter_hide = function(fs_entry) return not vim.startswith(fs_entry.name, ".") end
+    local filter_show = function(fs_entry)
+      return true
+    end
+    local filter_hide = function(fs_entry)
+      return not vim.startswith(fs_entry.name, ".")
+    end
 
     local toggle_dotfiles = function()
       show_dotfiles = not show_dotfiles

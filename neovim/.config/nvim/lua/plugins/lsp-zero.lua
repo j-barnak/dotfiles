@@ -153,7 +153,8 @@ return {
           "clangd",
           "--background-index",
           "--clang-tidy",
-          "----header-insertion=never"
+          "--header-insertion=never",
+          "--query-driver=/usr/bin/g++-13"
         },
       })
 
