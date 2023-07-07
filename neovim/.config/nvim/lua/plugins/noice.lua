@@ -14,11 +14,10 @@ return {
     notify = { enabled = false },
     lsp = {
       signature = {
-        auto_open = {
-          trigger = false,
-        },
+        enabled = false,
       },
-      documentation = { enabled = false },
+      hover = { enabled = false },
+      documentation = { enabled = true },
       message = {
         view = "mini",
       },

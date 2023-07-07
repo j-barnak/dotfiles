@@ -9,8 +9,14 @@ return {
     "stevearc/aerial.nvim",
     "MattesGroeger/vim-bookmarks",
     "tom-anders/telescope-vim-bookmarks.nvim",
+    "ahmedkhalf/project.nvim",
   },
   keys = {
+    {
+      "<leader>fp",
+      "<cmd>Telescope projects<CR>",
+      desc = "Find projects",
+    },
     {
       "<leader>ff",
       "<cmd>Telescope find_files<CR>",
@@ -53,5 +59,6 @@ return {
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
     require("telescope").load_extension("vim_bookmarks")
+    require('telescope').load_extension('projects')
   end,
 }
