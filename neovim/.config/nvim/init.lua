@@ -1,10 +1,10 @@
 -- TODO:
 -- - Add back Telescope undo Lua
 -- - Switch null-ls with formatter.nvim or possibly folke's planned solution
--- - ensure that telescope is integrated well within the lsp ecosystem (e.g., diagnostics views within telescope)
+-- - Ensure that telescope is integrated well within the lsp ecosystem (e.g., diagnostics views within telescope)
 -- - Switch <leader>s for something better
--- - Fix # comments and how they don't  indent
--- - Fix the issue where typing `<<` does not work well because `<>` is assumed
+-- - Add split functionality. Maybe use `<leader>p` to split and then have
+--   <C-h/j/k/l> to navigate splits
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
