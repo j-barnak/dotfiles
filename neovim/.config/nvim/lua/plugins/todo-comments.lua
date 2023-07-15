@@ -1,21 +1,13 @@
--- FIXME: Getting rid of a keyword breaks telecsope extension
+-- TODO: Remove icons
 return {
   "folke/todo-comments.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
-  },
-  cmd = { "TodoTelescope" },
-  event = { "BufReadPost", "BufNewFile" },
-  config = true,
+  dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
-    signs = false,
-    highlight = {
-      keyword = "",
-      after = "",
+    keywords = {
+      TODO = { icon = "" },
     },
-  },
-  keys = {
-    { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+    highlight = {
+      keyword = "fg",
+    },
   },
 }

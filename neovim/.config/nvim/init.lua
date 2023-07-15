@@ -1,9 +1,10 @@
--- TODO: replace hop.nvim with jump2d
---       replace vim illuminate with mini cursor word
---       replace vim.api.nvim_set_keymap with nvim.keymap.set
---       Add <leader>cd to view errors/warnings on the line
---       Potentially use the line plugin to fix it
---       Add back Telescope Lua
+-- TODO:
+-- - Add back Telescope undo Lua
+-- - Switch null-ls with formatter.nvim or possibly folke's planned solution
+-- - ensure that telescope is integrated well within the lsp ecosystem (e.g., diagnostics views within telescope)
+-- - Switch <leader>s for something better
+-- - Fix # comments and how they don't  indent
+-- - Fix the issue where typing `<<` does not work well because `<>` is assumed
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
