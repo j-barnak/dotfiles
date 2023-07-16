@@ -4,7 +4,7 @@ return {
     { "MunifTanjim/nui.nvim" },
   },
   keys = {
-    { "<leader>o", "<cmd>SearchBoxMatchAll<cr>", desc = "Search box" },
+    { "<leader>s", "<cmd>SearchBoxMatchAll<cr>", desc = "Search box" },
   },
   opts = {},
 }

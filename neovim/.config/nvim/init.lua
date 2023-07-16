@@ -2,9 +2,9 @@
 -- - Add back Telescope undo Lua
 -- - Switch null-ls with formatter.nvim or possibly folke's planned solution
 -- - Ensure that telescope is integrated well within the lsp ecosystem (e.g., diagnostics views within telescope)
--- - Switch <leader>s for something better
--- - Add split functionality. Maybe use `<leader>p` to split and then have
---   <C-h/j/k/l> to navigate splits
+-- - User Pretty-Doc or Pretty-Hover plugin
+-- - Fix the fact that `n` doesn't work to go to next item in search
+-- - Rethink <leader>o and <leader>s mapping. I really like <leader>o for search
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
