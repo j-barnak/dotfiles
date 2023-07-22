@@ -1,10 +1,12 @@
 -- TODO:
 -- - Add back Telescope undo Lua
 -- - Switch null-ls with formatter.nvim or possibly folke's planned solution
+--     - guard.nvim is looking very promising!
 -- - Ensure that telescope is integrated well within the lsp ecosystem (e.g., diagnostics views within telescope)
--- - User Pretty-Doc or Pretty-Hover plugin
--- - Fix the fact that `n` doesn't work to go to next item in search
--- - Rethink <leader>o and <leader>s mapping. I really like <leader>o for search
+--   - https://github.com/nvim-telescope/telescope.nvim#pickers
+-- - Add the ability to disable treesitter for large files
+-- - For certain projects, disable the LSP. Remember, there is a format on save, so I'd need to disable this as well
+-- - Add a column limit
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
