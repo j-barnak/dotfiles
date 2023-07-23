@@ -7,6 +7,8 @@
 -- - Add the ability to disable treesitter for large files
 -- - For certain projects, disable the LSP. Remember, there is a format on save, so I'd need to disable this as well
 -- - Add a column limit
+-- - Telescope has implemented outgoing and incoming calls, so you could replace
+--   LSP Saga. Additionally, LSP Saga's only useful feature left is `lsp_finder`; is it worth replacing?
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
