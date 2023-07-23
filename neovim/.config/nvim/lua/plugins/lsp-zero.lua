@@ -140,7 +140,7 @@ return {
         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>rr", function() require("telescope.builtin").lsp_references() end, additional_opts)
         vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<C-o>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set("n", "<leader>s", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
       end)
       -- stylua: ignore end
@@ -152,9 +152,7 @@ return {
         cmd = {
           "clangd",
           "--background-index",
-          "--clang-tidy",
           "--header-insertion=never",
-          "--query-driver=/usr/bin/g++-13",
         },
       })
 
