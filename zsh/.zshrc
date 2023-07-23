@@ -64,7 +64,9 @@ select-word-style bash
 export WORDCHARS='.-'
 
 # Aliases
-alias so="sudo /home/jared/.scripts/sound.sh"
+alias lsv="live-server"
+alias vi="/usr/bin/vim"
+alias fuck="sudo /home/jared/.scripts/sound.sh"
 alias ls="exa"
 alias ll='exa --long --all --group-directories-first --git'
 alias wl='wl-copy'
