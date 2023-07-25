@@ -10,6 +10,7 @@
 -- - Telescope has implemented outgoing and incoming calls, so you could replace
 --   LSP Saga. Additionally, LSP Saga's only useful feature left is `lsp_finder`; is it worth replacing?
 -- - I don't really need nav-buddy or navic
+-- - I also could get rid of nvim-tree and just use mini.files
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
