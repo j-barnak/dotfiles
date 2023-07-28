@@ -12,7 +12,7 @@
 -- - Telescope has implemented outgoing and incoming calls, so you could replace
 --   LSP Saga. Additionally, LSP Saga's only useful feature left is `lsp_finder`; is it worth
 --   replacing?
--- - I don't really need nav-buddy or navic
+-- - I don't really need nav-buddy or navic -- or do I?
 -- - Use `gbprod/yanky.nvim``
 -- - Map <leader>p to post a space after a paste.
 --   - Use this mapping perhaps: `nnoremap <leader>p li<space><esc>p` but convert it to lua
