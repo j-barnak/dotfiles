@@ -2,15 +2,20 @@
 -- - Add back Telescope undo Lua
 -- - Switch null-ls with formatter.nvim or possibly folke's planned solution
 --     - guard.nvim is looking very promising!
--- - Ensure that telescope is integrated well within the lsp ecosystem (e.g., diagnostics views within telescope)
+-- - Ensure that telescope is integrated well within the lsp ecosystem
+--   - (e.g., diagnostics views within telescope)
 --   - https://github.com/nvim-telescope/telescope.nvim#pickers
 -- - Add the ability to disable treesitter for large files
--- - For certain projects, disable the LSP. Remember, there is a format on save, so I'd need to disable this as well
+-- - For certain projects, disable the LSP. Remember, there is a format on save, so I'd need to
+--   disable this as well
 -- - Add a column limit
 -- - Telescope has implemented outgoing and incoming calls, so you could replace
---   LSP Saga. Additionally, LSP Saga's only useful feature left is `lsp_finder`; is it worth replacing?
+--   LSP Saga. Additionally, LSP Saga's only useful feature left is `lsp_finder`; is it worth
+--   replacing?
 -- - I don't really need nav-buddy or navic
--- - I also could get rid of nvim-tree and just use mini.files
+-- - Use `gbprod/yanky.nvim``
+-- - Map <leader>p to post a space after a paste.
+--   - Use this mapping perhaps: `nnoremap <leader>p li<space><esc>p` but convert it to lua
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation
