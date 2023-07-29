@@ -14,7 +14,7 @@ Run the following:
 
 ```
 sudo apt install -y build-essential ripgrep curl \
-                    fd-find zsh zsh-autosuggestions \
+                    fd-find fzf zsh zsh-autosuggestions \
                     zsh-syntax-highlighting stow
 ```
 
@@ -25,4 +25,12 @@ Run the following
 ```
 stow --target=/home/jared/ neovim
 stow --target=/home/jared/ zsh
+```
+
+## Misc.
+
+When mapping a shortcut to launch wezterm, use:
+
+```
+wezterm start --always-new-process
 ```

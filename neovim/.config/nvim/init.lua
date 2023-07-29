@@ -16,6 +16,7 @@
 -- - Use `gbprod/yanky.nvim``
 -- - Map <leader>p to post a space after a paste.
 --   - Use this mapping perhaps: `nnoremap <leader>p li<space><esc>p` but convert it to lua
+-- - Decide if I like `h` or `H` to go back a directory in `oil.nvim`
 
 -- Boostrapped lazy.nvim
 -- https://github.com/folke/lazy.nvim#-installation

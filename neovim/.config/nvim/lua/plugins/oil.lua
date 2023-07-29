@@ -18,6 +18,7 @@ return {
     },
     keymaps = {
       ["h"] = "actions.parent",
+      ["H"] = "actions.parent",
     },
     use_default_keymaps = true,
   },
