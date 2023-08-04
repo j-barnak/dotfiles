@@ -1,4 +1,5 @@
 -- TODO:
+-- - I need to just freaking refactor everything, tbh
 -- - Add back Telescope undo Lua
 -- - Switch null-ls with formatter.nvim or possibly folke's planned solution
 --     - guard.nvim is looking very promising!

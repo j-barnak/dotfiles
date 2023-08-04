@@ -7,8 +7,6 @@ return {
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
     "stevearc/aerial.nvim",
-    "MattesGroeger/vim-bookmarks",
-    "tom-anders/telescope-vim-bookmarks.nvim",
     "ahmedkhalf/project.nvim",
   },
   keys = {
@@ -42,23 +40,11 @@ return {
       "<cmd>Telescope aerial<cr>",
       desc = "Find symbols",
     },
-    {
-      "<leader>dd",
-      "<cmd>BookmarkClearAll<cr>",
-      desc = "Remove all bookmarks",
-    },
-    {
-      "<leader>;",
-      "<cmd>Telescope vim_bookmarks<cr>",
-      desc = "View bookmarks",
-    },
   },
   opts = {},
   config = function()
-    -- require("telescope").setup(opts)
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
-    require("telescope").load_extension("vim_bookmarks")
     require('telescope').load_extension('projects')
   end,
 }
