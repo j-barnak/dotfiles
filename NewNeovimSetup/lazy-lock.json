@@ -1,6 +1,0 @@
-{
-  "hop.nvim": { "branch": "master", "commit": "e41c04125fab05406be576640749352ad3eafcdb" },
-  "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
-  "nordic.nvim": { "branch": "main", "commit": "16c4aedd81dcfcd5b9691cb1a89d953fd8a9f773" },
-  "nvim-treesitter": { "branch": "master", "commit": "6c93c86272633937090806fedb2a20fe11025876" }
-}
