@@ -1,12 +1,8 @@
 return {
-  "lukas-reineke/indent-blankline.nvim",
+  "echasnovski/mini.indentscope",
   lazy = false,
   version = false,
-  opts = {
-    char = "╎",
-  },
-  config = function(_, opts)
-    vim.g.indent_blankline_use_treesitter = true
-    require("indent_blankline").setup(opts)
+  config = function()
+    require("mini.indentscope").setup()
   end,
 }
