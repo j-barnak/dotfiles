@@ -9,27 +9,30 @@ return {
     "hrsh7th/cmp-path",
     "saadparwaiz1/cmp_luasnip",
   },
-  opts = {
-    completion = {
-      completeopt = "noselect",
-    },
-    snippet = {
-      expand = function(args)
-        require("luasnip").lsp_expand(args.body)
-      end,
-    },
-    mapping = require("cmp").mapping.preset.insert({
-      ["<Tab>"] = require("cmp").mapping.select_next_item({ behavior = require("cmp").SelectBehavior }),
-      ["<S-Tab>"] = require("cmp").mapping.select_prev_item({ behavior = require("cmp").SelectBehavior }),
-      ["<CR>"] = require("cmp").mapping.confirm({ behavior = require("cmp").ConfirmBehavior.Insert, select = false }),
-    }),
-    sources = require("cmp").config.sources({
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "buffer" },
-      { name = "path" },
-    }),
-  },
+  opts = function()
+    local cmp = require("cmp")
+    return {
+      completion = {
+        completeopt = "noselect",
+      },
+      snippet = {
+        expand = function(args)
+          require("luasnip").lsp_expand(args.body)
+        end,
+      },
+      mapping = cmp.mapping.preset.insert({
+        ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior }),
+        ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior }),
+        ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
+      }),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+      }),
+    }
+  end,
   config = function(_, opts)
     require("cmp").setup(opts)
     vim.keymap.set("i", "<S-CR>", "<cmd>lua require'luasnip'.jump(1)<CR>", { noremap = true, silent = true })
