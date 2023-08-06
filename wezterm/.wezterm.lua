@@ -47,7 +47,7 @@ config.keys = {
 	},
 	-- Create a new workspace with a random name and switch to it
 	{
-		key = "n",
+		key = "i",
 		mods = "SHIFT|CTRL",
 		action = act.SwitchToWorkspace,
 	},
@@ -71,7 +71,7 @@ config.keys = {
 		action = act.SwitchWorkspaceRelative(-1),
 	},
 	{
-		key = ";",
+		key = ":",
 		mods = "SHIFT|CTRL",
 		action = wezterm.action.ToggleFullScreen,
 	},
@@ -86,7 +86,5 @@ config.keys = {
 		action = wezterm.action.ShowDebugOverlay,
 	},
 }
-
-config.enable_kitty_keyboard = true
 
 return config

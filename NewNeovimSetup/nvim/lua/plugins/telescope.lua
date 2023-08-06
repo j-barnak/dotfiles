@@ -45,7 +45,6 @@ return {
   config = function()
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
-    require('telescope').load_extension('projects')
+    require("telescope").load_extension("projects")
   end,
 }
-
