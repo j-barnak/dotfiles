@@ -14,8 +14,8 @@ Run the following:
 
 ```
 sudo apt install -y build-essential ripgrep curl \
-                    fd-find fzf zsh zsh-autosuggestions \
-                    zsh-syntax-highlighting stow
+                    fd-find exa fzf zsh stow ninja-build 
+                    gettext unzip curl libssl-dev
 ```
 
 ## Installation
