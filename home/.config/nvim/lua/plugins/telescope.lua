@@ -40,11 +40,6 @@ return {
       "<cmd>Telescope aerial<cr>",
       desc = "Find symbols",
     },
-    {
-      "<leader>o",
-      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-      desc = "Search current buffer",
-    },
   },
   opts = {},
   config = function()
