@@ -15,7 +15,7 @@ Run the following:
 ```
 sudo apt install -y build-essential ripgrep curl \
                     fd-find exa fzf zsh stow ninja-build 
-                    gettext unzip curl libssl-dev
+                    gettext unzip curl libssl-dev wl-clipboard
 ```
 
 ## Installation
@@ -23,8 +23,7 @@ sudo apt install -y build-essential ripgrep curl \
 Run the following
 
 ```
-stow --target=/home/jared/ neovim
-stow --target=/home/jared/ zsh
+stow --target=/home/jared/ home
 ```
 
 ## Misc.
