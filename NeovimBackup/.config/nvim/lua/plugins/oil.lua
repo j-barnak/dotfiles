@@ -1,5 +1,6 @@
 return {
   "stevearc/oil.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   event = "VeryLazy",
   keys = {
     {
@@ -22,5 +23,4 @@ return {
     },
     use_default_keymaps = true,
   },
-  dependencies = { "nvim-tree/nvim-web-devicons" },
 }

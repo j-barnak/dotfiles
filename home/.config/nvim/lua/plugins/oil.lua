@@ -1,5 +1,6 @@
 return {
   "stevearc/oil.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   event = "VeryLazy",
   keys = {
     {
@@ -21,9 +22,10 @@ return {
     },
     use_default_keymaps = true,
   },
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
+  config = function(_, opts)
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
+
+    require("oil").setup(opts)
   end,
 }
