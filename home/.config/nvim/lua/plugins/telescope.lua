@@ -8,7 +8,6 @@ return {
     },
     "stevearc/aerial.nvim",
     "ahmedkhalf/project.nvim",
-    "gbprod/yanky.nvim"
   },
   keys = {
     {
@@ -47,6 +46,5 @@ return {
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
     require("telescope").load_extension("projects")
-    require("telescope").load_extension("yank_history")
   end,
 }
