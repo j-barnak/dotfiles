@@ -1,22 +1,25 @@
 -- TODO: Implelement using lazy
 return {
   "gbprod/yanky.nvim",
+  lazy = false,
   dependencies = {
     { "kkharji/sqlite.lua" },
   },
-  lazy = false,
+  events = "VeryLazy",
   opts = {
     highlight = {
       timer = 0,
     },
   },
+  keys = {
+    { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
+    { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
+    { "<c-n>", "<Plug>(YankyCycleForward)" },
+    { "<c-p>", "<Plug>(YankyCycleBackward)" },
+    -- TODO: Fix this
+    -- { "leader<p>", "a<space><C-c><Plug>(YankyPutAfter)" },
+  },
   config = function(_, opts)
     require("yanky").setup(opts)
-    vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-    vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-    vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
-    vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-    vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
-    vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
   end,
 }
