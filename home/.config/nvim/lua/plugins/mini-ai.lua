@@ -1,36 +1,23 @@
 return {
-  "echasnovski/mini.ai",
-  keys = {
-    { "a", mode = { "x", "o" } },
-    { "i", mode = { "x", "o" } },
-  },
-  event = "VeryLazy",
-  dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      opts = {
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-              ["ik"] = "@block.inner",
-              ["ak"] = "@block.outer",
-            },
-          },
+  {
+    "echasnovski/mini.ai",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
+    config = function()
+      local miniai = require("mini.ai")
+
+      miniai.setup({
+        n_lines = 300,
+        custom_textobjects = {
+          o = miniai.gen_spec.treesitter({
+            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+          }, {}),
+          f = miniai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
+          c = miniai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
         },
-      },
-      config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
-      end,
-    },
-    "JoosepAlviste/nvim-ts-context-commentstring",
+        silent = true,
+      })
+    end,
   },
-  config = function(_, opts)
-    require("mini.ai").setup(opts)
-  end,
 }
