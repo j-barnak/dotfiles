@@ -3,36 +3,27 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   opts = {
     delay = 0,
-    filetypes_denylist = {
-      "dirvish",
-      "fugitive",
-      "NvimTree",
+    large_file_cutoff = 2000,
+    large_file_overrides = {
+      providers = { "lsp" },
     },
   },
   config = function(_, opts)
-    require("illuminate").configure(opts)
+    local illuminate = require("illuminate")
 
-    -- TODO: Simplify
-    local function map(key, dir, buffer)
-      vim.keymap.set("n", key, function()
-        require("illuminate")["goto_" .. dir .. "_reference"](false)
-      end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
-    end
+    illuminate.configure(opts)
 
-    map("]]", "next")
-    map("[[", "prev")
-
-    -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
-    vim.api.nvim_create_autocmd("FileType", {
-      callback = function()
-        local buffer = vim.api.nvim_get_current_buf()
-        map("]]", "next", buffer)
-        map("[[", "prev", buffer)
-      end,
+    local illuminate_group = vim.api.nvim_create_augroup("IlluminateBufUpdate", { clear = true })
+    vim.api.nvim_create_autocmd("BufEnter", {
+      group = illuminate_group,
+      callback = illuminate.resume_buf,
     })
+    vim.api.nvim_create_autocmd("BufLeave", {
+      group = illuminate_group,
+      callback = illuminate.pause_buf,
+    })
+
+    vim.keymap.del({ "o", "x" }, "<M-i>")
+    vim.api.nvim_set_hl(0, "IlluminatedWordText", { underline = false })
   end,
-  keys = {
-    { "]]", desc = "Next Reference" },
-    { "[[", desc = "Prev Reference" },
-  },
 }
