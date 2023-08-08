@@ -72,6 +72,7 @@ alias ll='exa --long --all --group-directories-first --git'
 alias wl='wl-copy'
 alias vim='nvim'
 alias sio="sioyek"
+alias gp="git push"
 alias ..='cd ..'
 
 # Tab Selection Menu with Colors
