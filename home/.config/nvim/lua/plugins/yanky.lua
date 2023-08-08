@@ -16,8 +16,7 @@ return {
     { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
     { "<c-n>", "<Plug>(YankyCycleForward)" },
     { "<c-p>", "<Plug>(YankyCycleBackward)" },
-    -- TODO: Fix this
-    -- { "leader<p>", "a<space><C-c><Plug>(YankyPutAfter)" },
+    { "<leader>p", "a<space><esc><Plug>(YankyPutAfter)" },
   },
   config = function(_, opts)
     require("yanky").setup(opts)
