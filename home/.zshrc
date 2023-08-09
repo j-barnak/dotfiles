@@ -74,6 +74,7 @@ alias vim='nvim'
 alias sio="sioyek"
 alias gp="git push"
 alias ..='cd ..'
+alias gs="legit switch"
 
 # Tab Selection Menu with Colors
 # Case-Insensitive Autocomplete
@@ -109,6 +110,8 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$HOME/.local/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
