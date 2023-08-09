@@ -1,4 +1,3 @@
--- TODO: Implelement using lazy
 return {
   "gbprod/yanky.nvim",
   lazy = false,
