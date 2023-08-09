@@ -4,20 +4,17 @@ return {
   dependencies = {
     { "kkharji/sqlite.lua" },
   },
-  events = "VeryLazy",
   opts = {
     highlight = {
       timer = 0,
     },
   },
-  keys = {
-    { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
-    { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
-    { "<c-n>", "<Plug>(YankyCycleForward)" },
-    { "<c-p>", "<Plug>(YankyCycleBackward)" },
-    { "<leader>p", "a<space><esc><Plug>(YankyPutAfter)" },
-  },
   config = function(_, opts)
     require("yanky").setup(opts)
+    vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+    vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+    vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+    vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+    vim.keymap.set("n", "<leader>p", "a<space><esc><Plug>(YankyPutAfter)")
   end,
 }
