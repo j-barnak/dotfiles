@@ -16,5 +16,3 @@ vim.g.maplocalleader = " "
 
 require("config")
 require("lazy").setup("plugins")
-
-vim.cmd("highlight! link NoiceCursor Cursor")

@@ -1,6 +1,6 @@
--- BUG: There's a bug with wl-clipboard which causes yank.nvim to
---      hang.
+-- BUG: There's a bug with wl-clipboard which causes yank.nvim to hang.
 --      https://github.com/gbprod/yanky.nvim/issues/37
+--      https://github.com/gbprod/yanky.nvim/issues/123
 return {
   "gbprod/yanky.nvim",
   dependencies = {
