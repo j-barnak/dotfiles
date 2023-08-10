@@ -8,4 +8,8 @@ return {
       providers = { "lsp" },
     },
   },
+  config = function(_, opts)
+    local illuminate = require("illuminate")
+    illuminate.configure(opts)
+  end,
 }

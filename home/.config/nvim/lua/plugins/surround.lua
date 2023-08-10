@@ -1,12 +1,10 @@
+-- TODO: Setup the key maps to use lazy.nvim `keys` and set event to VeryLazy
 return {
-	"echasnovski/mini.surround",
-	opts = {
-		mappings = {
-			add = "gza", -- Add surrounding in Normal and Visual modes
-			delete = "gzd", -- Delete surrounding
-			replace = "gzr", -- Replace surrounding
-		},
-	},
-	lazy = false,
-	version = "*",
+  "echasnovski/mini.surround",
+  lazy = false,
+  version = "*",
+  config = function()
+    require("mini.surround").setup()
+    vim.keymap.set("x", "S", [[:<C-u>lua MiniSurround.add('visual')<CR>]], { silent = true })
+  end,
 }
