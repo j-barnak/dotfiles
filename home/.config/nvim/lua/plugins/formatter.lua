@@ -3,6 +3,7 @@ return {
   config = function()
     local util = require("formatter.util")
     local defaults = require("formatter.defaults")
+    local js_ts_filetype = { defaults.eslint_d, defaults.prettierd }
 
     require("formatter").setup({
       filetype = {
@@ -23,10 +24,11 @@ return {
           end,
         },
         -- stylua: ignore start
-        javascript = { function() return { prettierd = util.copyf(defaults.prettierd), } end, },
-        html = { function() return { prettierd = util.copyf(defaults.prettierd), } end, },
-        cpp = { function() return { clangformat = util.copyf(defaults.clangformat), } end, },
-        c = { function() return { clangformat = util.copyf(defaults.clangformat), } end, },
+        javascript = js_ts_filetype,
+        typescript = js_ts_filetype,
+        html = { defaults.prettierd },
+        cpp = { defaults.clangformat },
+        c = { defaults.clangformat },
         -- stylua: ignore end
         ["*"] = {
           require("formatter.filetypes.any").remove_trailing_whitespace,
