@@ -1,3 +1,6 @@
+-- NOTE: LSPs that handle formatting are configured in `lsp.lua` (where nvim-lspconfig). Tracking
+--       an issue where `formatter.nvim` does not hanve `vim.lsp.buf.format` well.
+--       https://github.com/mhartington/formatter.nvim/issues/260
 return {
   "mhartington/formatter.nvim",
   config = function()
@@ -22,17 +25,7 @@ return {
             }
           end,
         },
-        -- TODO: There's an issue surrounding this porblem described here. What I have is considered a workaround,
-        --       but frankly, it doesn't seem like an issue and achieves what I want well. If I find out there's an
-        --       issue, I could change it back to:
-        --
-        --      cpp = { defaults.clangformat },
-        --      c = { defaults.clangformat },
-        --
-        -- stylua: ignore start
         racket = { vim.lsp.buf.format },
-        cpp = { vim.lsp.buf.format },
-        c = { vim.lsp.buf.format },
         javascript = { defaults.prettierd },
         typescript = { defaults.prettierd },
         html = { defaults.prettierd },
@@ -45,6 +38,7 @@ return {
 
     -- Format After Save
     vim.api.nvim_create_augroup("FormatAutogroup", { clear = true })
+
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       group = "FormatAutogroup",
       command = "FormatWrite",

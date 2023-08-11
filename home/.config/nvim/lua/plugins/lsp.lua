@@ -4,6 +4,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "nvim-telescope/telescope.nvim",
+      "lukas-reineke/lsp-format.nvim",
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -23,6 +24,9 @@ return {
         end,
       })
 
+      require("lsp-format").setup({})
+
+      -- Server setup here
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
       lspconfig.emmet_language_server.setup({})
       lspconfig.tsserver.setup({})
@@ -34,6 +38,7 @@ return {
           "--background-index",
           "--header-insertion=never",
         },
+        on_attach = require("lsp-format").on_attach,
       })
 
       lspconfig.lua_ls.setup({
