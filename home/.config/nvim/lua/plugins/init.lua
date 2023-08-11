@@ -1,8 +1,8 @@
 return {
   {
-    "tpope/vim-fugitive",
+    "benknoble/vim-racket",
   },
   {
-    "wlangstroth/vim-racket",
+    "tpope/vim-fugitive",
   },
 }

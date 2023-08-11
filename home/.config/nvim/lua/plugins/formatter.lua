@@ -3,7 +3,6 @@ return {
   config = function()
     local util = require("formatter.util")
     local defaults = require("formatter.defaults")
-    local js_ts_filetype = { defaults.eslint_d, defaults.prettierd }
 
     require("formatter").setup({
       filetype = {
@@ -23,12 +22,20 @@ return {
             }
           end,
         },
+        -- TODO: There's an issue surrounding this porblem described here. What I have is considered a workaround,
+        --       but frankly, it doesn't seem like an issue and achieves what I want well. If I find out there's an
+        --       issue, I could change it back to:
+        --
+        --      cpp = { defaults.clangformat },
+        --      c = { defaults.clangformat },
+        --
         -- stylua: ignore start
-        javascript = js_ts_filetype,
-        typescript = js_ts_filetype,
+        racket = { vim.lsp.buf.format },
+        cpp = { vim.lsp.buf.format },
+        c = { vim.lsp.buf.format },
+        javascript = { defaults.prettierd },
+        typescript = { defaults.prettierd },
         html = { defaults.prettierd },
-        cpp = { defaults.clangformat },
-        c = { defaults.clangformat },
         -- stylua: ignore end
         ["*"] = {
           require("formatter.filetypes.any").remove_trailing_whitespace,
@@ -36,6 +43,7 @@ return {
       },
     })
 
+    -- Format After Save
     vim.api.nvim_create_augroup("FormatAutogroup", { clear = true })
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       group = "FormatAutogroup",
