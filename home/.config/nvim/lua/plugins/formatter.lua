@@ -10,7 +10,6 @@ return {
     require("formatter").setup({
       filetype = {
         lua = { require("formatter.filetypes.lua").stylua },
-        -- racket = { vim.lsp.buf.format },
         javascript = { defaults.prettierd },
         typescript = { defaults.prettierd },
         html = { defaults.prettierd },
