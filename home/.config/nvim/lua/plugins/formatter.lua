@@ -1,5 +1,5 @@
 -- NOTE: Look at EFM
---       https://github.com/mattn/efm-langserver
+--       https://github.com/mattn/efm-langserver#configuration-for-neovim-builtin-lsp-with-nvim-lspconfig
 -- NOTE: Look into https://github.com/elentok/format-on-save.nvim
 -- NOTE: LSPs that handle formatting are configured in `lsp.lua` (where nvim-lspconfig). Tracking
 --       an issue where `formatter.nvim` does not support `vim.lsp.buf.format`.
