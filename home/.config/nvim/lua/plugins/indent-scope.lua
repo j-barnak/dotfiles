@@ -1,11 +1,10 @@
 return {
-  "echasnovski/mini.indentscope",
-  version = "*",
+  "lukas-reineke/indent-blankline.nvim",
+  dependencies = {
+    { "tpope/vim-sleuth" },
+  },
   config = function()
-    require("mini.indentscope").setup({
-      draw = {
-        priority = 2,
-      },
-    })
+    require("indent_blankline").setup({})
+    vim.cmd("let g:indent_blankline_filetype_exclude = ['markdown', 'text', '']")
   end,
 }
