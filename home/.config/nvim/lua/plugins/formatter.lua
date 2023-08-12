@@ -1,3 +1,4 @@
+-- NOTE: Look into https://github.com/elentok/format-on-save.nvim
 -- NOTE: LSPs that handle formatting are configured in `lsp.lua` (where nvim-lspconfig). Tracking
 --       an issue where `formatter.nvim` does not support `vim.lsp.buf.format`.
 --       https://github.com/mhartington/formatter.nvim/issues/260
