@@ -30,7 +30,10 @@ return {
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
       lspconfig.emmet_language_server.setup({})
       lspconfig.tsserver.setup({})
-      lspconfig.racket_langserver.setup({})
+
+      lspconfig.racket_langserver.setup({
+        on_attach = require("lsp-format").on_attach,
+      })
 
       lspconfig.clangd.setup({
         cmd = {

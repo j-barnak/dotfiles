@@ -1,5 +1,5 @@
 -- NOTE: LSPs that handle formatting are configured in `lsp.lua` (where nvim-lspconfig). Tracking
---       an issue where `formatter.nvim` does not hanve `vim.lsp.buf.format` well.
+--       an issue where `formatter.nvim` does not support `vim.lsp.buf.format`.
 --       https://github.com/mhartington/formatter.nvim/issues/260
 return {
   "mhartington/formatter.nvim",
@@ -9,23 +9,8 @@ return {
 
     require("formatter").setup({
       filetype = {
-        lua = {
-          require("formatter.filetypes.lua").stylua,
-          function()
-            return {
-              exe = "stylua",
-              args = {
-                "--search-parent-directories",
-                "--stdin-filepath",
-                util.escape_path(util.get_current_buffer_file_path()),
-                "--",
-                "-",
-              },
-              stdin = true,
-            }
-          end,
-        },
-        racket = { vim.lsp.buf.format },
+        lua = { require("formatter.filetypes.lua").stylua },
+        -- racket = { vim.lsp.buf.format },
         javascript = { defaults.prettierd },
         typescript = { defaults.prettierd },
         html = { defaults.prettierd },
@@ -41,7 +26,13 @@ return {
 
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       group = "FormatAutogroup",
-      command = "FormatWrite",
+      callback = function()
+        local ft = vim.bo.filetype
+        -- Files handled by `lsp-format`
+        if (ft ~= "c") and (ft ~= "cpp") and (ft ~= "racket") then
+          vim.cmd("FormatWrite")
+        end
+      end,
     })
   end,
 }
