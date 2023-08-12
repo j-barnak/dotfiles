@@ -12,7 +12,6 @@ return {
         javascript = { defaults.prettierd },
         typescript = { defaults.prettierd },
         html = { defaults.prettierd },
-        -- stylua: ignore end
         ["*"] = {
           require("formatter.filetypes.any").remove_trailing_whitespace,
         },
