@@ -1,5 +1,6 @@
--- TODO: Have LSPs that support formatting handle their own formatting via
---       `lsp-format`
+-- TODO: Determine if the call to `require.("lsp-format").setup({})` is
+--       necessary
+
 return {
   "creativenull/efmls-configs-nvim",
   version = "v0.2.x",
@@ -31,8 +32,9 @@ return {
         formatter = stylua,
       },
     })
-    -- LSP Format
-    require("lsp-format").setup {}
+
+    -- TODO: Do I need this?
+    require("lsp-format").setup({})
 
     require("lspconfig").efm.setup({
       on_attach = require("lsp-format").on_attach,
