@@ -1,5 +1,3 @@
--- TODO: - Remove icons for every thing
---       - Add to telescope
 return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },

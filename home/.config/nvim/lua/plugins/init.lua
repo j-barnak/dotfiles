@@ -1,5 +1,8 @@
 return {
   {
+    "felipec/vim-sanegx",
+  },
+  {
     "benknoble/vim-racket",
   },
   {
