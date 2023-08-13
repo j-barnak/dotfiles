@@ -41,5 +41,6 @@
   "vim-racket": { "branch": "master", "commit": "c21569c65fe690c7ad6e88313df8a642fc6531ec" },
   "vim-sanegx": { "branch": "master", "commit": "e97c10401d781199ba1aecd07790d0771314f3f5" },
   "vim-sleuth": { "branch": "master", "commit": "1cc4557420f215d02c4d2645a748a816c220e99b" },
+  "wildfire.nvim": { "branch": "master", "commit": "fa2a7cf716160e96a205d9cf08ec39f33842f54f" },
   "yanky.nvim": { "branch": "main", "commit": "95c2f006ea6eaed2b2d8b8b4943b8fcf13faf03f" }
 }

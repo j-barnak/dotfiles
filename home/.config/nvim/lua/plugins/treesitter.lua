@@ -7,15 +7,6 @@ return {
   config = function()
     local options = {
       indent = { enable = true },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<c-space>",
-          node_incremental = "<c-space>",
-          scope_incremental = "<c-s>",
-          node_decremental = "<M-space>",
-        },
-      },
       ensure_installed = {
         "c",
         "lua",
@@ -26,8 +17,8 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
-        -- TODO: See if I need `lang`
-        --       if so, do I still need the args?
+        -- TODO: See if I need `lang`?
+        --       and if so, do I still need the args?
         disable = function(lang, bufnr) --
           return vim.api.nvim_buf_line_count(bufnr) > 50000 and (lang == "cpp" or lang == "c" or lang == "javascript")
         end,
