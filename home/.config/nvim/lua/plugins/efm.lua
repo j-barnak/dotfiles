@@ -1,3 +1,5 @@
+-- TODO: Have LSPs that support formatting handle their own formatting via
+--       `lsp-format`
 return {
   "creativenull/efmls-configs-nvim",
   version = "v0.2.x",
