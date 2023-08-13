@@ -3,7 +3,8 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-      "nvim-telescope/telescope.nvim",
+      { "nvim-telescope/telescope.nvim" },
+      { "lukas-reineke/lsp-format.nvim" },
     },
     config = function()
       local lspconfig = require("lspconfig")
@@ -23,14 +24,24 @@ return {
         end,
       })
 
+      -- NOTE: Use lsp-format.nvim when LSPs support formatting.
+      --       i.e., if an LSP supports `vim.lsp.buf.format()`, configure
+      --       formmatting here
+
+      -- LSP Format Setup
+      require("lsp-format").setup({})
+
       -- Server setup here
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
       lspconfig.emmet_language_server.setup({})
       lspconfig.tsserver.setup({})
 
-      lspconfig.racket_langserver.setup({})
+      lspconfig.racket_langserver.setup({
+        on_attach = require("lsp-format").on_attach,
+      })
 
       lspconfig.clangd.setup({
+        on_attach = require("lsp-format").on_attach,
         cmd = {
           "clangd",
           "--all-scopes-completion",

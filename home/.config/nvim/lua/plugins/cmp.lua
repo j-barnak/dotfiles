@@ -26,12 +26,12 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
       }),
       sources = cmp.config.sources({
-    {name = "nvim_lsp"}, 
-    {name = "luasnip"}, 
-    {name = "path"}}, 
-    {
-        {name = "buffer"}
-    })
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
+      }, {
+        { name = "buffer" },
+      }),
     }
   end,
   config = function(_, opts)

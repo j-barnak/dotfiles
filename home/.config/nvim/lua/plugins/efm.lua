@@ -15,9 +15,6 @@ return {
     local eslint_d = require("efmls-configs.formatters.prettier_d")
     -- Lua
     local stylua = require("efmls-configs.formatters.stylua")
-    -- C and Cpp
-    local clang_format = require("efmls-configs.formatters.clang_format")
-    local clang_tidy = require("efmls-configs.linters.clang_tidy")
 
     efmls.init({
       init_options = {
@@ -33,16 +30,9 @@ return {
       lua = {
         formatter = stylua,
       },
-      -- TODO: May not need this
-      c = {
-        linter = clang_tidy,
-        formatter = clang_format,
-      },
-      cpp = {
-        linter = clang_tidy,
-        formatter = clang_format,
-      },
     })
+    -- LSP Format
+    require("lsp-format").setup {}
 
     require("lspconfig").efm.setup({
       on_attach = require("lsp-format").on_attach,
