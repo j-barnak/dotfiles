@@ -27,9 +27,6 @@ return {
     --       i.e., if an LSP supports `vim.lsp.buf.format()`, configure
     --       formmatting here
 
-    -- LSP Format Setup
-    require("lsp-format").setup({})
-
     -- Server setup here
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     lspconfig.emmet_language_server.setup({})
@@ -70,4 +67,3 @@ return {
     })
   end,
 }
-
