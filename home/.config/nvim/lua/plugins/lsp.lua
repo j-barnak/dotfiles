@@ -1,18 +1,19 @@
 return {
   "creativenull/efmls-configs-nvim",
-  event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     { "nvim-telescope/telescope.nvim" },
     { "lukas-reineke/lsp-format.nvim" },
     { "neovim/nvim-lspconfig" },
   },
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
+    local lspconfig = require("lspconfig")
+    local builtin = require("telescope.builtin")
     local efmls = require("efmls-configs")
     local prettier_d = require("efmls-configs.linters.eslint_d")
     local eslint_d = require("efmls-configs.formatters.prettier_d")
     local stylua = require("efmls-configs.formatters.stylua")
-    local lspconfig = require("lspconfig")
-    local builtin = require("telescope.builtin")
+    local smlfmt = require("efmls.formatters.smlfmt")
 
     efmls.init({
       init_options = {
@@ -27,6 +28,9 @@ return {
       },
       lua = {
         formatter = stylua,
+      },
+      sml = {
+        formatter = smlfmt.formatCommand,
       },
     })
 
@@ -48,6 +52,11 @@ return {
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     lspconfig.emmet_language_server.setup({})
     lspconfig.tsserver.setup({})
+
+    lspconfig.millet.setup({
+      filetype = { "sml" },
+      on_attach = require("lsp-format").on_attach,
+    })
 
     lspconfig.racket_langserver.setup({
       on_attach = require("lsp-format").on_attach,
@@ -83,8 +92,8 @@ return {
       end,
     })
 
-    require("lspconfig").efm.setup({
-      filetypes = { "typescript", "javascript", "lua", "yaml" },
+    lspconfig.efm.setup({
+      filetypes = { "typescript", "javascript", "lua", "yaml", "sml" },
       on_attach = require("lsp-format").on_attach,
       init_options = { documentformatting = true },
       settings = {
@@ -92,8 +101,10 @@ return {
           typescript = { prettier_d },
           yaml = { prettier_d },
           lua = { stylua },
+          sml = { smlfmt },
         },
       },
     })
+
   end,
 }
