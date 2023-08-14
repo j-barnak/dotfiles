@@ -50,7 +50,6 @@ return {
     lspconfig.tsserver.setup({})
 
     lspconfig.racket_langserver.setup({
-      filetypes = { "racket" },
       on_attach = require("lsp-format").on_attach,
     })
 
