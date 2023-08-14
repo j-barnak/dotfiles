@@ -1,13 +1,34 @@
 return {
-  "neovim/nvim-lspconfig",
+  "creativenull/efmls-configs-nvim",
   event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     { "nvim-telescope/telescope.nvim" },
     { "lukas-reineke/lsp-format.nvim" },
+    { "neovim/nvim-lspconfig" },
   },
   config = function()
+    local efmls = require("efmls-configs")
+    local prettier_d = require("efmls-configs.linters.eslint_d")
+    local eslint_d = require("efmls-configs.formatters.prettier_d")
+    local stylua = require("efmls-configs.formatters.stylua")
     local lspconfig = require("lspconfig")
     local builtin = require("telescope.builtin")
+
+    efmls.init({
+      init_options = {
+        documentformatting = true,
+      },
+    })
+
+    efmls.setup({
+      javascript = {
+        linter = eslint_d,
+        formatter = prettier_d,
+      },
+      lua = {
+        formatter = stylua,
+      },
+    })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -23,16 +44,13 @@ return {
       end,
     })
 
-    -- NOTE: Use lsp-format.nvim when LSPs support formatting.
-    --       i.e., if an LSP supports `vim.lsp.buf.format()`, configure
-    --       formmatting here
-
     -- Server setup here
     -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
     lspconfig.emmet_language_server.setup({})
     lspconfig.tsserver.setup({})
 
     lspconfig.racket_langserver.setup({
+      filetypes = { "racket" },
       on_attach = require("lsp-format").on_attach,
     })
 
@@ -64,6 +82,19 @@ return {
         end
         return true
       end,
+    })
+
+    require("lspconfig").efm.setup({
+      filetypes = { "typescript", "javascript", "lua", "yaml" },
+      on_attach = require("lsp-format").on_attach,
+      init_options = { documentformatting = true },
+      settings = {
+        languages = {
+          typescript = { prettier_d },
+          yaml = { prettier_d },
+          lua = { stylua },
+        },
+      },
     })
   end,
 }
