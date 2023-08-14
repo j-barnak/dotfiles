@@ -1,19 +1,19 @@
--- TODO: Make it lazy-esque
 return {
   "mrjones2014/smart-splits.nvim",
-  lazy = false,
+  event = "VeryLazy",
   opts = {},
-  config = function()
-    require("smart-splits").setup({})
-    vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
-    vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
-    vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
-    vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
-    -- moving between splits
-    vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
-    vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
-    vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
-    vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
-    vim.keymap.set("n", "<leader>-", "<cmd>split<cr>")
-  end,
+  keys = {
+    -- stylua: ignore start
+   { "<A-h>", function () require("smart-splits").resize_left() end, silent = true },
+   { "<A-j>", function () require("smart-splits").resize_down() end, silent = true },
+   { "<A-k>", function () require("smart-splits").resize_up() end, silent = true },
+   { "<A-l>", function () require("smart-splits").resize_right() end, silent = true },
+   { "<C-h>", function () require("smart-splits").move_cursor_left() end, silent = true },
+   { "<C-j>", function () require("smart-splits").move_cursor_down() end, silent = true },
+   { "<C-k>", function () require("smart-splits").move_cursor_up() end, silent = true },
+   { "<C-l>", function () require("smart-splits").move_cursor_right() end, silent = true },
+   { "<leader>-", "<cmd>split<cr>", silent = true },
+   { "<leader>=", "<cmd>vsplit<cr>", silent = true },
+    -- stylua: ignore end
+  },
 }
