@@ -2,8 +2,8 @@ return {
   "sindrets/diffview.nvim",
   event = "VeryLazy",
   keys = {
-    { "<leader>hh", "<cmd>DiffviewOpen<cr>" },
+    { "<leader><leader>h", "<cmd>DiffviewOpen<cr>" },
+    { "<leader><leader>j", "<cmd>set hidden<cr><cmd>DiffviewClose<cr><cmd>set nohidden<cr>" },
   },
   opts = {},
-  config = function() end,
 }
