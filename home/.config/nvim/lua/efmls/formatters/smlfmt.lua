@@ -1,11 +1,13 @@
 -- Metadata
 -- languages: sml
--- url: https://github.com/shwestrick/smlfmt
+-- url: https://github.com/j-barnak/smlfmt
+
+-- NOTE: Use your own fork of j-barnak of smlfmt
 
 local fs = require("efmls-configs.fs")
 
 local formatter = "smlfmt"
-local command = string.format("%s --preview-only ${FILENAME} | sed '1d;$d'", fs.executable(formatter))
+local command = string.format("%s --preview-only ${INPUT}", fs.executable(formatter))
 
 return {
   formatCommand = command,
