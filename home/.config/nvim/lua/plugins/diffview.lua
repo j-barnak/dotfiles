@@ -5,4 +5,5 @@ return {
     { "<leader>hh", "<cmd>DiffviewOpen<cr>" },
   },
   opts = {},
+  config = function() end,
 }

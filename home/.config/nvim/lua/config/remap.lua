@@ -1,4 +1,5 @@
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+-- Hi
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "q", "<Nop>", { silent = true }) -- disable macro
 vim.keymap.set("n", "s", "<Nop>", { silent = true }) -- For mini.surround
