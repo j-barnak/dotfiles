@@ -18,6 +18,7 @@ fi
 # * wl-clipboard
 # * sioyek
 # * go
+# * efm ls
 
 export LANG=en_US.UTF-8
 export MANPAGER="/usr/local/bin/nvim -c 'Man!' -o -"
@@ -75,6 +76,7 @@ alias sio="sioyek"
 alias gp="git push"
 alias ..='cd ..'
 alias gs="legit switch"
+alias sound="sudo ~/.scripts/sound-fix.sh"
 
 # Tab Selection Menu with Colors
 # Case-Insensitive Autocomplete
