@@ -10,6 +10,7 @@ return {
     local lspconfig = require("lspconfig")
     local builtin = require("telescope.builtin")
     local efmls = require("efmls-configs")
+    -- Formatters  and linters
     local prettier_d = require("efmls-configs.linters.eslint_d")
     local eslint_d = require("efmls-configs.formatters.prettier_d")
     local stylua = require("efmls-configs.formatters.stylua")
@@ -55,7 +56,7 @@ return {
 
     lspconfig.millet.setup({
       filetype = { "sml" },
-      -- on_attach = require("lsp-format").on_attach,
+      on_attach = require("lsp-format").on_attach,
     })
 
     lspconfig.racket_langserver.setup({
@@ -68,7 +69,6 @@ return {
         "clangd",
         "--all-scopes-completion",
         "--background-index",
-        "--clang-tidy",
         "--cross-file-rename",
         "--header-insertion=never",
       },
@@ -104,18 +104,6 @@ return {
           sml = { smlfmt },
         },
       },
-    })
-
-    -- Test autoformat
-    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-      callback = function()
-        -- Files handled by `lsp-format`
-        local ft = vim.bo.filetype
-        if ft == "sml" then
-          vim.cmd("write!")
-          vim.lsp.buf.format()
-        end
-      end,
     })
   end,
 }
