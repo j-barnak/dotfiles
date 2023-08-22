@@ -10,6 +10,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "diffview.nvim": { "branch": "main", "commit": "db97e667e03294bfa9f15e544e78f3082247bf79" },
   "efmls-configs-nvim": { "branch": "main", "commit": "d4f8888fc02f0de086e215509e8b58afe367b11d" },
+  "flash.nvim": { "branch": "main", "commit": "967117690bd677cb7b6a87f0bc0077d2c0be3a27" },
   "gitsigns.nvim": { "branch": "main", "commit": "55f8fc7b13205d44359080ed00095674c353bd76" },
   "harpoon": { "branch": "master", "commit": "21f4c47c6803d64ddb934a5b314dcb1b8e7365dc" },
   "hop.nvim": { "branch": "master", "commit": "541470556badafa5621cd058bd2aa53ea65444f0" },
