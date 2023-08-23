@@ -12,8 +12,8 @@ return {
     local builtin = require("telescope.builtin")
     local efmls = require("efmls-configs")
     -- Formatters  and linters
-    local prettier_d = require("efmls-configs.linters.eslint_d")
-    local eslint_d = require("efmls-configs.formatters.prettier_d")
+    local eslint_d = require("efmls-configs.linters.eslint_d")
+    local prettier_d = require("efmls-configs.formatters.prettier_d")
     local stylua = require("efmls-configs.formatters.stylua")
     local smlfmt = require("efmls-configs.formatters.smlfmt")
 
@@ -26,7 +26,7 @@ return {
     efmls.setup({
       javascript = {
         linter = eslint_d,
-        formatter = prettier_d,
+        formatter = eslint_d,
       },
       lua = {
         formatter = stylua,
