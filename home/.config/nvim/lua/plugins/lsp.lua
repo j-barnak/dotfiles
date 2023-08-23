@@ -13,9 +13,9 @@ return {
     local builtin = require("telescope.builtin")
 
     local languages = {
-      typescript = {
-        require("efmls-configs.linters.eslint"),
-        require("efmls-configs.formatters.prettier"),
+      javascript = {
+        require("efmls-configs.linters.eslint_d"),
+        require("efmls-configs.formatters.prettier_d"),
       },
       lua = {
         require("efmls-configs.formatters.stylua"),
