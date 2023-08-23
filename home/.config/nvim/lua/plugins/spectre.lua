@@ -5,7 +5,7 @@ return {
     require("spectre").setup({
       mapping = {
         ["close_spectre"] = {
-          map = "<leader>q",
+          map = "Q",
           cmd = "<cmd>q!<cr>",
           desc = "Close spectre",
         },
