@@ -1,4 +1,3 @@
--- TODO: Have eslint_d take care of formatting and linting
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = {
@@ -12,7 +11,6 @@ return {
     local builtin = require("telescope.builtin")
     local efmls = require("efmls-configs")
     -- Formatters  and linters
-    local eslint_d = require("efmls-configs.linters.eslint_d")
     local prettier_d = require("efmls-configs.formatters.prettier_d")
     local stylua = require("efmls-configs.formatters.stylua")
     local smlfmt = require("efmls-configs.formatters.smlfmt")
@@ -25,8 +23,7 @@ return {
 
     efmls.setup({
       javascript = {
-        linter = eslint_d,
-        formatter = eslint_d,
+        formatter = prettier_d,
       },
       lua = {
         formatter = stylua,
