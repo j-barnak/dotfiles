@@ -1,3 +1,4 @@
+-- TODO: Have eslint_d take care of formatting and linting
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = {
@@ -56,7 +57,6 @@ return {
 
     lspconfig.millet.setup({
       filetype = { "sml" },
-      on_attach = require("lsp-format").on_attach,
     })
 
     lspconfig.racket_langserver.setup({
@@ -95,7 +95,7 @@ return {
     lspconfig.efm.setup({
       filetypes = { "typescript", "javascript", "lua", "yaml", "sml" },
       on_attach = require("lsp-format").on_attach,
-      init_options = { documentformatting = true },
+      init_options = { documentFormatting = true },
       settings = {
         languages = {
           typescript = { prettier_d },
