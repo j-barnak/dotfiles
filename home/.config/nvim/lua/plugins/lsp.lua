@@ -1,3 +1,5 @@
+-- [efmls-configs] init() and setup() is no longer required,
+-- check `:help efmls-configs-setup` for the new way.
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = {
@@ -9,29 +11,35 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local builtin = require("telescope.builtin")
-    local efmls = require("efmls-configs")
-    -- Formatters  and linters
-    local prettier_d = require("efmls-configs.formatters.prettier_d")
-    local stylua = require("efmls-configs.formatters.stylua")
-    local smlfmt = require("efmls-configs.formatters.smlfmt")
 
-    efmls.init({
-      init_options = {
-        documentformatting = true,
-      },
-    })
-
-    efmls.setup({
-      javascript = {
-        formatter = prettier_d,
+    local languages = {
+      typescript = {
+        require("efmls-configs.linters.eslint"),
+        require("efmls-configs.formatters.prettier"),
       },
       lua = {
-        formatter = stylua,
+        require("efmls-configs.formatters.stylua"),
       },
       sml = {
-        formatter = smlfmt.formatCommand,
+        require("efmls-configs.formatters.smlfmt"),
       },
-    })
+    }
+
+    local efmls_config = {
+      filetypes = vim.tbl_keys(languages),
+      settings = {
+        rootMarkers = { ".git/" },
+        languages = languages,
+      },
+      init_options = {
+        documentFormatting = true,
+        documentRangeFormatting = true,
+      },
+    }
+
+    require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
+      on_attach = require("lsp-format").on_attach,
+    }))
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -87,20 +95,6 @@ return {
         end
         return true
       end,
-    })
-
-    lspconfig.efm.setup({
-      filetypes = { "typescript", "javascript", "lua", "yaml", "sml" },
-      on_attach = require("lsp-format").on_attach,
-      init_options = { documentFormatting = true },
-      settings = {
-        languages = {
-          typescript = { prettier_d },
-          yaml = { prettier_d },
-          lua = { stylua },
-          sml = { smlfmt },
-        },
-      },
     })
   end,
 }
