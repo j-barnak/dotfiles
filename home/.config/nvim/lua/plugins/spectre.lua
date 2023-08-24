@@ -1,4 +1,3 @@
--- TODO: Laz-ify this
 return {
   "nvim-pack/nvim-spectre",
   opts = {
@@ -13,7 +12,4 @@ return {
   keys = {
     { "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', desc = "Toggle Spectre" },
   },
-  config = function(_, opts)
-    require("spectre").setup(opts)
-  end,
 }
