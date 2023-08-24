@@ -1,19 +1,19 @@
 -- TODO: Laz-ify this
 return {
   "nvim-pack/nvim-spectre",
-  config = function()
-    require("spectre").setup({
-      mapping = {
-        ["close_spectre"] = {
-          map = "Q",
-          cmd = "<cmd>q!<cr>",
-          desc = "Close spectre",
-        },
-        -- you can put your mapping here it only use normal mode
+  opts = {
+    mapping = {
+      ["close_spectre"] = {
+        map = "Q",
+        cmd = "<cmd>q!<cr>",
+        desc = "Close spectre",
       },
-    })
-    vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
-      desc = "Toggle Spectre",
-    })
+    },
+  },
+  keys = {
+    { "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', desc = "Toggle Spectre" },
+  },
+  config = function(_, opts)
+    require("spectre").setup(opts)
   end,
 }
