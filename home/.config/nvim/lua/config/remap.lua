@@ -1,5 +1,4 @@
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
--- Hi
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "q", "<Nop>", { silent = true }) -- disable macro
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
@@ -13,3 +12,5 @@ vim.keymap.set({ "n", "o", "x" }, "L", "$", {})
 vim.keymap.set("n", "U", "<C-r>")
 vim.keymap.set("n", "<leader>q", "<cmd>q<cr>")
 vim.keymap.set({ "n", "v" }, "<leader><leader>", '"a', { buffer = true })
+vim.keymap.set("v", ";;", "<Esc>`<kzfgg`>jzfG`<", { silent = true })
+vim.keymap.set("n", ";;", ":nmap <silent><Leader>zs <Esc>zRzz", { silent = true })
