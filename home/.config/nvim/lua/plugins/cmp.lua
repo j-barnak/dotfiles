@@ -1,4 +1,3 @@
--- TODO: lazy-ify the keymap
 return {
   "hrsh7th/nvim-cmp",
   version = false,
@@ -64,10 +63,5 @@ return {
         },
       }),
     }
-  end,
-  -- TODO: See if I need this later
-  config = function(_, opts)
-    require("cmp").setup(opts)
-    -- vim.keymap.set("i", "<S-CR>", "<cmd>lua require'luasnip'.jump(1)<CR>", { noremap = true, silent = true })
   end,
 }
