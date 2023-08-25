@@ -11,6 +11,7 @@ return {
   },
   opts = function()
     local cmp = require("cmp")
+
     local entry_filter_fn = function()
       local context = require("cmp.config.context")
       return not context.in_treesitter_capture("string") and not context.in_syntax_group("String")
