@@ -11,6 +11,11 @@ return {
   },
   opts = function()
     local cmp = require("cmp")
+    local entry_filter_fn = function()
+      local context = require("cmp.config.context")
+      return not context.in_treesitter_capture("string") and not context.in_syntax_group("String")
+    end
+
     return {
       completion = {
         completeopt = "noselect",
@@ -26,11 +31,23 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
       }),
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
+        {
+          name = "nvim_lsp",
+          entry_filter = entry_filter_fn,
+        },
+        {
+          name = "luasnip",
+          entry_filter = entry_filter_fn,
+        },
+        {
+          name = "path",
+          entry_filter = entry_filter_fn,
+        },
       }, {
-        { name = "buffer" },
+        {
+          name = "buffer",
+          entry_filter = entry_filter_fn,
+        },
       }),
     }
   end,
