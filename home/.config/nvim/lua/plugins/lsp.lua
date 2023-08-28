@@ -1,5 +1,3 @@
--- [efmls-configs] init() and setup() is no longer required,
--- check `:help efmls-configs-setup` for the new way.
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = {

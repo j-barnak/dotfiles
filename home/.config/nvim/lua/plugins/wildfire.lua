@@ -9,7 +9,4 @@ return {
       node_decremental = "<S-BS>",
     },
   },
-  -- config = function()
-  --   require("wildfire").setup()
-  -- end,
 }

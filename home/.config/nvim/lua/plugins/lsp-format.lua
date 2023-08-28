@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
-  config = function()
-    require("lsp-format").setup({})
+  opts = {},
+  config = function(_, opts)
+    require("lsp-format").setup(opts)
   end,
 }
