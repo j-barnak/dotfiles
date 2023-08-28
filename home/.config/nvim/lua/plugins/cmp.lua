@@ -9,7 +9,6 @@ return {
     "hrsh7th/cmp-path",
     "saadparwaiz1/cmp_luasnip",
   },
-  -- TODO: Verify that this works
   keys = {
     {
       "<S-CR>",
