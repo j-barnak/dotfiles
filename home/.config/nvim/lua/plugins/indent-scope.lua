@@ -5,6 +5,6 @@ return {
   },
   config = function()
     require("indent_blankline").setup({})
-    vim.cmd("let g:indent_blankline_filetype_exclude = ['markdown', 'text', '']")
+    vim.cmd("let g:indent_blankline_filetype_exclude = ['markdown', 'text', '', 'asm', 'make']")
   end,
 }
