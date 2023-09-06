@@ -20,4 +20,7 @@ return {
       end,
     },
   },
+  config = function(_, opts)
+    require("marks").setup(opts)
+  end,
 }
