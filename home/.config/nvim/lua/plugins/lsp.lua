@@ -66,16 +66,22 @@ return {
       on_attach = require("lsp-format").on_attach,
     })
 
-    lspconfig.clangd.setup({
-      on_attach = require("lsp-format").on_attach,
-      cmd = {
-        "clangd",
-        "--all-scopes-completion",
-        "--background-index",
-        "--cross-file-rename",
-        "--header-insertion=never",
-      },
-    })
+    -- Configure Specific Projects LSPs Here
+    local serenity_root = "/home/jared/Projects/serenity"
+    if vim.fn.getcwd() == serenity_root then
+      require("util.project").serenity()
+    else
+      lspconfig.clangd.setup({
+        on_attach = require("lsp-format").on_attach,
+        cmd = {
+          "clangd",
+          "--all-scopes-completion",
+          "--background-index",
+          "--cross-file-rename",
+          "--header-insertion=never",
+        },
+      })
+    end
 
     lspconfig.lua_ls.setup({
       on_init = function(client)
