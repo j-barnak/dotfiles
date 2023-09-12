@@ -24,5 +24,6 @@ vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes:1"
 vim.opt.cursorline = true
 vim.opt.exrc = true
+vim.opt.secure = true
 vim.opt.confirm = true
 vim.g.editorconfig = false

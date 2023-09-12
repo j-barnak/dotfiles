@@ -4,7 +4,7 @@ Dependencies:
 * [Lua](https://www.lua.org/download.html)
 * [LuaJIT](https://luajit.org/install.html)
 * [nvm](https://github.com/nvm-sh/nvm)
-* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim#linux) (obviously)
+* [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim#linux)
 * [CMake](https://cmake.org/download/)
 * [Wezterm](https://wezfurlong.org/wezterm/install/linux.html#installing-on-ubuntu-and-debian-based-systems)
     * Make sure to install the debian package (i.e., `wezterm*.deb`)

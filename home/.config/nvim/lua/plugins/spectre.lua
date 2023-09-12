@@ -3,7 +3,7 @@ return {
   opts = {
     mapping = {
       ["close_spectre"] = {
-        map = "Q",
+        map = "<leader>Q",
         cmd = "<cmd>q!<cr>",
         desc = "Close spectre",
       },

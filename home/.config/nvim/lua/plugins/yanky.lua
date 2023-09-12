@@ -19,8 +19,8 @@ return {
     { "y", "<Plug>(YankyYank)", mode = { "n", "x" } },
     { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
     { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
-    { "<c-n>", "<Plug>(YankyCycleForward)" },
-    { "<c-p>", "<Plug>(YankyCycleBackward)" },
+    { "<c-j>", "<Plug>(YankyCycleBackward)" },
+    { "<c-k>", "<Plug>(YankyCycleForward)" },
     { "<leader>p", "a<space><esc><Plug>(YankyPutAfter)" },
   },
   config = function(_, opts)

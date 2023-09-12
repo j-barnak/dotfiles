@@ -11,6 +11,9 @@ return {
     local builtin = require("telescope.builtin")
 
     local languages = {
+      html = {
+        require("efmls-configs.formatters.prettier_d"),
+      },
       javascript = {
         require("efmls-configs.linters.eslint_d"),
         require("efmls-configs.formatters.prettier_d"),
@@ -66,6 +69,7 @@ return {
       on_attach = require("lsp-format").on_attach,
     })
 
+    -- TODO: Make it so that `exrc` works properly
     -- Configure Specific Projects LSPs Here
     local serenity_root = "/home/jared/Projects/serenity"
     if vim.fn.getcwd() == serenity_root then

@@ -1,3 +1,6 @@
+local root_str = { ".git", ".clang-format", "pyproject.toml", "setup.py" }
+local root_dir = vim.fs.dirname(vim.fs.find(root_str, { upward = true })[1])
+
 return {
   "stevearc/oil.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -7,6 +10,14 @@ return {
       "<leader>fe",
       mode = { "n" },
       "<cmd>Oil --float<cr>",
+      desc = "Open Oil",
+    },
+    {
+      "<leader>fE",
+      mode = { "n" },
+      function()
+        require("oil").toggle_float(root_dir)
+      end,
       desc = "Open Oil",
     },
   },
