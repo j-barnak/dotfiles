@@ -1,4 +1,4 @@
-local root_str = { ".git", ".clang-format", "pyproject.toml", "setup.py" }
+local root_str = { "stylua.lua", ".git", ".clang-format", "pyproject.toml", "setup.py" }
 local root_dir = vim.fs.dirname(vim.fs.find(root_str, { upward = true })[1])
 
 return {
