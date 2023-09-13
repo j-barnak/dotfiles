@@ -5,7 +5,6 @@ return {
     { "lukas-reineke/lsp-format.nvim" },
     { "neovim/nvim-lspconfig" },
   },
-  event = { "BufReadPost", "BufNewFile" },
   config = function()
     local lspconfig = require("lspconfig")
     local builtin = require("telescope.builtin")
@@ -69,23 +68,17 @@ return {
       on_attach = require("lsp-format").on_attach,
     })
 
-    -- TODO: Make it so that `exrc` works properly
-    -- Configure Specific Projects LSPs Here
-    local serenity_root = "/home/jared/Projects/serenity"
-    if vim.fn.getcwd() == serenity_root then
-      require("util.project").serenity()
-    else
-      lspconfig.clangd.setup({
-        on_attach = require("lsp-format").on_attach,
-        cmd = {
-          "clangd",
-          "--all-scopes-completion",
-          "--background-index",
-          "--cross-file-rename",
-          "--header-insertion=never",
-        },
-      })
-    end
+    lspconfig.clangd.setup({
+      on_attach = require("lsp-format").on_attach,
+      cmd = {
+        "clangd",
+        "--all-scopes-completion",
+        "--background-index",
+        "--cross-file-rename",
+        "--header-insertion=never",
+      },
+    })
+    -- end
 
     lspconfig.lua_ls.setup({
       on_init = function(client)
