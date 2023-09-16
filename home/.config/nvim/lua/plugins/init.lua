@@ -5,4 +5,8 @@ return {
   {
     "tpope/vim-fugitive",
   },
+  -- TODO: When 0.10 stable releases, uncomment
+  -- {
+  --   "Bekaboo/dropbar.nvim"
+  -- },
 }

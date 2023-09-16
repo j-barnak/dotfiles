@@ -2,22 +2,24 @@ return {
   {
     "echasnovski/mini.ai",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
-    config = function()
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    opts = function()
       local miniai = require("mini.ai")
 
-      miniai.setup({
+      return {
         n_lines = 300,
         custom_textobjects = {
-          o = miniai.gen_spec.treesitter({
-            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
-            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
-          }, {}),
           f = miniai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-          c = miniai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
         },
         silent = true,
-      })
+        search_method = "cover",
+        mappings = {
+          around_next = "",
+          inside_next = "",
+          around_last = "",
+          inside_last = "",
+        },
+      }
     end,
   },
 }
