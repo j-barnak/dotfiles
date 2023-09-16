@@ -30,6 +30,8 @@ return {
     },
     keymaps = {
       ["h"] = "actions.parent",
+      ["l"] = "actions.select",
+      ["<cr>"] = "actions.select",
     },
     use_default_keymaps = true,
   },
