@@ -42,6 +42,11 @@ return {
       desc = "Find symbols",
     },
     {
+      "<leader>fS",
+      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+      desc = "Find workspace symbols",
+    },
+    {
       "<leader>fu",
       "<cmd>Telescope undo<cr>",
       desc = "Find symbols",
