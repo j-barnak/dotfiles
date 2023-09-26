@@ -15,7 +15,7 @@ return {
     vim.api.nvim_set_hl(0, "NoiceCmdlinePopup", { bg = "#242933" })
     vim.api.nvim_set_hl(0, "NoiceCmdlinePopupTitle", { fg = "#ECEFF4", bg = "#242933", bold = true })
     -- Fixes Searchbox
-    vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#242933", bold = true })
-    vim.api.nvim_set_hl(0, "FloatTitle", { link = "NoiceCmdlinePopupTitle" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { link = "TelescopeBorder" })
+    vim.api.nvim_set_hl(0, "FloatTitle", { link = "TelescopeTitle" })
   end,
 }
