@@ -18,6 +18,7 @@ return {
         "toggleterm",
         "lazyterm",
         "asm",
+        "markdown",
       },
     },
   },
