@@ -1,7 +1,25 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  config = function()
-    require("indent_blankline").setup({})
-    vim.cmd("let g:indent_blankline_filetype_exclude = ['markdown', 'text', '', 'asm', 'make']")
-  end,
+  event = { "BufReadPost", "BufNewFile" },
+  opts = {
+    indent = { highlight = { "LineNr" }, char = "│" },
+    scope = { enabled = false },
+    exclude = {
+      filetypes = {
+        "help",
+        "alpha",
+        "dashboard",
+        "*oil*",
+        "neo-tree",
+        "Trouble",
+        "lazy",
+        "mason",
+        "notify",
+        "toggleterm",
+        "lazyterm",
+        "asm",
+      },
+    },
+  },
+  main = "ibl",
 }
