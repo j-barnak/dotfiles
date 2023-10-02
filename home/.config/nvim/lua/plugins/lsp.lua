@@ -52,6 +52,7 @@ return {
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<leader>rr", builtin.lsp_references, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>0", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
       end,
     })
 

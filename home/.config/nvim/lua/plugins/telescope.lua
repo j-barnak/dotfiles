@@ -54,17 +54,7 @@ return {
   },
   opts = {},
   config = function()
-    require("telescope").setup({
-      extensions = {
-        undo = {
-          mappings = {
-            i = {
-              ["<cr>"] = require("telescope-undo.actions").restore,
-            },
-          },
-        },
-      },
-    })
+    require("telescope").setup()
 
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("projects")

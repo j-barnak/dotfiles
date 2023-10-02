@@ -17,5 +17,7 @@ return {
     -- Fixes Searchbox
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "TelescopeBorder" })
     vim.api.nvim_set_hl(0, "FloatTitle", { link = "TelescopeTitle" })
+    -- Fixes LSP highlighting
+    vim.api.nvim_set_hl(0, "@lsp.type.operator.cpp", {})
   end,
 }
