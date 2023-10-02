@@ -36,3 +36,5 @@ wezterm start --always-new-process
 ```
 
 For VNC, install `tigervnc-viewer`. Provided in the `InstallStuff.sh` script.
+
+Within GNS3, choose the `tightvnc` option for vnc viewing
