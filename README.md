@@ -33,3 +33,5 @@ When mapping a shortcut to launch wezterm, use:
 ```
 wezterm start --always-new-process
 ```
+
+For VNC, install `tigervnc-viewer`. Provided in the `InstallStuff.sh` script.
