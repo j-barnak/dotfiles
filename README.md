@@ -1,8 +1,9 @@
 # dotfiles
 
-Dependencies:
+Tools and stuff:
 * [Lua](https://www.lua.org/download.html)
 * [LuaJIT](https://luajit.org/install.html)
+* [zk](https://github.com/mickael-menu/zk)
 * [nvm](https://github.com/nvm-sh/nvm)
 * [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim#linux)
 * [CMake](https://cmake.org/download/)
