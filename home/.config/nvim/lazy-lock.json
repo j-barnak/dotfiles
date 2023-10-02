@@ -9,7 +9,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "efmls-configs-nvim": { "branch": "main", "commit": "d6bef40a30c5c42570043ffacd87dbe934fe43c4" },
   "gitsigns.nvim": { "branch": "main", "commit": "bdeba1cec3faddd89146690c10b9a87949c0ee66" },
-  "harpoon": { "branch": "master", "commit": "21f4c47c6803d64ddb934a5b314dcb1b8e7365dc" },
+  "harpoon-core.nvim": { "branch": "main", "commit": "ad023d3b182ba6b57531a57dd60205a49a5ef1bb" },
   "hop.nvim": { "branch": "master", "commit": "f2508f415b9fe34082696009574ca26f57a66531" },
   "indent-blankline.nvim": { "branch": "master", "commit": "f5335ef7493bd6adf5f2ae21d67240709a514408" },
   "lazy.nvim": { "branch": "main", "commit": "6b55e4695a5e85d862e517bf860bd913a4a45d86" },
