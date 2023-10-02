@@ -10,15 +10,10 @@ return {
     "saadparwaiz1/cmp_luasnip",
   },
   keys = {
-    {
-      "<S-CR>",
-      function()
-        require("luasnip").jump(1)
-      end,
-      mode = { "i" },
-      silent = true,
-      remap = false,
-    },
+    -- stylua: ignore start
+    { "<S-CR>", function() require("luasnip").jump(1) end, mode = { "i" }, silent = true, remap = false, },
+    { "<C-CR>", function() require("luasnip").expand() end, mode = { "i" }, silent = true, remap = false, },
+    -- stylua: ignore end
   },
   opts = function()
     local cmp = require("cmp")
@@ -41,6 +36,8 @@ return {
         ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior }),
         ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior }),
         ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false }),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
       }),
       sources = cmp.config.sources({
         {
