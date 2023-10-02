@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Necessary Installations:
 # * nvim
 # * fzf
@@ -19,6 +12,13 @@ fi
 # * sioyek
 # * go
 # * efm ls
+ 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 export LANG=en_US.UTF-8
 export MANPAGER="/usr/local/bin/nvim -c 'Man!' -o -"
@@ -79,6 +79,7 @@ alias gp="git push"
 alias ..='cd ..'
 alias gs="legit switch"
 alias sound="sudo ~/.scripts/sound-fix.sh"
+alias zn="zk new"
 
 # Tab Selection Menu with Colors
 # Case-Insensitive Autocomplete
