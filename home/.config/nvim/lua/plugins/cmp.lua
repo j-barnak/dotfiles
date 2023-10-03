@@ -47,6 +47,10 @@ return {
         {
           name = "luasnip",
           entry_filter = entry_filter_fn,
+          -- TODO: See if this interferes with an LSP's suggestion of functions
+          --       e.g., if recommends a snippet before a function.
+          --       So far it's good
+
           -- We often wanted the snippet rather than the key word, hence higher
           -- priority
           priority = 100,
