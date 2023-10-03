@@ -1,5 +1,5 @@
 return {
-  "smoka7/hop.nvim",
+  "j-barnak/hop.nvim",
   event = "VeryLazy",
   opts = {},
   keys = {
