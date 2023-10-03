@@ -47,6 +47,9 @@ return {
         {
           name = "luasnip",
           entry_filter = entry_filter_fn,
+          -- We often wanted the snippet rather than the key word, hence higher
+          -- priority
+          priority = 100,
         },
         {
           name = "path",
