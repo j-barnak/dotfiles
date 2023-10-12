@@ -7,7 +7,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
-  "efmls-configs-nvim": { "branch": "main", "commit": "3fade5690e31f80b70eb5fc5a7fa7a8da6644fe9" },
+  "conform.nvim": { "branch": "master", "commit": "4db76a68b47aa6e9777e4da4aed16f0fff74920e" },
   "gitsigns.nvim": { "branch": "main", "commit": "ff01d34daaed72f271a8ffa088a7e839a60c640f" },
   "harpoon-core.nvim": { "branch": "main", "commit": "0447c2a3524f77ff226938bb4b9f7058317891fb" },
   "hop.nvim": { "branch": "master", "commit": "e1703a7828015b0bb15d8a0c8ff5c1d42a4203f7" },

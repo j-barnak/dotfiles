@@ -1,45 +1,12 @@
 return {
-  "creativenull/efmls-configs-nvim",
+  "neovim/nvim-lspconfig",
   dependencies = {
     { "nvim-telescope/telescope.nvim" },
     { "lukas-reineke/lsp-format.nvim" },
-    { "neovim/nvim-lspconfig" },
   },
   config = function()
     local lspconfig = require("lspconfig")
     local builtin = require("telescope.builtin")
-
-    local languages = {
-      html = {
-        require("efmls-configs.formatters.prettier_d"),
-      },
-      javascript = {
-        require("efmls-configs.linters.eslint_d"),
-        require("efmls-configs.formatters.prettier_d"),
-      },
-      lua = {
-        require("efmls-configs.formatters.stylua"),
-      },
-      sml = {
-        require("efmls-configs.formatters.smlfmt"),
-      },
-    }
-
-    local efmls_config = {
-      filetypes = vim.tbl_keys(languages),
-      settings = {
-        rootMarkers = { ".git/" },
-        languages = languages,
-      },
-      init_options = {
-        documentFormatting = true,
-        documentRangeFormatting = true,
-      },
-    }
-
-    lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
-      on_attach = require("lsp-format").on_attach,
-    }))
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
