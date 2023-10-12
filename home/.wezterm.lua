@@ -17,6 +17,8 @@ config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.font = wezterm.font("FiraCode Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" })
 
+config.font_size = 16.0
+
 config.colors = {
 	cursor_bg = "white",
 	cursor_fg = "black",

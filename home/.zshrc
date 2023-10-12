@@ -25,7 +25,6 @@ export MANPAGER="/usr/local/bin/nvim -c 'Man!' -o -"
 export EDITOR='nvim'
 export DIFFPROG='nvim -d'
 export FZF_DEFAULT_COMMAND='rg --no-messages --files --no-ignore --hidden --follow --glob "!.git/*"'
-export FZF_DEFAULT_OPTS="--no-separator --layout=reverse --inline-info"
 
 HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"       # The path to the history file.
 HISTSIZE=1000000000                             # The maximum number of events to save in the internal history.
@@ -71,7 +70,7 @@ alias fuck="sudo /home/jared/.scripts/sound.sh"
 alias s="source .venv/bin/activate"
 alias d="deactivate"
 alias ls="exa"
-alias ll='exa --long --all --group-directories-first --git'
+alias ll='exa --long --all --group-directories-first'
 alias wl='wl-copy'
 alias vim='nvim'
 alias sio="sioyek"
@@ -87,10 +86,6 @@ autoload -Uz compinit
 compinit
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-# Plugins
-source /home/jared/Installs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/jared/Installs/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Fancy Ctrl-z
 # https://github.com/mdumitru/fancy-ctrl-z
@@ -111,14 +106,12 @@ bindkey '^Z' fancy-ctrl-z
 
 [[ -s /home/jared/.autojump/etc/profile.d/autojump.sh ]] && source /home/jared/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/Installs/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# export PATH="$HOME/.local/bin:$PATH"
-# export PATH="$HOME/go/bin"
-
+# Loads NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

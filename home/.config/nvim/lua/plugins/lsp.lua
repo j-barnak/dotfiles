@@ -37,7 +37,7 @@ return {
       },
     }
 
-    require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
+    lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
       on_attach = require("lsp-format").on_attach,
     }))
 
@@ -72,7 +72,7 @@ return {
     lspconfig.clangd.setup({
       on_attach = require("lsp-format").on_attach,
       cmd = {
-        "clangd",
+        "/usr/bin/clangd-17",
         "--all-scopes-completion",
         "--background-index",
         "--cross-file-rename",
