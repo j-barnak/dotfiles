@@ -65,15 +65,15 @@ export WORDCHARS='.-'
 
 # Aliases
 alias lsv="live-server"
+alias sio="/usr/local/bin/Sioyek-x86_64.AppImage"
+alias wl="xclip -sel clip"
 alias vi="/usr/bin/vim"
 alias fuck="sudo /home/jared/.scripts/sound.sh"
 alias s="source .venv/bin/activate"
 alias d="deactivate"
 alias ls="exa"
 alias ll='exa --long --all --group-directories-first'
-alias wl='wl-copy'
 alias vim='nvim'
-alias sio="sioyek"
 alias gp="git push"
 alias ..='cd ..'
 alias gs="legit switch"

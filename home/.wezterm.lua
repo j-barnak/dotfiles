@@ -11,6 +11,10 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+-- Default Window Size
+config.initial_cols = 185
+config.initial_rows = 50
+
 config.hide_tab_bar_if_only_one_tab = true
 
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
