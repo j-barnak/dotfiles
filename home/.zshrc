@@ -64,6 +64,7 @@ select-word-style bash
 export WORDCHARS='.-'
 
 # Aliases
+alias pwn="ssh -i ~/.ssh/id_rsa hacker@dojo.pwn.college"
 alias lsv="live-server"
 alias sio="/usr/local/bin/Sioyek-x86_64.AppImage"
 alias wl="xclip -sel clip"
@@ -104,8 +105,14 @@ bindkey '^Z' fancy-ctrl-z
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# Autojump
 [[ -s /home/jared/.autojump/etc/profile.d/autojump.sh ]] && source /home/jared/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
+
+# Auto Suggestiosn
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 
+
 source ~/Installs/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -115,3 +122,7 @@ source ~/Installs/powerlevel10k/powerlevel10k.zsh-theme
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Syntax Highlighting
+# Must be at end
+source /home/jared/Installs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
