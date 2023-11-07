@@ -1,3 +1,10 @@
+-- Helper Function
+local get_relative_line = function(offset)
+  local line = vim.api.nvim_win_get_cursor(0)[1]
+  local target = line + offset
+  return vim.api.nvim_buf_get_lines(0, target - 1, target, false)[1]
+end
+
 local M = {}
 
 function M.is_template()
@@ -58,14 +65,19 @@ function M.is_template()
   vim.lsp.handlers["textDocument/signatureHelp"] = old_handler
 end
 
-function M.struct_class_semicolon()
-  local line = vim.api.nvim_get_current_line()
-  -- match for() while() functions()
-  local pattern = "\\m^.*(.*)"
+function M.struct_or_class()
+  local line = get_relative_line(0)
+  local previous_line = get_relative_line(-1)
 
-  if vim.fn.match(line, pattern) ~= -1 or vim.fn.match(line, "namespace") ~= -1 then
-    return false
+  if vim.fn.match(line, "struct") ~= -1 or vim.fn.match(line, "class") ~= -1 then
+    return true
   end
+
+  if vim.fn.match(previous_line, "struct") ~= -1 or vim.fn.match(previous_line, "class") ~= -1 then
+    return true
+  end
+
+  return false
 end
 
 return M
