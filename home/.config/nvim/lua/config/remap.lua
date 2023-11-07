@@ -39,3 +39,8 @@ cnoreabbrev Q q
 cnoreabbrev Qa qa
 cnoreabbrev Qall qall
 ]])
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "qf" },
+  command = [[nnoremap <buffer> <CR> <CR>:cclose<CR>]],
+})
