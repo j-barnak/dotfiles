@@ -69,11 +69,11 @@ function M.struct_or_class()
   local line = get_relative_line(0)
   local previous_line = get_relative_line(-1)
 
-  if vim.fn.match(line, "struct") ~= -1 or vim.fn.match(line, "class") ~= -1 then
+  if vim.fn.match(line, "struct ") ~= -1 or vim.fn.match(line, "class ") ~= -1 then
     return true
   end
 
-  if vim.fn.match(previous_line, "struct") ~= -1 or vim.fn.match(previous_line, "class") ~= -1 then
+  if vim.fn.match(previous_line, "struct ") ~= -1 or vim.fn.match(previous_line, "class ") ~= -1 then
     return true
   end
 

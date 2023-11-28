@@ -1,5 +1,5 @@
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
--- vim.keymap.set("n", "q", "<Nop>", { silent = true }) -- disable macro
+vim.keymap.set("n", "q", "<Nop>", { silent = true }) -- disable macro
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -13,7 +13,6 @@ vim.keymap.set({ "n", "o", "x" }, "L", "$", {})
 vim.keymap.set("n", "U", "<C-r>")
 vim.keymap.set("n", "<leader>q", "<cmd>q<cr>")
 vim.keymap.set("n", "<leader>Q", "<cmd>qall!<cr>")
-vim.keymap.set({ "i", "c" }, "<S-Space>", "<right>")
 
 -- Sanity Mappings
 -- TODO: When 0.10 is released, use: vim.keymap.set("ca", "WQ", "wq")

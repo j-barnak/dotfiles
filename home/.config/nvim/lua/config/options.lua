@@ -27,3 +27,16 @@ vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.confirm = true
 vim.g.editorconfig = false
+
+vim.keymap.set("n", "i", function()
+  if #vim.fn.getline(".") == 0 then
+    return [["_cc]]
+  else
+    return "i"
+  end
+end, { expr = true, desc = "properly indent on empty line when insert" })
+
+if vim.g.neovide == true then
+  vim.o.guifont = "FiraCode Nerd Font:h8"
+  vim.api.nvim_set_keymap("n", "<leader><leader>;", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
+end
