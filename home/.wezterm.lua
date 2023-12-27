@@ -12,14 +12,15 @@ if wezterm.config_builder then
 end
 
 -- Default Window Size
-config.initial_cols = 185
-config.initial_rows = 50
+-- config.initial_cols = 185
+-- config.initial_rows = 50
 
 config.hide_tab_bar_if_only_one_tab = true
 
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.font = wezterm.font("FiraCode Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" })
+-- vim.o.guifont = "FiraCode Nerd Font:h14"
 
 config.font_size = 16.0
 
@@ -32,6 +33,10 @@ config.cursor_blink_rate = 0
 -- config.force_reverse_video_cursor = true
 
 config.color_scheme = "Monokai Pro (Gogh)"
+
+-- config.colors = {
+-- 	background = "#242933",
+-- }
 
 config.window_padding = {
 	left = "0cell",

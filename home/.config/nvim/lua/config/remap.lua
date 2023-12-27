@@ -13,6 +13,11 @@ vim.keymap.set({ "n", "o", "x" }, "L", "$", {})
 vim.keymap.set("n", "U", "<C-r>")
 vim.keymap.set("n", "<leader>q", "<cmd>q<cr>")
 vim.keymap.set("n", "<leader>Q", "<cmd>qall!<cr>")
+vim.keymap.set("n", "<leader>-", "<cmd>split<cr>")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Sanity Mappings
 -- TODO: When 0.10 is released, use: vim.keymap.set("ca", "WQ", "wq")

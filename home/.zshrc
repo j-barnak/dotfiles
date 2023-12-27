@@ -12,7 +12,7 @@
 # * sioyek
 # * go
 # * efm ls
- 
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -64,7 +64,7 @@ select-word-style bash
 export WORDCHARS='.-'
 
 # Aliases
-alias pwn="ssh -i ~/.ssh/id_rsa hacker@dojo.pwn.college"
+alias py="python3"
 alias lsv="live-server"
 alias sio="/usr/local/bin/Sioyek-x86_64.AppImage"
 alias wl="xclip -sel clip"
@@ -74,12 +74,13 @@ alias s="source .venv/bin/activate"
 alias d="deactivate"
 alias ls="exa"
 alias ll='exa --long --all --group-directories-first'
-alias vim='nvim'
+alias vim='neovide'
 alias gp="git push"
 alias ..='cd ..'
 alias gs="legit switch"
 alias sound="sudo ~/.scripts/sound-fix.sh"
 alias zn="zk new"
+alias todo="cat ~/TODO.md"
 
 # Tab Selection Menu with Colors
 # Case-Insensitive Autocomplete
@@ -111,7 +112,7 @@ bindkey '^Z' fancy-ctrl-z
 autoload -U compinit && compinit -u
 
 # Auto Suggestiosn
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/Installs/powerlevel10k/powerlevel10k.zsh-theme
 
