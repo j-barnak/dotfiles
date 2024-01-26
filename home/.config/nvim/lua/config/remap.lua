@@ -18,6 +18,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<BS>", "<C-o>")
 
 -- Sanity Mappings
 -- TODO: When 0.10 is released, use: vim.keymap.set("ca", "WQ", "wq")
@@ -45,6 +46,15 @@ cnoreabbrev Qall qall
 ]])
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "qf" },
-  command = [[nnoremap <buffer> <CR> <CR>:cclose<CR>]],
+	pattern = { "qf" },
+	command = [[nnoremap <buffer> <CR> <CR>:cclose<CR>]],
+})
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function()
+		local mark = vim.api.nvim_buf_get_mark(0, '"')
+		if mark[1] > 1 and mark[1] <= vim.api.nvim_buf_line_count(0) then
+			vim.api.nvim_win_set_cursor(0, mark)
+		end
+	end,
 })

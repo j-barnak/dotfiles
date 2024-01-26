@@ -1,5 +1,8 @@
 return {
   {
+    "stevearc/dressing.nvim",
+  },
+  {
     "felipec/vim-sanegx",
   },
   {
