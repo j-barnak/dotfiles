@@ -21,6 +21,7 @@
 --     vim.api.nvim_set_hl(0, "@lsp.type.operator.cpp", {})
 --   end,
 -- }
+
 return {
   "dasupradyumna/midnight.nvim",
   lazy = false,

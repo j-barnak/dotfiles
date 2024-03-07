@@ -1,6 +1,5 @@
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set("n", "q", "<Nop>", { silent = true }) -- disable macro
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "<CR>", "<CR><Cmd>cclose<CR>", { buffer = false, noremap = false, silent = true })
@@ -48,13 +47,4 @@ cnoreabbrev Qall qall
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "qf" },
 	command = [[nnoremap <buffer> <CR> <CR>:cclose<CR>]],
-})
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-	callback = function()
-		local mark = vim.api.nvim_buf_get_mark(0, '"')
-		if mark[1] > 1 and mark[1] <= vim.api.nvim_buf_line_count(0) then
-			vim.api.nvim_win_set_cursor(0, mark)
-		end
-	end,
 })

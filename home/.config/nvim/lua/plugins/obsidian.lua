@@ -9,8 +9,8 @@ return {
   opts = {
     workspaces = {
       {
-        name = "Operating Systems",
-        path = "~/Obsidian/Operating-Systems",
+        name = "Systems-and-Security",
+        path = "/home/jared/Obsidian/Systems-and-Security"
       },
     },
     ui = {

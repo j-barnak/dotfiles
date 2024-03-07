@@ -1,3 +1,5 @@
 vim.keymap.set({ "n", "o", "x" }, "j", "gj", {})
 vim.keymap.set({ "n", "o", "x" }, "k", "gk", {})
+vim.keymap.set({ "n", "o", "x" }, "H", "g0", {})
+vim.keymap.set({ "n", "o", "x" }, "L", "g$", {})
 vim.cmd([[set wrap]])

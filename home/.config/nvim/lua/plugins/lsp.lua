@@ -7,7 +7,7 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local builtin = require("telescope.builtin")
-
+    
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
@@ -19,7 +19,7 @@ return {
         vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<leader>rr", builtin.lsp_references, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>0", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
+        vim.keymap.set("n", "<leader><leader>s", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
       end,
     })
 
@@ -39,14 +39,13 @@ return {
     lspconfig.clangd.setup({
       on_attach = require("lsp-format").on_attach,
       cmd = {
-        "/usr/bin/clangd-17",
+        "/usr/bin/clangd",
         "--all-scopes-completion",
         "--background-index",
         "--cross-file-rename",
         "--header-insertion=never",
       },
     })
-    -- end
 
     lspconfig.lua_ls.setup({
       on_init = function(client)

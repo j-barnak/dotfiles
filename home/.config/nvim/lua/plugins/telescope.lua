@@ -1,3 +1,6 @@
+local root_str = { "stylua.lua", ".git", ".clang-format", "pyproject.toml", "setup.py", ".obsidian" }
+local root_dir = vim.fs.dirname(vim.fs.find(root_str, { upward = true })[1])
+
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
@@ -7,15 +10,9 @@ return {
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
     "stevearc/aerial.nvim",
-    "ahmedkhalf/project.nvim",
     "debugloop/telescope-undo.nvim",
   },
   keys = {
-    {
-      "<leader>fp",
-      "<cmd>Telescope projects<CR>",
-      desc = "Find projects",
-    },
     {
       "<leader>ff",
       "<cmd>Telescope find_files<CR>",
@@ -25,11 +22,6 @@ return {
       "<leader>fg",
       "<cmd> Telescope live_grep<CR>",
       desc = "Grep all files",
-    },
-    {
-      "<leader>fr",
-      "<cmd>Telescope oldfiles<cr>",
-      desc = "Find recent files",
     },
     {
       "<leader>fd",
@@ -54,10 +46,9 @@ return {
   },
   opts = {},
   config = function()
-    require("telescope").setup()
+    require("telescope").setup(opts)
 
     require("telescope").load_extension("fzf")
-    require("telescope").load_extension("projects")
     require("telescope").load_extension("aerial")
     require("telescope").load_extension("undo")
   end,

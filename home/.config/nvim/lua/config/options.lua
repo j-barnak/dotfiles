@@ -28,20 +28,14 @@ vim.opt.secure = true
 vim.opt.confirm = true
 vim.g.editorconfig = false
 
-vim.keymap.set("n", "i", function()
-	if #vim.fn.getline(".") == 0 then
-		return [["_cc]]
-	else
-		return "i"
-	end
-end, { expr = true, desc = "properly indent on empty line when insert" })
-
 if vim.g.neovide == true then
-	vim.o.guifont = "Hack Nerd Font:h8"
+	vim.g.neovide_hide_mouse_when_typing = true
+	vim.o.guifont = "Hack Nerd Font:h17"
 	vim.api.nvim_set_keymap("n", "<leader><leader>;", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
 	vim.g.neovide_cursor_animation_length = 0
 	vim.g.neovide_cursor_trail_size = 0
 	vim.g.neovide_cursor_animate_command_line = false
 	vim.cmd([[ inoremap <CS-V> <c-r>+ ]])
+	vim.cmd([[ cnoremap <CS-V> <c-r>+ ]])
 	vim.cmd([[nmap <CS-V> "+p]])
 end
