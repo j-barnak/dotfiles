@@ -48,6 +48,7 @@ call plug#end()
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = ['hidden,right,50%,<70(up,40%)', 'ctrl-/']
 nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fs :Tags<CR>
 
 " Easy Motion
 map  f <Plug>(easymotion-bd-f)
