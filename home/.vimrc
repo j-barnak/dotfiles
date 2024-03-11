@@ -1,20 +1,22 @@
 imap  jj <Esc> 
 
+let mapleader = " "
+set number relativenumber
+set nowrap
+set background=dark
+set cursorline
+set incsearch
+set hlsearch
+
 " Terminal Color
 set t_Co=256
 set background=dark
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
-set number relativenumber
+nmap <leader><leader> :noh<CR>
 nnoremap <CR> ciw
 nnoremap MM yyp
-set nowrap
-let mapleader = " "
-set background=dark
-set cursorline
-set incsearch
-set hlsearch
 
 " Sane HJKL
 nnoremap L $
@@ -59,3 +61,24 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
 
 colorscheme gruvbox8
+
+cnoreabbrev W! w!
+cnoreabbrev W1 w!
+cnoreabbrev w1 w!
+cnoreabbrev Q! q!
+cnoreabbrev Q1 q!
+cnoreabbrev q1 q!
+cnoreabbrev Qa! qa!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wa wa
+cnoreabbrev Wq wq
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev wq1 wq!
+cnoreabbrev Wq1 wq!
+cnoreabbrev wQ1 wq!
+cnoreabbrev WQ1 wq!
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qa qa
+cnoreabbrev Qall qall
