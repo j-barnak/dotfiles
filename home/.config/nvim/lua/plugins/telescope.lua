@@ -10,7 +10,6 @@ return {
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
     "stevearc/aerial.nvim",
-    "debugloop/telescope-undo.nvim",
   },
   keys = {
     {
@@ -38,11 +37,6 @@ return {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       desc = "Find workspace symbols",
     },
-    {
-      "<leader>fu",
-      "<cmd>Telescope undo<cr>",
-      desc = "Find symbols",
-    },
   },
   opts = {},
   config = function()
@@ -50,6 +44,5 @@ return {
 
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("aerial")
-    require("telescope").load_extension("undo")
   end,
 }

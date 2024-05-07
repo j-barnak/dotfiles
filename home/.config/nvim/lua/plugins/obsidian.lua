@@ -19,6 +19,14 @@ return {
     completion = {
       min_chars = 0,
     },
+    mappings = {
+      ["C-f"] = {
+        action = function()
+          return require("obsidian").util.smart_action()
+        end,
+        opts = { buffer = true, expr = true },
+      }
+    },
   },
   config = function(_, opts) 
     require("obsidian").setup(opts)
