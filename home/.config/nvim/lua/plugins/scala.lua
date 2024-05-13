@@ -11,6 +11,7 @@ return {
     metals_config.on_attach = function(client, bufnr)
         require("lsp-format").on_attach(client, bufnr)
     end
+    metals_config.autostart = true
     metals_config.init_options.statusBarProvider = "off"
     return metals_config 
   end,
