@@ -39,7 +39,7 @@ return {
     },
   },
   opts = {},
-  config = function()
+  config = function(_, opts)
     require("telescope").setup(opts)
 
     require("telescope").load_extension("fzf")

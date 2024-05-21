@@ -8,7 +8,6 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
-    "p00f/clangd_extensions.nvim",
 	},
 	keys = {
     -- stylua: ignore start
@@ -25,12 +24,6 @@ return {
 		end
 
 		return {
-      
-      sorting = {
-        comparators = {
-          require("clangd_extensions.cmp_scores"),
-        },
-      },
 			completion = {
 				completeopt = "noselect",
 			},

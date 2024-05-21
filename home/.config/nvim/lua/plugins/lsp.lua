@@ -3,7 +3,6 @@ return {
   dependencies = {
     { "nvim-telescope/telescope.nvim" },
     { "lukas-reineke/lsp-format.nvim" },
-    {"p00f/clangd_extensions.nvim" },
     { "hrsh7th/nvim-cmp" },
   },
   config = function()
@@ -16,9 +15,8 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        require("clangd_extensions.inlay_hints").setup_autocmd()
-        require("clangd_extensions.inlay_hints").set_inlay_hints()
         local opts = { buffer = ev.buf }
+        vim.lsp.inlay_hint.enable(true)
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, opts)
@@ -27,7 +25,6 @@ return {
         vim.keymap.set("n", "<leader>rr", builtin.lsp_references, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<leader><leader>s", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
       end,
     })
 
@@ -46,12 +43,11 @@ return {
     })
 
     lspconfig.clangd.setup({
-      -- on_attach = require("lsp-format").on_attach,
-      on_attach = function()
-        require("lsp-format").on_attach()
-        require("clangd_extensions.inlay_hints").setup_autocmd()
-        require("clangd_extensions.inlay_hints").set_inlay_hints()
-      end,
+      on_attach = vim.schedule_wrap(
+        function(client)
+          require("lsp-format").on_attach(client)
+          vim.keymap.set("n", "<leader><leader>s", "<cmd>ClangdSwitchSourceHeader<cr>")
+        end), 
       cmd = {
         "/usr/bin/clangd",
         "--all-scopes-completion",
