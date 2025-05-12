@@ -8,6 +8,14 @@ return {
         ['btab'] = 'up',
       },
     },
+    files = {
+      fd_opts = [[--color=never --hidden --follow
+                --type f --exclude .git --exclude exports]],
+    },
+    grep = {
+      rg_opts = [[--color=never --hidden --line-number --no-heading --smart-case
+                -g "!.git/*" -g "!exports/*"]],
+    },
   },
   config = function(_, opts)
     require('fzf-lua').setup(opts)
@@ -20,6 +28,6 @@ return {
     map("n", "<leader>fd", "<Cmd>FzfLua lsp_definitions<CR>")
     map("n", "<leader>fr", "<Cmd>FzfLua lsp_references<CR>")
     map("n", "<leader>fi", "<Cmd>FzfLua lsp_implementations<CR>")
-    map("n", "<leader>fs", "<Cmd>FzfLua lsp_document_symbols<CR>", { desc = "document symbols (LSP)" })
+    map("n", "<leader>fS", "<Cmd>FzfLua lsp_document_symbols<CR>", { desc = "document symbols (LSP)" })
   end,
 }
